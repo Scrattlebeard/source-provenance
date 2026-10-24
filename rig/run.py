@@ -17,6 +17,32 @@ from .conditions import CONDITIONS, initial_shared, mount_point
 from .oracle import Oracle
 
 
+def _podman_prereqs() -> bool:
+    """If `docker` is podman's shim, replace Inspect's Docker prereq check.
+
+    Inspect wants Docker Engine >= 24.0.6 from `docker version` -> Server.Version.
+    Podman reports no Server section locally and its own version (5.x) remotely,
+    so the check can't pass however well compose works. We keep the Compose
+    version check and drop only the engine one, loudly, rather than faking a
+    version string on PATH."""
+    import shutil
+    import subprocess
+    if not shutil.which("docker"):
+        return False
+    out = subprocess.run(["docker", "--version"], capture_output=True, text=True).stdout
+    if "podman" not in out.lower():
+        return False
+    from inspect_ai.util._sandbox.docker import docker as inspect_docker
+    from inspect_ai.util._sandbox.docker.prereqs import validate_docker_compose
+
+    async def prereqs() -> None:
+        await validate_docker_compose()
+    inspect_docker.validate_prereqs = prereqs
+    print(f"[rig] podman detected ({out.strip()}): skipping Inspect's Docker Engine "
+          "version check, keeping the Compose check")
+    return True
+
+
 def main(argv=None) -> Path:
     ap = argparse.ArgumentParser()
     ap.add_argument("--condition", choices=sorted(CONDITIONS), required=True)
@@ -57,7 +83,8 @@ def main(argv=None) -> Path:
     else:
         model, model_name = a.model, a.model
 
-    meta = {"condition": a.condition, "seed": a.seed, "model": model_name, "sandbox": a.sandbox,
+    podman = _podman_prereqs() if a.sandbox == "docker" else False
+    meta = {"podman": podman, "condition": a.condition, "seed": a.seed, "model": model_name, "sandbox": a.sandbox,
             "mount": mount, "shared_host": shared_abs, "started": time.time()}
     oracle = Oracle(shared_abs, str(d / "oracle.jsonl")).start()
     try:

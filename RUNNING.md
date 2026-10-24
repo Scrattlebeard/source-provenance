@@ -8,6 +8,14 @@ uv venv .venv && uv pip install --python .venv/bin/python pytest inspect-ai anth
 docker pull python:3.12-slim           # containers run with network_mode: none, so pull first
 ```
 
+## 0b. Podman
+If `docker` is the podman shim, `rig.run` replaces Inspect's Docker *Engine* version check (podman reports
+no Server version, and 5.x < 24 anyway) and keeps the Compose check. The compose provider
+talks to podman over its API socket, so:
+```bash
+systemctl --user enable --now podman.socket
+```
+
 ## 1. Plumbing check through Docker (no API, ~1 min)
 The scripted mock drives real containers: this checks compose, the `/shared` bind
 mount, the `:z` relabel, `Sample.files` landing in `/workspace`, and that inotify
