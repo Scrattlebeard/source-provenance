@@ -1,5 +1,12 @@
 # One container per agent run. The ONLY thing runs share is the host dir
 # bind-mounted at ${RIG_MOUNT}; no network, so no other channel exists.
+# Opt-in to Inspect's writable-host-mount guard: the shared host dir IS the
+# experiment (containers write, the host-side inotify oracle watches). Scope:
+# one fresh empty dir per run. rig.run sweeps it after every run (setuid bits
+# stripped, symlinks reported) because containers run as root.
+x-inspect_docker_sandbox:
+  unsafe_allow_writable_host_mounts: true
+
 services:
   default:
     image: python:3.12-slim

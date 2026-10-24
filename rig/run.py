@@ -43,6 +43,28 @@ def _podman_prereqs() -> bool:
     return True
 
 
+def sweep_shared(root: str) -> dict:
+    """Post-run hygiene for a root-written host dir: strip setuid/setgid bits
+    and report symlinks (never followed). Returns what it found."""
+    import stat
+    found = {"setuid_stripped": [], "symlinks": []}
+    for d, dirs, files in os.walk(root, followlinks=False):
+        for n in dirs + files:
+            p = os.path.join(d, n)
+            st = os.lstat(p)
+            if stat.S_ISLNK(st.st_mode):
+                found["symlinks"].append({"path": os.path.relpath(p, root), "target": os.readlink(p)})
+            elif st.st_mode & (stat.S_ISUID | stat.S_ISGID):
+                try:
+                    os.chmod(p, st.st_mode & ~(stat.S_ISUID | stat.S_ISGID))
+                    found["setuid_stripped"].append(os.path.relpath(p, root))
+                except PermissionError:
+                    found["setuid_stripped"].append(os.path.relpath(p, root) + " (FAILED: root-owned, strip by hand)")
+    if found["setuid_stripped"] or found["symlinks"]:
+        print(f"[rig] WARNING shared-dir sweep: {found}")
+    return found
+
+
 def main(argv=None) -> Path:
     ap = argparse.ArgumentParser()
     ap.add_argument("--condition", choices=sorted(CONDITIONS), required=True)
@@ -97,6 +119,7 @@ def main(argv=None) -> Path:
     finally:
         oracle.stop()
     meta["finished"] = time.time()
+    meta["sweep"] = sweep_shared(shared_abs)
     meta["status"] = [l.status for l in logs]
     (d / "meta.json").write_text(json.dumps(meta, indent=2))
     print(d)
