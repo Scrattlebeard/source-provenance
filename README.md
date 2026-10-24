@@ -24,7 +24,7 @@ CORRECTION, Amendment and STEP BACK.
 - `tests/test_conditions.py` covers the five hackathon conditions as synthetic transcripts.
   Result: 11 pass and 1 strict-xfail (see PINS #2).
 
-Run: `uv venv .venv && uv pip install --python .venv/bin/python pytest && .venv/bin/python -m pytest`
+Run: `uv sync && .venv/bin/python -m pytest`
 
 ### The rule
 For each input event (tool_result or user) from reader A in run R2 with descriptor d2, and

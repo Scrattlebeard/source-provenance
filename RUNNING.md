@@ -3,7 +3,7 @@
 ## 0. Once
 ```bash
 git clone https://github.com/Scrattlebeard/source-provenance && cd source-provenance
-uv venv .venv && uv pip install --python .venv/bin/python pytest inspect-ai anthropic
+uv sync                                # deps + pytest from pyproject/uv.lock into .venv
 .venv/bin/python -m pytest -q          # 26 passed, 1 xfailed (smoke test skips off-box)
 docker pull python:3.12-slim           # containers run with network_mode: none, so pull first
 ```
