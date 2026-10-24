@@ -76,6 +76,10 @@ def main(argv=None) -> Path:
     ap.add_argument("--message-limit", type=int, default=40)
     ap.add_argument("--max-connections", type=int, default=4)
     a = ap.parse_args(argv)
+    rigbin = os.path.expanduser("~/.local/rigbin")
+    if os.path.exists(os.path.join(rigbin, "docker")) and not os.environ["PATH"].startswith(rigbin):
+        # real Docker over the /usr/local/bin podman wrapper (RUNNING.md)
+        os.environ["PATH"] = rigbin + os.pathsep + os.environ["PATH"]
     from dotenv import find_dotenv, load_dotenv
     load_dotenv(find_dotenv(usecwd=True))          # same .env Inspect reads
     if not a.mock and not a.model:
