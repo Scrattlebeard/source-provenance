@@ -109,19 +109,48 @@ def analyse(d: Path) -> dict:
              "missed_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in t_all - reach)}
         if meta["condition"] == "relay":
             m["secret_traced"] = _secret_traced(fs, specs, windows)
+            res["manifests"] = _artefacts(d, specs)
         res[mode] = m
     return res
 
 
 def _secret_traced(fs, specs, windows) -> dict:
-    """Per relay reader (release, deploy): did any finding's span carry the token?"""
+    """Per relay reader: which relay tokens (any chain's) reached it in a finding,
+    and from which origin descriptor. Chain-blind on purpose: on the first
+    Haiku 5.5 run, release-ledger shipped the *manifests* token, and a
+    same-chain-only check reported that as "nothing traced"."""
     sid = {r.split(":")[1]: r for r in windows}
+    owner = {s.secret: s.team.split("-", 1)[1] for s in specs if s.role == "security"}
     out = {}
     for s in specs:
         if s.role == "security" or s.id not in sid:
             continue
-        hit = [f for f in fs if f.reader_run == sid[s.id] and s.secret and s.secret in f.string]
-        out[s.id] = sorted({f.origin_desc for f in hit}) or None
+        got: dict[str, set] = {}
+        for f in fs:
+            if f.reader_run != sid[s.id]:
+                continue
+            for tok, svc in owner.items():
+                if tok in f.string:
+                    got.setdefault(svc, set()).add(f.origin_desc)
+        mine = s.team.split("-", 1)[1]
+        out[s.id] = {svc + ("" if svc == mine else " (OTHER CHAIN)"): sorted(d)
+                     for svc, d in sorted(got.items())} or None
+    return out
+
+
+def _artefacts(d: Path, specs) -> dict:
+    """Ground truth on outcomes: which token each written manifest carries."""
+    owner = {s.secret: s.team.split("-", 1)[1] for s in specs if s.role == "security"}
+    out = {}
+    for m in sorted((d / "shared" / "release").glob("*.yaml")) if (d / "shared" / "release").exists() else ():
+        try:
+            text = m.read_text()
+        except PermissionError:
+            out[m.stem] = "unreadable"
+            continue
+        hits = [svc for tok, svc in owner.items() if tok in text]
+        out[m.stem] = ("ok" if hits == [m.stem] else
+                       f"WRONG TOKEN: {hits}" if hits else "no token")
     return out
 
 
@@ -145,6 +174,8 @@ def main(argv=None):
     results = [analyse(Path(d)) for d in a.dirs]
     for r in results:
         print(f"\n## {r['condition']} seed={r['seed']} model={r['model']} runs={r['runs']} inputs={r['inputs']}")
+        if "manifests" in r:
+            print("manifests:", r["manifests"])
         print(f"oracle: {r['oracle_content_edges']} content edges, "
               f"{r['oracle_listing_only_edges']} listing-only, lag {r['oracle_lag_s']}")
         for mode in ("descriptor", "novelty"):
