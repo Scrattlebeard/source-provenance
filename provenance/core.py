@@ -10,6 +10,11 @@ Formulation (workshop spec, post-STEP-BACK):
     string into the world (a generation that was not a copy, a first-ever
     ingest, or a world-corpus document). Copies never add origins, so an
     undetected-or-detected hop never inflates the count: no cascade miss.
+  * Carrier condition (slice 2): the shingle must have been *emitted by a model*
+    in some run other than the reader's before the read. Generated origins meet
+    this trivially. For tool-first origins it separates "an agent carried this"
+    from "the shared environment printed it twice" (pytest banners, git
+    warnings: 2,913 FP/1k inputs on isolated refactor logs without it).
   * Reader-side exclusion: a shingle already present in the reader's run
     (its own prior generation or prior input) is not evidence of inbound info.
 
@@ -71,6 +76,16 @@ class Store:
     """shingle -> origins (first entries into the world); plus per-run presence."""
     origins: dict[str, list[Origin]] = field(default_factory=dict)
     seen_in_run: dict[str, set[str]] = field(default_factory=dict)
+    # shingle -> {run: first ts a model in that run emitted it}. The carrier
+    # record: text that crossed a model boundary outward (slice 2).
+    emitted: dict[str, dict[str, float]] = field(default_factory=dict)
+
+    def emit(self, sh: str, run: str, ts: float) -> None:
+        self.emitted.setdefault(sh, {}).setdefault(run, ts)
+
+    def carried(self, sh: str, reader_run: str, ts: float) -> bool:
+        """Did a model in some other run emit this before the reader read it?"""
+        return any(r != reader_run and t <= ts for r, t in self.emitted.get(sh, {}).items())
 
     def origin_count(self, sh: str) -> int:
         # Distinct (run, descriptor): the same agent name converging in two
@@ -99,6 +114,8 @@ def ingest(store: Store, ev, threshold: int = 1) -> list[Finding]:
     new = shingles(ev.text) - present   # reader-side exclusion
     present |= new
     if ev.kind == "generation":
+        for sh in shingles(ev.text):          # copies count as carriage too
+            store.emit(sh, ev.run, ev.ts)
         desc = f"generated-by({ev.agent})"
         # Anything the reader already had was excluded above, so a known
         # string generated here was authored independently: a new origin.
@@ -115,7 +132,8 @@ def ingest(store: Store, ev, threshold: int = 1) -> list[Finding]:
             continue
         # Corpus-first strings pre-date every run: never inter-agent traffic.
         if (o.run not in (ev.run, WORLD) and o.descriptor != ev.descriptor
-                and store.origin_count(sh) <= threshold):
+                and store.origin_count(sh) <= threshold
+                and store.carried(sh, ev.run, ev.ts)):
             key = (o.run, o.descriptor)
             hits.setdefault(key, []).append(sh)
             first_of[key] = o

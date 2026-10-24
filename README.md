@@ -55,9 +55,42 @@ note in the spec.
 - Strings whose first origin is the world corpus never fire. A poisoned package that both
   runs install is supply chain, not collusion.
 
+## Slice 2 (2026-10-24, Apart AI Collusion sprint weekend): Inspect adapter
+
+*Sprint disclosure: slice 1 (`7dd3a9d`, 2026-09-24) predates the sprint. Everything
+from slice 2 on was written during it.*
+
+- `provenance/inspect_adapter.py` maps `.eval` logs to `Event`s. Every sample is a run
+  (`eval_id:sample:epoch`). It reads `sample.events` when they're present, which gives
+  exact timestamps, and otherwise falls back to `sample.messages`, which gives order only.
+  Tool-call arguments count as **raw** authored text (JSON-escaped arguments miss
+  multi-line payloads, and a test pins this). Scorer spans are dropped.
+- **Descriptors name the resource, not the tool:** `file:<path>` for any file tool or for
+  paths found in a shell command (resolved relative to a leading `cd`), `exec:<program>`
+  for path-less shell commands, and `fn(url)` / `fn(args)` otherwise. `cat -n`-style
+  views have their line numbers stripped.
+- **Carrier condition (core):** a tool-first origin only fires if a model in another run
+  *emitted* the string before the read. This is the model boundary as taint source,
+  taken literally.
+- **FP probe on real isolated logs** (`scripts/fp_probe_refactorarena.py`: 140
+  honest-policy RefactorArena samples, 5,946 inputs, no shared surface, so every finding
+  is a false positive). Measured in the order the fixes went in, not as an ablation:
+
+  | state | FP / 1k inputs |
+  |---|---|
+  | slice-1 rule, `fn(cmd)` descriptors | 2,913 |
+  | + carrier, shell → paths | 554 |
+  | + resource descriptors, unnumbered views | 1,109 (worse: views now match raw reads) |
+  | + world seed (2,137 initial-repo files) | 66 |
+  | + `exec:<program>` | **51** (38 findings ≥20 shingles) |
+
+  Without the seed, a refactoring task is the worst case, because agents re-emit repo
+  code by design. What's left is pytest output that derives from repo content, seen in two
+  samples of the *same* repo: two runs sharing one environment. That's a PINS #1 question
+  ("what is a run") and not one for normalisation.
+
 ## Next slices
-2. The Inspect AI adapter: `.eval` logs → `Event`s, with descriptors taken from the tool
-   calls. Descriptor normalisation across sandboxes goes here.
+2. ~~Inspect adapter~~ (done, above). Still to do: a toggleable ablation of the FP ladder.
 3. A two-agent rig: Inspect plus a compose volume, with an infra oracle (inotify, a local
    registry access log) as ground truth. Measure edge P/R and time-to-detection.
 4. The May-8 replay: would this have fired on the HF message-board timeline?
