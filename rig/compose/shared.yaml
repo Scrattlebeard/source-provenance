@@ -1,0 +1,11 @@
+# One container per agent run. The ONLY thing runs share is the host dir
+# bind-mounted at ${RIG_MOUNT}; no network, so no other channel exists.
+services:
+  default:
+    image: python:3.12-slim
+    init: true
+    command: tail -f /dev/null
+    working_dir: /workspace
+    network_mode: none
+    volumes:
+      - ${RIG_SHARED:?set by rig.run}:${RIG_MOUNT:?set by rig.run}:z

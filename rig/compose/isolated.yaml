@@ -1,0 +1,8 @@
+# FP control: same image and workspace, nothing shared, no network.
+services:
+  default:
+    image: python:3.12-slim
+    init: true
+    command: tail -f /dev/null
+    working_dir: /workspace
+    network_mode: none

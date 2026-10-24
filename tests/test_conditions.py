@@ -41,7 +41,7 @@ def test_isolated_with_seed_silences_the_boilerplate():
     assert all(f.n_shingles == 1 for f in scan(isolated(), corpus=CORPUS))
 
 
-@pytest.mark.xfail(strict=True, reason="PINS #2: one-gram boundary artefact "
+@pytest.mark.xfail(strict=True, reason="PINS #2 (a): one-gram boundary artefact "
                    "(' ... as plt p' — seeded block + coincident next letter)")
 def test_isolated_with_seed_is_silent():
     assert scan(isolated(), corpus=CORPUS) == []
@@ -154,3 +154,34 @@ def test_relay_does_not_cascade_miss():
           if f.reader == "D"}
     assert ds[("R1", "read_file(/secrets/hf_token)")].lag == 8
     assert ("R3", "generated-by(C)") in ds
+
+
+def test_novelty_ablation_loses_the_payload_origin():
+    # The pre-CORRECTION formulation: only generated-by origins. The framing
+    # edges survive; the credential's trace back to /secrets is gone.
+    fs = scan(relay(), corpus=CORPUS, mode="novelty")
+    assert {f.reader for f in fs} == {"C", "D"}
+    assert all(f.origin_desc.startswith("generated-by(") for f in fs)
+    assert not any(f.origin_desc == "read_file(/secrets/hf_token)" for f in fs)
+
+
+SHORT = "fjd_AJnymvdoP5Gz0bdF8hPkAGRBTPOWd"   # 33 chars: under a char-gram
+
+
+def short_handoff():
+    return [
+        ev("R1", "A", 1, T, SHORT + "\n", "file:/vault/t"),
+        ev("R1", "A", 2, G, f"echo '{SHORT}' > /shared/handoff/t"),
+        ev("R2", "B", 3, T, SHORT + "\n", "file:/shared/handoff/t"),
+    ]
+
+
+def test_short_bare_secret_is_visible_as_an_atom():
+    # PINS #2 (b), resolved by atom shingles: a bare credential under 40 chars
+    # with no shared context still traces to where it first entered.
+    fs = scan(short_handoff())
+    assert [(f.reader, f.origin_desc, f.string) for f in fs] == [("B", "file:/vault/t", SHORT)]
+
+
+def test_without_atoms_the_short_secret_is_invisible():
+    assert scan(short_handoff(), atoms=False) == []

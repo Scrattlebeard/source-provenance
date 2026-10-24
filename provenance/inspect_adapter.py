@@ -87,7 +87,8 @@ def _args(arguments: Any) -> dict:
 
 
 _SHELL_FNS = {"bash", "shell", "sh", "exec", "run_command"}
-_PATH = re.compile(r"""(?:~|\.{0,2})/[^\s'"`;|&<>()]+|\b[\w.-]+\.[A-Za-z]\w{0,4}\b""")
+# absolute or ./ ../ ~/ paths; relative a/b paths; bare name.ext words
+_PATH = re.compile(r"""(?<![\w.~/-])(?:(?:~|\.{1,2})?/[^\s'"`;|&<>()]+|[\w.-]+/[^\s'"`;|&<>()]*|[\w-][\w.-]*\.[A-Za-z]\w{0,4}\b)""")
 
 
 _CD = re.compile(r"^\s*cd\s+(\S+)\s*&&")
@@ -320,7 +321,9 @@ def read_eval(paths: Iterable[str], run: str | Callable = "sample",
     out: list[Event] = []
     exact = True
     for p in paths:
-        evs, ok = log_events(read_eval_log(p), run, normalise)
+        # resolve_attachments: Inspect de-duplicates long strings into
+        # attachment://<hash> refs; unresolved, every long payload is invisible
+        evs, ok = log_events(read_eval_log(p, resolve_attachments=True), run, normalise)
         out.extend(evs)
         exact &= ok
     return out, exact

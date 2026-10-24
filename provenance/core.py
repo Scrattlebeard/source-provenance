@@ -27,13 +27,17 @@ from dataclasses import dataclass, field
 
 WORD_K = 8
 CHAR_K = 40
+ATOM_MIN = 20   # PINS #2 resolution (2026-10-24): credentials are 20-40 chars
+
+_ATOM = re.compile(r"[A-Za-z0-9_+=-]{%d,}" % ATOM_MIN)
 WORLD = "<world>"
 
 _TOKEN = re.compile(r"\S+")
 _WS = re.compile(r"\s+")
 
 
-def shingles(text: str, word_k: int = WORD_K, char_k: int = CHAR_K) -> set[str]:
+def shingles(text: str, word_k: int = WORD_K, char_k: int = CHAR_K,
+             atoms: bool = True) -> set[str]:
     """8-token word shingles plus char-40-grams over whitespace-normalised text.
 
     Char-grams are applied to all text, not just "code": deciding what is code
@@ -47,6 +51,15 @@ def shingles(text: str, word_k: int = WORD_K, char_k: int = CHAR_K) -> set[str]:
     flat = _WS.sub(" ", text).strip()
     for i in range(len(flat) - char_k + 1):
         out.add("c:" + flat[i : i + char_k])
+    if atoms:
+        # Atom shingles: one long unbroken [A-Za-z0-9_+=-] run is a shingle on
+        # its own, so a 36-char token handed over bare (no 8-token or 40-char
+        # shared context) is still visible. Length only, no entropy: common
+        # long identifiers are furniture and the world seed / origin count
+        # handle them like every other string. '/' and '.' split, so paths
+        # don't become atoms.
+        for m in _ATOM.finditer(text):
+            out.add("a:" + m.group())
     return out
 
 
@@ -100,21 +113,29 @@ class Store:
         self.origins.setdefault(sh, []).append(o)
 
 
-def seed(store: Store, corpus: dict[str, str]) -> None:
+def seed(store: Store, corpus: dict[str, str], atoms: bool = True) -> None:
     """World corpus: each document is its own origin, so common strings
     arrive pre-multiplied (the numpy-furniture fix)."""
     for name, text in corpus.items():
-        for sh in shingles(text):
+        for sh in shingles(text, atoms=atoms):
             store.add_origin(sh, Origin(WORLD, f"corpus({name})", float("-inf"), None))
 
 
-def ingest(store: Store, ev, threshold: int = 1) -> list[Finding]:
-    """Process one event (in ts order). Returns findings for input events."""
+MODES = ("descriptor", "novelty")
+
+
+def ingest(store: Store, ev, threshold: int = 1, mode: str = "descriptor",
+           atoms: bool = True) -> list[Finding]:
+    """Process one event (in ts order). Returns findings for input events.
+
+    ``mode="novelty"`` is the ablation: only ``generated-by`` origins can fire
+    (the pre-CORRECTION formulation). Relays of ingested secrets go dark."""
     present = store.seen_in_run.setdefault(ev.run, set())
-    new = shingles(ev.text) - present   # reader-side exclusion
+    sh_all = shingles(ev.text, atoms=atoms)
+    new = sh_all - present   # reader-side exclusion
     present |= new
     if ev.kind == "generation":
-        for sh in shingles(ev.text):          # copies count as carriage too
+        for sh in sh_all:                     # copies count as carriage too
             store.emit(sh, ev.run, ev.ts)
         desc = f"generated-by({ev.agent})"
         # Anything the reader already had was excluded above, so a known
@@ -131,6 +152,8 @@ def ingest(store: Store, ev, threshold: int = 1) -> list[Finding]:
             store.add_origin(sh, Origin(ev.run, ev.descriptor, ev.ts, None))
             continue
         # Corpus-first strings pre-date every run: never inter-agent traffic.
+        if mode == "novelty" and not o.descriptor.startswith("generated-by("):
+            continue
         if (o.run not in (ev.run, WORLD) and o.descriptor != ev.descriptor
                 and store.origin_count(sh) <= threshold
                 and store.carried(sh, ev.run, ev.ts)):
@@ -149,7 +172,7 @@ def _span(text: str, shs: list[str]) -> str:
     flat = _WS.sub(" ", text).strip()
     ivs = []
     for sh in shs:
-        if sh.startswith("c:"):
+        if sh.startswith(("c:", "a:")):
             i = flat.find(sh[2:])
             while i != -1:
                 ivs.append((i, i + len(sh) - 2))
@@ -166,13 +189,16 @@ def _span(text: str, shs: list[str]) -> str:
 
 
 def scan(events, corpus: dict[str, str] | None = None, threshold: int = 1,
-         store: Store | None = None) -> list[Finding]:
+         store: Store | None = None, mode: str = "descriptor",
+         atoms: bool = True) -> list[Finding]:
+    if mode not in MODES:
+        raise ValueError(f"unknown mode {mode!r}")
     store = store or Store()
     if corpus:
-        seed(store, corpus)
+        seed(store, corpus, atoms)
     out: list[Finding] = []
     for ev in sorted(events, key=lambda e: e.ts):
-        out.extend(ingest(store, ev, threshold))
+        out.extend(ingest(store, ev, threshold, mode, atoms))
     return out
 
 
