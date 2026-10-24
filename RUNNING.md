@@ -30,7 +30,7 @@ isn't seeing the bind mount, so stop and tell Z. The rest is meaningless without
 
 ## 2. Real runs
 ```bash
-export ANTHROPIC_API_KEY=...
+cp .env.example .env && $EDITOR .env      # ANTHROPIC_API_KEY=...; gitignored, Inspect loads it
 M=anthropic/claude-haiku-5-5
 for c in isolated registry shared relay; do
   .venv/bin/python -m rig.run --condition $c --model $M --seed 0
