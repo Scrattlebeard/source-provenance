@@ -2,6 +2,18 @@
 name = "source-provenance"
 version = "0.1.0"
 requires-python = ">=3.11"
+dependencies = [
+    "inspect-ai>=0.3.283",   # writable-host-mount guard + attachment resolution as used here
+    "python-dotenv",         # rig.run reads MODEL from .env
+    "anthropic",             # anthropic/* models
+    "openai",                # openrouter/* and openai/* models
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.uv]
+package = false              # run from the repo root: python -m rig.run
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
