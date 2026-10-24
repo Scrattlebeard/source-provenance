@@ -51,6 +51,24 @@ class Oracle:
         if wd >= 0:
             self.wd[wd] = d
 
+    def _watch_new_dir(self, path: str, ts: float) -> None:
+        """The inotify race: `mkdir -p d && echo x > d/f` writes f before the
+        watch on d exists. Watch first, then scan what is already there and
+        record it as synthetic writes (ts = scan time, still inside the
+        writer's window; marked so analysis can tell)."""
+        self._watch(path)
+        for d, dirs, files in os.walk(path):
+            for sub in dirs:
+                self._watch(os.path.join(d, sub))
+            for n in files:
+                rel = os.path.relpath(os.path.join(d, n), self.root)
+                self._fh.write(json.dumps({"ts": ts, "path": rel, "op": "close_write",
+                                           "dir": False, "synthetic": True}) + "\n")
+            if d != path:
+                rel = os.path.relpath(d, self.root)
+                self._fh.write(json.dumps({"ts": ts, "path": rel, "op": "create",
+                                           "dir": True, "synthetic": True}) + "\n")
+
     def start(self) -> "Oracle":
         self._fh = open(self.out, "a", buffering=1)
         self._thread.start()
@@ -84,7 +102,7 @@ class Oracle:
                 path = os.path.join(base, name) if name else base
                 isdir = bool(mask & IN_ISDIR)
                 if isdir and mask & (IN_CREATE | IN_MOVED_TO):
-                    self._watch(path)
+                    self._watch_new_dir(path, ts)
                 for bit, nm in NAMES.items():
                     if mask & bit:
                         rel = os.path.relpath(path, self.root)
@@ -97,6 +115,7 @@ class Access:
     path: str
     op: str
     dir: bool
+    synthetic: bool = False
 
 
 def load(path: str) -> list[Access]:
@@ -133,7 +152,7 @@ def truth_edges(accesses: list[Access], windows: dict[str, tuple[float, float]],
         if a.op in WRITE_OPS and not a.dir:
             writers.setdefault(a.path, []).append((a.ts, r))
             parent = os.path.dirname(a.path) or "."
-            if a.op in ("create", "moved_to"):
+            if a.op in ("create", "moved_to") or a.synthetic:
                 writers.setdefault(parent + "/", []).append((a.ts, r))
         elif a.op in READ_OPS:
             key_path = (a.path.rstrip("/") + "/") if a.dir else a.path
