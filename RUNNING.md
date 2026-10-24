@@ -42,11 +42,13 @@ across all four conditions is 49 agent runs, about $0.40 on Haiku 5.5. More seed
 (about $7.50 per seed).
 
 ## 3. Send back
-`runs/` is gitignored. Tar the run dirs and drop them anywhere Z can read them:
+Run dirs are tracked in git (private repo; tokens are synthetic, `.env` stays ignored):
 ```bash
-tar czf rig-runs-$(date +%F).tgz runs/
+git add runs/ && git commit -m "runs: <what>" && git pull --rebase && git push
 ```
 Each dir is self-contained: `logs/*.eval`, `oracle.jsonl`, `meta.json`, `shared/`.
+Delete failed or empty run dirs before adding them (`sudo rm -rf`, since the containers
+write as root).
 
 ## What each condition is for
 | condition | shared surface | ground truth | measures |
