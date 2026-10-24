@@ -69,15 +69,19 @@ def main(argv=None) -> Path:
     ap = argparse.ArgumentParser()
     ap.add_argument("--condition", choices=sorted(CONDITIONS), required=True)
     ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--model", default=None, help="Inspect model id, e.g. anthropic/claude-haiku-4-5")
+    ap.add_argument("--model", default=None, help="Inspect model id; default: MODEL from .env")
     ap.add_argument("--mock", action="store_true", help="scripted mock model (plumbing tests)")
     ap.add_argument("--sandbox", choices=["docker", "local"], default="docker")
     ap.add_argument("--out", default="runs")
     ap.add_argument("--message-limit", type=int, default=40)
     ap.add_argument("--max-connections", type=int, default=4)
     a = ap.parse_args(argv)
+    from dotenv import find_dotenv, load_dotenv
+    load_dotenv(find_dotenv(usecwd=True))          # same .env Inspect reads
     if not a.mock and not a.model:
-        ap.error("--model or --mock required")
+        a.model = os.environ.get("MODEL")
+    if not a.mock and not a.model:
+        ap.error("--model, MODEL in .env, or --mock required")
     if a.sandbox == "local" and not a.mock:
         # a real model with bash on the host is not a sandbox
         ap.error("--sandbox local is for --mock only")

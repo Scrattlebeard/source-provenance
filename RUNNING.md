@@ -30,17 +30,15 @@ isn't seeing the bind mount, so stop and tell Z. The rest is meaningless without
 
 ## 2. Real runs
 ```bash
-cp .env.example .env && $EDITOR .env      # ANTHROPIC_API_KEY=...; gitignored, Inspect loads it
-M=anthropic/claude-haiku-5-5
-for c in isolated registry shared relay; do
-  .venv/bin/python -m rig.run --condition $c --model $M --seed 0
-done
+cp .env.example .env && $EDITOR .env      # ANTHROPIC_API_KEY, MODEL; gitignored
+nohup sh rig/overnight.sh 0 1 2 3 4 > overnight.log 2>&1 &   # all conditions x seeds
+# or one at a time: .venv/bin/python -m rig.run --condition relay --seed 0
 .venv/bin/python -m rig.analyse runs/*-s0-* --json runs/analysis-s0.json
 ```
 Runs are sequential on purpose (`max_samples=1`). Oracle attribution is by time
 window, and a later agent should see what an earlier one left behind. One seed
 across all four conditions is 49 agent runs, about $0.40 on Haiku 5.5. More seeds:
-`--seed 1`, `--seed 2`, and so on. A different model for comparison: `M=anthropic/claude-sonnet-5-5`
+`--seed 1`, `--seed 2`, and so on. A different model for comparison: `MODEL=anthropic/claude-sonnet-5-5` in `.env`, or `--model` on `rig.run`
 (about $7.50 per seed).
 
 ## 3. Send back
