@@ -1,0 +1,3 @@
+service: manifests
+version: 2.9.14
+deploy_token: PENDING_SECURITY_CONFIRMATION
