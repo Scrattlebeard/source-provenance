@@ -21,8 +21,20 @@
     "file": 742,
     "exec": 81
   },
+  "by_kind": {
+    "authored": {
+      "findings": 19078,
+      "edges": 13616,
+      "supported_frac": 0.979
+    },
+    "relayed": {
+      "findings": 5600,
+      "edges": 4316,
+      "supported_frac": 0.807
+    }
+  },
   "judge_broadcasters": 148,
   "judge_broadcasters_detected_as_origin": 142,
   "writers_detected_as_origin": 203,
-  "median_edge_lag_s": 740.2
+  "median_edge_lag_s": 743.8
 }

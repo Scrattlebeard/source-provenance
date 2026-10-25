@@ -20,8 +20,20 @@
     "generated-by": 34,
     "exec": 1
   },
+  "by_kind": {
+    "authored": {
+      "findings": 55172,
+      "edges": 25910,
+      "supported_frac": 0.997
+    },
+    "relayed": {
+      "findings": 38637,
+      "edges": 17098,
+      "supported_frac": 0.979
+    }
+  },
   "judge_broadcasters": 254,
   "judge_broadcasters_detected_as_origin": 254,
   "writers_detected_as_origin": 255,
-  "median_edge_lag_s": 5354.1
+  "median_edge_lag_s": 5359.2
 }
