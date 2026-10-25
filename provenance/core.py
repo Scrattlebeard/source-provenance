@@ -37,7 +37,7 @@ _WS = re.compile(r"\s+")
 
 
 def shingles(text: str, word_k: int = WORD_K, char_k: int = CHAR_K,
-             atoms: bool = True) -> set[str]:
+             atoms: bool = True, winnow: int | None = None) -> set[str]:
     """8-token word shingles plus char-40-grams over whitespace-normalised text.
 
     Char-grams are applied to all text, not just "code": deciding what is code
@@ -49,8 +49,21 @@ def shingles(text: str, word_k: int = WORD_K, char_k: int = CHAR_K,
     for i in range(len(toks) - word_k + 1):
         out.add("w:" + " ".join(toks[i : i + word_k]))
     flat = _WS.sub(" ", text).strip()
-    for i in range(len(flat) - char_k + 1):
-        out.add("c:" + flat[i : i + char_k])
+    grams = [flat[i : i + char_k] for i in range(len(flat) - char_k + 1)]
+    if winnow and len(grams) > winnow:
+        # Winnowing (Schleimer, Wilkerson & Aiken 2003): keep the minimum-hash
+        # gram of every window of `winnow` consecutive grams (rightmost on ties).
+        # Density ~2/(w+1); any shared run of >= w+k-1 characters keeps at least
+        # one common fingerprint. Words and atoms are untouched.
+        hs = [hash(g) for g in grams]
+        keep, last = set(), -1
+        for i in range(len(hs) - winnow + 1):
+            j = min(range(i, i + winnow), key=lambda x: (hs[x], -x))
+            if j != last:
+                keep.add(j); last = j
+        grams = [grams[j] for j in sorted(keep)]
+    for g in grams:
+        out.add("c:" + g)
     if atoms:
         # Atom shingles: one long unbroken [A-Za-z0-9_+=-] run is a shingle on
         # its own, so a 36-char token handed over bare (no 8-token or 40-char
@@ -133,11 +146,11 @@ class Store:
             self.origins[k] = [v, o]
 
 
-def seed(store: Store, corpus: dict[str, str], atoms: bool = True) -> None:
+def seed(store: Store, corpus: dict[str, str], atoms: bool = True, winnow: int | None = None) -> None:
     """World corpus: each document is its own origin, so common strings
     arrive pre-multiplied (the numpy-furniture fix)."""
     for name, text in corpus.items():
-        for sh in shingles(text, atoms=atoms):
+        for sh in shingles(text, atoms=atoms, winnow=winnow):
             store.add_origin(sh, Origin(WORLD, f"corpus({name})", float("-inf"), None))
 
 
@@ -145,13 +158,13 @@ MODES = ("descriptor", "novelty")
 
 
 def ingest(store: Store, ev, threshold: int = 1, mode: str = "descriptor",
-           atoms: bool = True) -> list[Finding]:
+           atoms: bool = True, winnow: int | None = None) -> list[Finding]:
     """Process one event (in ts order). Returns findings for input events.
 
     ``mode="novelty"`` is the ablation: only ``generated-by`` origins can fire
     (the pre-CORRECTION formulation). Relays of ingested secrets go dark."""
     present = store.seen_in_run.setdefault(ev.run, set())
-    sh_all = shingles(ev.text, atoms=atoms)
+    sh_all = shingles(ev.text, atoms=atoms, winnow=winnow)
     new = {sh for sh in sh_all if _k(sh) not in present}   # reader-side exclusion
     present.update(_k(sh) for sh in new)
     if ev.kind == "generation":
@@ -210,15 +223,15 @@ def _span(text: str, shs: list[str]) -> str:
 
 def scan(events, corpus: dict[str, str] | None = None, threshold: int = 1,
          store: Store | None = None, mode: str = "descriptor",
-         atoms: bool = True) -> list[Finding]:
+         atoms: bool = True, winnow: int | None = None) -> list[Finding]:
     if mode not in MODES:
         raise ValueError(f"unknown mode {mode!r}")
     store = store or Store()
     if corpus:
-        seed(store, corpus, atoms)
+        seed(store, corpus, atoms, winnow)
     out: list[Finding] = []
     for ev in sorted(events, key=lambda e: e.ts):
-        out.extend(ingest(store, ev, threshold, mode, atoms))
+        out.extend(ingest(store, ev, threshold, mode, atoms, winnow))
     return out
 
 

@@ -71,6 +71,9 @@ def _ancestors(edges: set[tuple[str, str]]) -> dict[str, set[str]]:
     return {r: anc(r) for r in list(parents)}
 
 
+WINNOW = None   # set by --winnow (scalability study)
+
+
 def analyse(d: Path) -> dict:
     meta = json.loads((d / "meta.json").read_text())
     logs = sorted(glob.glob(str(d / "logs" / "*.eval")))
@@ -92,7 +95,7 @@ def analyse(d: Path) -> dict:
            "oracle_content_edges": len(t_content), "oracle_listing_only_edges": len(t_listing),
            "oracle_lag_s": _lag_stats(truth)}
     for mode in ("descriptor", "novelty"):
-        fs = scan(evs, corpus=corpus, mode=mode)
+        fs = scan(evs, corpus=corpus, mode=mode, winnow=WINNOW)
         det = {(f.origin_run, f.reader_run) for f in fs if f.origin_run in windows}
         tp = {e for e in det if e[0] in anc.get(e[1], set())}
         direct = t_all & det
@@ -200,7 +203,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("dirs", nargs="+")
     ap.add_argument("--json")
+    ap.add_argument("--winnow", type=int, default=None, help="winnow char-grams, window w")
     a = ap.parse_args(argv)
+    global WINNOW
+    WINNOW = a.winnow
     results = [analyse(Path(d)) for d in a.dirs]
     for r in results:
         print(f"\n## {r['condition']} seed={r['seed']} model={r['model']} runs={r['runs']} inputs={r['inputs']}")

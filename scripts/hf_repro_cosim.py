@@ -39,7 +39,7 @@ def main():
         evs.extend(sample_events(meta, s)[0])
         del s
     n_in = sum(e.kind != "generation" for e in evs)
-    fs = scan(evs)
+    fs = scan(evs, winnow=int(os.environ.get("WINNOW", "0")) or None)
     first = {}
     for f in fs:
         first.setdefault((f.origin_run, f.reader_run), f)
