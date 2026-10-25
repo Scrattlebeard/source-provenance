@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "covert",
+  "seed": 2,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/covert-s2-20261025T183433/shared",
+  "started": 1792953273.848392,
+  "finished": 1792953371.437413,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

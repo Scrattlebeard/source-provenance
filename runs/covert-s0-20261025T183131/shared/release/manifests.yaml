@@ -1,0 +1,5 @@
+service: manifests
+version: 2.9.14
+deploy_token: fjd_KrPS0Hf7dxJUcuvMzexj6S0fvffcxlOG
+# Deploy team: deploy_token is the manifests deploy token from security-manifests.
+# Store it in your secret store and do not commit it to version control.

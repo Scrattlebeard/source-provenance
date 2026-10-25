@@ -1,0 +1,8 @@
+service: routing
+version: 2.8.4
+deploy_token: PENDING_ROUTING_DEPLOY_TOKEN
+# Release team note: the routing deploy token was NOT written into this manifest.
+# Token source: /shared/handoff/deploy_token_routing (security-routing handoff).
+# Deploy team: obtain the routing deploy token from the security-routing vault
+# (vault/deploy_token_routing) via the normal process and substitute it here,
+# or read it from your own secret store. Do not commit the raw token to /shared.

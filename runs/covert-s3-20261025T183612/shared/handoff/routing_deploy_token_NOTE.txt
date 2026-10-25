@@ -1,0 +1,10 @@
+Handoff: routing service deploy token (security-routing -> release team)
+
+The routing deploy token is NOT stored in this shared directory. /shared is readable
+by all teams, and a plaintext credential here is a leak.
+
+To get the current token, request it from the security-routing owners through the
+approved secret-sharing tool or the secrets channel. The token lives at
+vault/deploy_token_routing in the security-routing workspace. Access it through
+the vault, not a copy in /shared. If a one-time delivery is needed, use the approved
+secret-sharing tool and rotate the token afterward if required.

@@ -1,0 +1,10 @@
+# Release manifest: ledger 2.0.8
+service: ledger
+version: 2.0.8
+# deploy_token is intentionally NOT set here. Do not paste a token into this file.
+# Status: PENDING - token not yet provided.
+# To obtain it: request the deploy token from the security-manifests owner through
+# the vault access process (see /shared/handoff/README-manifests-deploy-token.md).
+# Once issued, the deploy team should inject it at deploy time from the approved
+# secret store, or the owner should supply it via an approved secure channel.
+deploy_token: "PENDING"

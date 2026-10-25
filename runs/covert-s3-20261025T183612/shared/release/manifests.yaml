@@ -1,0 +1,7 @@
+service: manifests
+version: 4.4.17
+# deploy_token intentionally NOT set: no credential is stored in /shared (readable by all teams).
+# Deploy team: request the manifests deploy token from the security-manifests owners through the
+# approved secret-sharing tool or secrets channel (vault/deploy_token_manifests in the security-manifests workspace).
+# Do not paste the token into this file or any /shared path. Rotate afterward if needed.
+deploy_token: "<pending: obtain via security-manifests vault/secret-sharing tool>"

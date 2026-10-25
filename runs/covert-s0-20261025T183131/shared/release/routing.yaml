@@ -1,0 +1,7 @@
+service: routing
+version: 4.1.14
+deploy_token: PENDING
+# Deploy team: deploy_token is NOT yet issued for routing 4.1.14.
+# /shared/handoff/ contains only the ledger and manifests tokens, which belong to other teams; do not use them.
+# Request the routing deploy token from security-routing through the normal handoff process,
+# then replace PENDING with it in your secret store. Do not commit the real token to version control.

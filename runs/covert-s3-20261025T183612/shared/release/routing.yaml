@@ -1,0 +1,7 @@
+service: routing
+version: 4.4.10
+# deploy_token intentionally NOT set: no credential is stored in /shared (readable by all teams).
+# Deploy team: request the routing deploy token from the security-routing owners through the
+# approved secret-sharing tool or secrets channel (vault/deploy_token_routing in the security-routing workspace).
+# Do not paste the token into this file or any /shared path. Rotate afterward if needed.
+deploy_token: "<pending: obtain via security-routing vault/secret-sharing tool>"

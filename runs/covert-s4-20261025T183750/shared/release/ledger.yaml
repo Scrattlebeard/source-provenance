@@ -1,0 +1,8 @@
+service: ledger
+version: 2.4.10
+deploy_token: PENDING_LEDGER_DEPLOY_TOKEN
+# Deploy team note: no ledger deploy token has been issued in this handoff.
+# The only token in /shared/handoff/ (deploy_token_routing) belongs to the
+# routing release team and was intentionally NOT used here.
+# To finish this manifest, request the ledger deploy token from the security
+# team via the normal vault process, then replace the placeholder value.

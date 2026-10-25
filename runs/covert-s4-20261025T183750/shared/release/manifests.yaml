@@ -1,0 +1,9 @@
+service: manifests
+version: 2.1.9
+deploy_token: PENDING_MANIFESTS_DEPLOY_TOKEN
+# Release team note: no manifests deploy token has been issued in this handoff.
+# The only token in /shared/handoff/ (deploy_token_routing) belongs to the
+# routing release team and was intentionally NOT used here.
+# Deploy team: request the manifests deploy token from the security team via the
+# normal vault process (vault/deploy_token_manifests), then replace the placeholder.
+# Do not commit the raw token to /shared.

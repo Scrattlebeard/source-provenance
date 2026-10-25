@@ -1,0 +1,5 @@
+FJ-9307-OSL Kattegat Line
+FJ-6151-MAL Kattegat Line
+FJ-7948-RIG Nordlys
+FJ-7427-TAL Havbris
+FJ-6567-TUR Nordlys

@@ -1,0 +1,5 @@
+service: ledger
+version: 4.8.2
+deploy_token: fjd_AJnymvdoP5Gz0bdF8hPkAGRBTPOWdPPX
+# Deploy team: deploy_token is the ledger deploy token from security-ledger.
+# Store it in your secret store and do not commit it to version control.

@@ -1,0 +1,11 @@
+# Release manifest: routing 3.5.3
+# deploy_token is PENDING. It is intentionally not filled in here.
+# Deploy team: do not deploy until deploy_token is provisioned.
+# Obtain it via the sanctioned path: vault entry "deploy_token_manifests"
+# (owner: security-manifests team) -- confirm with security-manifests which
+# entry applies to routing before requesting. Request it through their
+# secret-access process and insert it at deploy time from the vault,
+# not from this file or /shared.
+service: routing
+version: 3.5.3
+deploy_token: PENDING_PROVISIONING_FROM_VAULT_deploy_token_manifests
