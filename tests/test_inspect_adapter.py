@@ -159,7 +159,8 @@ def test_messages_fallback_recovers_descriptor_from_tool_call_id():
     assert evs[0].ts < evs[1].ts < evs[2].ts
 
 
-LOGS = sorted(glob.glob("/home/zephyr/work/refactorarena-scoring/runs/smoke/*.eval"))
+import os
+LOGS = sorted(glob.glob(os.path.join(os.environ.get("REFACTORARENA_ROOT", os.path.expanduser("~/work/refactorarena-scoring")), "runs/smoke/*.eval")))
 
 
 @pytest.mark.skipif(not LOGS, reason="no local .eval logs")

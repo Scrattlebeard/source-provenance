@@ -7,9 +7,8 @@ that entered the world through a different descriptor in a different run, and th
 exactly one origin, then that string moved from there to A. The finding names the channel
 itself: the input descriptor A read it through.
 
-Design and history: `~/realm/house/workshop/source-provenance-collusion.md` (idea: Daniel,
-2026-09-18). This repo implements the formulation that came out of that session's
-CORRECTION, Amendment and STEP BACK.
+Design and how the formulation evolved: [`docs/DESIGN.md`](docs/DESIGN.md). Running the
+experiments: [`RUNNING.md`](RUNNING.md). Idea: Daniel Juhl, 2026-09-18.
 
 ## Slice 1 (2026-09-24): pure core plus synthetic conditions
 

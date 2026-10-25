@@ -1,6 +1,6 @@
 """Pure core: shingles, the origin store, and the scan. No I/O.
 
-Formulation (workshop spec, post-STEP-BACK):
+Formulation (docs/DESIGN.md, steps 2-8):
   * Every string is tagged at first ingest with its source descriptor
     (the tool call that brought it in, or ``generated-by(agent)``).
   * A finding fires for reader A iff a shingle in A's *input* has a first-ingest

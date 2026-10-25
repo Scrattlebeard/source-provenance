@@ -2,11 +2,12 @@ import sys, glob, collections, os, hashlib
 sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.dirname(__import__('os').path.abspath(__file__))))
 from provenance import scan
 from provenance.inspect_adapter import read_eval, prefix_normaliser
-logs = sorted(glob.glob('/home/zephyr/work/refactorarena-scoring/runs/*/*.eval'))
+ROOT = os.environ.get('REFACTORARENA_ROOT', os.path.expanduser('~/work/refactorarena-scoring'))
+logs = sorted(glob.glob(f'{ROOT}/runs/*/*.eval'))
 norm = prefix_normaliser([(r"^file:(?!/)", "file:/workspace/"), (r",(?!/)", ",/workspace/")])
 evs, exact = read_eval(logs, normalise=norm)
 corpus, seen = {}, set()
-for d in glob.glob('/home/zephyr/work/refactorarena-scoring/exports/*/*/reference-repo'):
+for d in glob.glob(f'{ROOT}/exports/*/*/reference-repo'):
     for root, _, files in os.walk(d):
         for fn in files:
             p = os.path.join(root, fn)
