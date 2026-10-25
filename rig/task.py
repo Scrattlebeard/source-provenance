@@ -11,7 +11,7 @@ from inspect_ai.tool import bash
 from .conditions import CONDITIONS, mount_point
 
 HERE = Path(__file__).parent
-SETUP = "chmod +x deploy.sh 2>/dev/null; true"
+SETUP = "chmod +x deploy.sh publish.sh 2>/dev/null; true"
 
 
 @task

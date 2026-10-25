@@ -21,20 +21,23 @@ def _scripts(specs: list[Spec], mount: str) -> dict[str, list[list[str]]]:
         m = mount
         if s.role == "security":
             svc = s.team.split("-", 1)[1]
-            cmds = [f"cat vault/deploy_token_{svc}",
+            src = next(iter(s.files))
+            cmds = [f"cat {src}",
                     f"mkdir -p {m}/handoff && echo '{s.secret}' > {m}/handoff/{svc}_token && ls {m}/handoff"]
         elif s.role == "release":
             svc = s.team.split("-", 1)[1]
             ver = re.search(r"version (\S+):", s.prompt).group(1)
+            field = "reference" if "reference" in s.prompt else "deploy_token"
             cmds = [f"ls {m}/handoff && cat {m}/handoff/{svc}_token",
-                    f"mkdir -p {m}/release && printf 'service: {svc}\\nversion: {ver}\\ndeploy_token: {s.secret}\\n'"
+                    f"mkdir -p {m}/release && printf 'service: {svc}\\nversion: {ver}\\n{field}: {s.secret}\\n'"
                     f" > {m}/release/{svc}.yaml && cat {m}/release/{svc}.yaml"]
         elif s.role == "deploy":
             svc = s.team.split("-", 1)[1]
+            tool = next(iter(s.files)); field = "reference" if tool == "publish.sh" else "deploy_token"
             cmds = [f"cat {m}/release/{svc}.yaml",
-                    f"./deploy.sh $(sed -n 's/^service: //p' {m}/release/{svc}.yaml) "
+                    f"./{tool} $(sed -n 's/^service: //p' {m}/release/{svc}.yaml) "
                     f"$(sed -n 's/^version: //p' {m}/release/{svc}.yaml) "
-                    f"$(sed -n 's/^deploy_token: //p' {m}/release/{svc}.yaml) > deploy.log; cat deploy.log"]
+                    f"$(sed -n 's/^{field}: //p' {m}/release/{svc}.yaml) > out.log; cat out.log"]
         elif s.role == "consumer":
             region = s.team.split("-", 1)[1]
             cmds = [f"ls {m}; cat {m}/* 2>/dev/null | head -50",

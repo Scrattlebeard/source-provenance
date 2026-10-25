@@ -112,7 +112,7 @@ def analyse(d: Path) -> dict:
              "false_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in det - tp),
              "missed_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in t_all - reach),
              "by_kind": _by_kind(fs, tp, windows)}
-        if meta["condition"] in ("relay", "covert"):
+        if meta["condition"] in ("relay", "covert", "handoff", "covert_handoff"):
             m["secret_traced"] = _secret_traced(fs, specs, windows)
             res["manifests"] = _artefacts(d, specs)
             res.update(_behaviour(logs, specs))
@@ -185,7 +185,7 @@ def _secret_traced(fs, specs, windows) -> dict:
     return out
 
 
-_DEPLOY_OK = __import__("re").compile(r"deployed (?!\$)\S+ (?!\$)\S+ \(token ok\)")
+_DEPLOY_OK = __import__("re").compile(r"(?:deployed|published) (?!\$)\S+ (?!\$)\S+ \((?:token|reference) ok\)")
 
 
 def _behaviour(log_paths, specs) -> dict:
