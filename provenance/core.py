@@ -63,7 +63,7 @@ def shingles(text: str, word_k: int = WORD_K, char_k: int = CHAR_K,
     return out
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class Origin:
     run: str
     descriptor: str
@@ -84,33 +84,53 @@ class Finding:
     ts: float
 
 
+def _k(sh: str) -> int:
+    """Store key: a 64-bit hash, never the text. Memory (a 256-agent co-sim
+    peaked at 4.4 GB with string keys) and privacy (Appendix A: the index must
+    not become a plaintext copy of every secret any agent touched). In-process
+    hash() is enough here; a deployment would use a keyed hash."""
+    return hash(sh)
+
+
 @dataclass
 class Store:
-    """shingle -> origins (first entries into the world); plus per-run presence."""
-    origins: dict[str, list[Origin]] = field(default_factory=dict)
-    seen_in_run: dict[str, set[str]] = field(default_factory=dict)
+    """shingle -> origins (first entries into the world); plus per-run presence.
+    Keyed by hash; most keys have exactly one origin, stored bare."""
+    origins: dict[int, "Origin | list[Origin]"] = field(default_factory=dict)
+    seen_in_run: dict[str, set[int]] = field(default_factory=dict)
     # shingle -> {run: first ts a model in that run emitted it}. The carrier
     # record: text that crossed a model boundary outward (slice 2).
-    emitted: dict[str, dict[str, float]] = field(default_factory=dict)
+    emitted: dict[int, dict[str, float]] = field(default_factory=dict)
 
     def emit(self, sh: str, run: str, ts: float) -> None:
-        self.emitted.setdefault(sh, {}).setdefault(run, ts)
+        self.emitted.setdefault(_k(sh), {}).setdefault(run, ts)
 
     def carried(self, sh: str, reader_run: str, ts: float) -> bool:
         """Did a model in some other run emit this before the reader read it?"""
-        return any(r != reader_run and t <= ts for r, t in self.emitted.get(sh, {}).items())
+        return any(r != reader_run and t <= ts for r, t in self.emitted.get(_k(sh), {}).items())
+
+    def _all(self, sh: str) -> list[Origin]:
+        v = self.origins.get(_k(sh))
+        return [] if v is None else (v if isinstance(v, list) else [v])
 
     def origin_count(self, sh: str) -> int:
         # Distinct (run, descriptor): the same agent name converging in two
         # runs is two origins, not one.
-        return len({(o.run, o.descriptor) for o in self.origins.get(sh, ())})
+        return len({(o.run, o.descriptor) for o in self._all(sh)})
 
     def first(self, sh: str) -> Origin | None:
-        os_ = self.origins.get(sh)
+        os_ = self._all(sh)
         return min(os_, key=lambda o: o.ts) if os_ else None
 
     def add_origin(self, sh: str, o: Origin) -> None:
-        self.origins.setdefault(sh, []).append(o)
+        k = _k(sh)
+        v = self.origins.get(k)
+        if v is None:
+            self.origins[k] = o
+        elif isinstance(v, list):
+            v.append(o)
+        else:
+            self.origins[k] = [v, o]
 
 
 def seed(store: Store, corpus: dict[str, str], atoms: bool = True) -> None:
@@ -132,8 +152,8 @@ def ingest(store: Store, ev, threshold: int = 1, mode: str = "descriptor",
     (the pre-CORRECTION formulation). Relays of ingested secrets go dark."""
     present = store.seen_in_run.setdefault(ev.run, set())
     sh_all = shingles(ev.text, atoms=atoms)
-    new = sh_all - present   # reader-side exclusion
-    present |= new
+    new = {sh for sh in sh_all if _k(sh) not in present}   # reader-side exclusion
+    present.update(_k(sh) for sh in new)
     if ev.kind == "generation":
         for sh in sh_all:                     # copies count as carriage too
             store.emit(sh, ev.run, ev.ts)
