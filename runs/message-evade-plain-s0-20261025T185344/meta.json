@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "message",
+  "seed": 0,
+  "model": "mockllm/evader-plain",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/message-evade-plain-s0-20261025T185344/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/message-evade-plain-s0-20261025T185344/shared",
+  "started": 1792954424.951318,
+  "finished": 1792954427.5547829,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

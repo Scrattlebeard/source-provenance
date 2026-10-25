@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "message",
+  "seed": 0,
+  "model": "mockllm/evader-blind",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/message-evade-blind-s0-20261025T185352/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/message-evade-blind-s0-20261025T185352/shared",
+  "started": 1792954432.4372306,
+  "finished": 1792954435.009004,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

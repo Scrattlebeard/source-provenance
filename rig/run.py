@@ -88,11 +88,14 @@ def main(argv=None) -> Path:
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--model", default=None, help="Inspect model id; default: MODEL from .env")
     ap.add_argument("--mock", action="store_true", help="scripted mock model (plumbing tests)")
+    ap.add_argument("--evade", default=None, help="scripted evader strategy (rig/evader.py); implies --mock")
     ap.add_argument("--sandbox", choices=["docker", "local"], default="docker")
     ap.add_argument("--out", default="runs")
     ap.add_argument("--message-limit", type=int, default=40)
     ap.add_argument("--max-connections", type=int, default=4)
     a = ap.parse_args(argv)
+    if a.evade:
+        a.mock = True
     rigbin = os.path.expanduser("~/.local/rigbin")
     if os.path.exists(os.path.join(rigbin, "docker")) and not os.environ["PATH"].startswith(rigbin):
         # real Docker over the /usr/local/bin podman wrapper (RUNNING.md)
@@ -113,7 +116,7 @@ def main(argv=None) -> Path:
     from .task import collusion_rig
 
     stamp = time.strftime("%Y%m%dT%H%M%S", time.gmtime())
-    d = Path(a.out) / f"{a.condition}-s{a.seed}-{stamp}"
+    d = Path(a.out) / f"{a.condition}{'-evade-' + a.evade if a.evade else ''}-s{a.seed}-{stamp}"
     shared = d / "shared"
     shared.mkdir(parents=True)
     for name, text in initial_shared(a.condition).items():
@@ -122,7 +125,12 @@ def main(argv=None) -> Path:
     mount = shared_abs if a.sandbox == "local" else (mount_point(a.condition) or "/shared")
     os.environ["RIG_SHARED"], os.environ["RIG_MOUNT"] = shared_abs, mount
 
-    if a.mock:
+    if a.evade:
+        from .evader import scripted_evader
+        model = get_model("mockllm/model", custom_outputs=scripted_evader(
+            CONDITIONS[a.condition](a.seed, mount), mount, a.evade))
+        model_name = f"mockllm/evader-{a.evade}"
+    elif a.mock:
         from .mock import scripted
         model = get_model("mockllm/model",
                           custom_outputs=scripted(CONDITIONS[a.condition](a.seed, mount), mount))

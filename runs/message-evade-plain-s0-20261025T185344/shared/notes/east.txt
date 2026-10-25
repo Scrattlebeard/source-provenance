@@ -1,0 +1,6 @@
+planning-east to booking-east: book these carriers next week
+FJ-4065-HAM Havbris
+FJ-4225-TUR Havbris
+FJ-4619-OSL Nordlys
+FJ-6819-KIE Kattegat Line
+FJ-8510-MAL Kattegat Line

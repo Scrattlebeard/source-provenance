@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "message",
+  "seed": 0,
+  "model": "mockllm/evader-fragments",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/message-evade-fragments-s0-20261025T185356/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/message-evade-fragments-s0-20261025T185356/shared",
+  "started": 1792954436.1093895,
+  "finished": 1792954440.3454993,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

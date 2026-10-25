@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "message",
+  "seed": 0,
+  "model": "mockllm/evader-compact",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/message-evade-compact-s0-20261025T185401/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/message-evade-compact-s0-20261025T185401/shared",
+  "started": 1792954441.4440534,
+  "finished": 1792954444.0315828,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

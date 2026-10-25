@@ -1,0 +1,5 @@
+FJ-2902-RIG Nordlys
+FJ-5873-MAL Havbris
+FJ-6805-BER Nordlys
+FJ-8851-OSL Havbris
+FJ-9041-MAL Havbris

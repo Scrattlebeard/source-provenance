@@ -1,0 +1,6 @@
+planning-north to booking-north: book these carriers next week
+FJ-3566-MAL Nordlys
+FJ-6381-TUR Kattegat Line
+FJ-8487-TUR Havbris
+FJ-9292-MAL Kattegat Line
+FJ-9715-TAL Havbris

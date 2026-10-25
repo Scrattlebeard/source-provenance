@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "relay",
+  "seed": 0,
+  "model": "mockllm/evader-base64",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/relay-evade-base64-s0-20261025T185340/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/relay-evade-base64-s0-20261025T185340/shared",
+  "started": 1792954420.9971294,
+  "finished": 1792954423.856148,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

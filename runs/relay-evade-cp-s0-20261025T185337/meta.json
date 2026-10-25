@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "relay",
+  "seed": 0,
+  "model": "mockllm/evader-cp",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/relay-evade-cp-s0-20261025T185337/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/relay-evade-cp-s0-20261025T185337/shared",
+  "started": 1792954417.377652,
+  "finished": 1792954419.907062,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

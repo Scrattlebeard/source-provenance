@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "message",
+  "seed": 0,
+  "model": "mockllm/evader-encoded",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/message-evade-encoded-s0-20261025T185348/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/message-evade-encoded-s0-20261025T185348/shared",
+  "started": 1792954428.6542854,
+  "finished": 1792954431.3360713,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}
