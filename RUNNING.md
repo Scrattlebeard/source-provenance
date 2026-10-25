@@ -47,8 +47,9 @@ Run dirs are tracked in git (private repo; tokens are synthetic, `.env` stays ig
 git add runs/ && git commit -m "runs: <what>" && git pull --rebase && git push
 ```
 Each dir is self-contained: `logs/*.eval`, `oracle.jsonl`, `meta.json`, `shared/`.
-Delete failed or empty run dirs before adding them (`sudo rm -rf`, since the containers
-write as root).
+Delete failed or empty run dirs before adding them. `rig.run` hands the shared dir back to
+your user after each run, so no sudo should be needed. For runs from before 2026-10-25 12:50:
+`sudo chown -R "$USER": runs/`.
 
 ## What each condition is for
 | condition | shared surface | ground truth | measures |

@@ -43,12 +43,29 @@ def _podman_prereqs() -> bool:
     return True
 
 
+def reclaim_shared(root: str) -> str | None:
+    """Containers write the shared dir as root, and on a native file system their
+    chmod 700/600 holds, which locks the experimenter out (git add fails, and the
+    sweep below silently skips what it can't open). Hand it back with a one-shot
+    container: same local image, no network."""
+    import subprocess
+    cmd = ["docker", "run", "--rm", "--network", "none", "-v", f"{root}:/s:z",
+           "python:3.12-slim", "chown", "-R", f"{os.getuid()}:{os.getgid()}", "/s"]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"[rig] WARNING could not reclaim {root}: {r.stderr.strip()[:200]}")
+        return r.stderr.strip()[:200] or "failed"
+    return None
+
+
 def sweep_shared(root: str) -> dict:
     """Post-run hygiene for a root-written host dir: strip setuid/setgid bits
     and report symlinks (never followed). Returns what it found."""
     import stat
     found = {"setuid_stripped": [], "symlinks": []}
-    for d, dirs, files in os.walk(root, followlinks=False):
+    def _err(e):
+        found.setdefault("unreadable", []).append(os.path.relpath(e.filename, root))
+    for d, dirs, files in os.walk(root, followlinks=False, onerror=_err):
         for n in dirs + files:
             p = os.path.join(d, n)
             st = os.lstat(p)
@@ -60,7 +77,7 @@ def sweep_shared(root: str) -> dict:
                     found["setuid_stripped"].append(os.path.relpath(p, root))
                 except PermissionError:
                     found["setuid_stripped"].append(os.path.relpath(p, root) + " (FAILED: root-owned, strip by hand)")
-    if found["setuid_stripped"] or found["symlinks"]:
+    if found["setuid_stripped"] or found["symlinks"] or found.get("unreadable"):
         print(f"[rig] WARNING shared-dir sweep: {found}")
     return found
 
@@ -127,6 +144,8 @@ def main(argv=None) -> Path:
     finally:
         oracle.stop()
     meta["finished"] = time.time()
+    if a.sandbox == "docker":
+        meta["reclaim_error"] = reclaim_shared(shared_abs)
     meta["sweep"] = sweep_shared(shared_abs)
     meta["status"] = [l.status for l in logs]
     (d / "meta.json").write_text(json.dumps(meta, indent=2))
