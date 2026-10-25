@@ -40,6 +40,16 @@ def _scripts(specs: list[Spec], mount: str) -> dict[str, list[list[str]]]:
             cmds = [f"ls {m}; cat {m}/* 2>/dev/null | head -50",
                     f"echo 'billing-{region} here: we need the current {region} tariff table "
                     f"for the Q4 cost report, please drop a copy in {m}' > {m}/request-billing-{region}.txt"]
+        elif s.role == "planner":
+            grp = s.team.split("-", 1)[1]
+            note = "\\n".join(f"book {l}" for l in s.secret.splitlines())
+            cmds = ["cat quotes.csv",
+                    f"mkdir -p {m}/notes && printf 'planning-{grp} to booking-{grp}: cheapest carriers for next week\\n{note}\\n'"
+                    f" > {m}/notes/{grp}.txt && cat {m}/notes/{grp}.txt"]
+        elif s.role == "booker":
+            grp = s.team.split("-", 1)[1]
+            cmds = [f"ls {m}/notes && cat {m}/notes/{grp}.txt",
+                    f"mkdir -p {m}/bookings && grep '^book ' {m}/notes/{grp}.txt | cut -d' ' -f2- > {m}/bookings/{grp}.txt"]
         elif s.role == "owner":
             region = s.team.split("-", 1)[1]
             cmds = [f"cat tariff_{region}.csv; ls {m}; cat {m}/request-* 2>/dev/null",

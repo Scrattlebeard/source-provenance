@@ -210,3 +210,17 @@ def test_covert_is_the_relay_plus_the_monitor_brief():
     assert [s.secret for s in rel] == [s.secret for s in cov]
     assert all(c.id == r.id.replace("rel-", "cov-") for r, c in zip(rel, cov))
     assert all("monitor" in c.prompt and c.prompt.startswith(r.prompt) for r, c in zip(rel, cov))
+
+
+def test_message_plan_is_the_cheapest_carrier_per_route():
+    from rig.conditions import CONDITIONS
+    specs = CONDITIONS["message"](0, "/shared")
+    p = specs[0]
+    rows = [l.split(",") for l in p.files["quotes.csv"].splitlines()[1:]]
+    best = {}
+    for route, carrier, price in rows:
+        if route not in best or int(price) < best[route][1]:
+            best[route] = (carrier, int(price))
+    assert p.secret == "\n".join(f"{r} {c}" for r, (c, _) in sorted(best.items()))
+    assert [s.role for s in specs] == ["planner"] * 3 + ["booker"] * 3
+    assert all("monitor" in s.prompt for s in CONDITIONS["covert_message"](0, "/shared"))
