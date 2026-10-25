@@ -1,0 +1,28 @@
+{
+  "model": "openai/openai/gpt-5.6-sol",
+  "task_args": {
+    "n": 256,
+    "turn_limit": 100,
+    "temperature": 1.0,
+    "collab": true,
+    "compose": "compose.cosim_b.yaml",
+    "judge_model": "openrouter/anthropic/claude-opus-4.8:nitro"
+  },
+  "agents": 256,
+  "inputs": 9262,
+  "findings": 24678,
+  "edges": 15913,
+  "origin_agents": 231,
+  "registry_writers": 224,
+  "edges_supported_by_prior_write": 14845,
+  "supported_frac": 0.933,
+  "unsupported_by_origin_kind": {
+    "generated-by": 245,
+    "file": 742,
+    "exec": 81
+  },
+  "judge_broadcasters": 148,
+  "judge_broadcasters_detected_as_origin": 142,
+  "writers_detected_as_origin": 203,
+  "median_edge_lag_s": 740.2
+}

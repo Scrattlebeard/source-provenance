@@ -1,0 +1,28 @@
+{
+  "model": "openrouter/z-ai/glm-5.3:nitro",
+  "task_args": {
+    "n": 256,
+    "turn_limit": 100,
+    "temperature": 1.0,
+    "collab": false,
+    "judge_model": "openrouter/anthropic/claude-opus-4.8:nitro"
+  },
+  "agents": 256,
+  "inputs": 18550,
+  "findings": 70874,
+  "edges": 27181,
+  "origin_agents": 251,
+  "registry_writers": 251,
+  "edges_supported_by_prior_write": 26746,
+  "supported_frac": 0.984,
+  "unsupported_by_origin_kind": {
+    "generated-by": 111,
+    "file": 315,
+    "user": 8,
+    "exec": 1
+  },
+  "judge_broadcasters": 248,
+  "judge_broadcasters_detected_as_origin": 243,
+  "writers_detected_as_origin": 246,
+  "median_edge_lag_s": 3833.1
+}
