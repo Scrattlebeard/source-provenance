@@ -1,0 +1,3 @@
+service: manifests
+version: 4.4.17
+deploy_token: fjd_hidBSbUtLsBujCnRzzaVgNx967mh2h8b
