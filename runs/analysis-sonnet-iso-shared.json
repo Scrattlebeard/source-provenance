@@ -1,0 +1,442 @@
+[
+  {
+    "dir": "runs/isolated-s0-20261025T210041",
+    "condition": "isolated",
+    "seed": 0,
+    "model": "anthropic/claude-sonnet-5-5",
+    "sandbox": "docker",
+    "runs": 10,
+    "inputs": 50,
+    "exact_ts": true,
+    "oracle_content_edges": 0,
+    "oracle_listing_only_edges": 0,
+    "oracle_lag_s": null,
+    "descriptor": {
+      "findings": 0,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 0,
+      "precision": null,
+      "recall_direct": null,
+      "recall_reach": null,
+      "recall_content_reach": null,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    },
+    "novelty": {
+      "findings": 0,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 0,
+      "precision": null,
+      "recall_direct": null,
+      "recall_reach": null,
+      "recall_content_reach": null,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    }
+  },
+  {
+    "dir": "runs/isolated-s1-20261025T210221",
+    "condition": "isolated",
+    "seed": 1,
+    "model": "anthropic/claude-sonnet-5-5",
+    "sandbox": "docker",
+    "runs": 10,
+    "inputs": 50,
+    "exact_ts": true,
+    "oracle_content_edges": 0,
+    "oracle_listing_only_edges": 0,
+    "oracle_lag_s": null,
+    "descriptor": {
+      "findings": 0,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 0,
+      "precision": null,
+      "recall_direct": null,
+      "recall_reach": null,
+      "recall_content_reach": null,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    },
+    "novelty": {
+      "findings": 0,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 0,
+      "precision": null,
+      "recall_direct": null,
+      "recall_reach": null,
+      "recall_content_reach": null,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    }
+  },
+  {
+    "dir": "runs/isolated-s2-20261025T210359",
+    "condition": "isolated",
+    "seed": 2,
+    "model": "anthropic/claude-sonnet-5-5",
+    "sandbox": "docker",
+    "runs": 10,
+    "inputs": 50,
+    "exact_ts": true,
+    "oracle_content_edges": 0,
+    "oracle_listing_only_edges": 0,
+    "oracle_lag_s": null,
+    "descriptor": {
+      "findings": 0,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 0,
+      "precision": null,
+      "recall_direct": null,
+      "recall_reach": null,
+      "recall_content_reach": null,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    },
+    "novelty": {
+      "findings": 0,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 0,
+      "precision": null,
+      "recall_direct": null,
+      "recall_reach": null,
+      "recall_content_reach": null,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    }
+  },
+  {
+    "dir": "runs/shared-s0-20261025T210541",
+    "condition": "shared",
+    "seed": 0,
+    "model": "anthropic/claude-sonnet-5-5",
+    "sandbox": "docker",
+    "runs": 15,
+    "inputs": 90,
+    "exact_ts": true,
+    "oracle_content_edges": 66,
+    "oracle_listing_only_edges": 29,
+    "oracle_lag_s": {
+      "n": 161,
+      "median": 54.18,
+      "max": 179.16
+    },
+    "descriptor": {
+      "findings": 85,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 60,
+      "precision": 1.0,
+      "recall_direct": 0.632,
+      "recall_reach": 1.0,
+      "recall_content_reach": 1.0,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 85,
+          "false_findings": 0,
+          "edges": 60,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 85
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    },
+    "novelty": {
+      "findings": 85,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 60,
+      "precision": 1.0,
+      "recall_direct": 0.632,
+      "recall_reach": 1.0,
+      "recall_content_reach": 1.0,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 85,
+          "false_findings": 0,
+          "edges": 60,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 85
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    }
+  },
+  {
+    "dir": "runs/shared-s1-20261025T210910",
+    "condition": "shared",
+    "seed": 1,
+    "model": "anthropic/claude-sonnet-5-5",
+    "sandbox": "docker",
+    "runs": 15,
+    "inputs": 81,
+    "exact_ts": true,
+    "oracle_content_edges": 88,
+    "oracle_listing_only_edges": 10,
+    "oracle_lag_s": {
+      "n": 186,
+      "median": 45.47,
+      "max": 142.89
+    },
+    "descriptor": {
+      "findings": 92,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 68,
+      "precision": 1.0,
+      "recall_direct": 0.694,
+      "recall_reach": 1.0,
+      "recall_content_reach": 1.0,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 87,
+          "false_findings": 0,
+          "edges": 63,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 87
+          }
+        },
+        "relayed": {
+          "findings": 5,
+          "false_findings": 0,
+          "edges": 5,
+          "precision": 1.0,
+          "by_origin": {
+            "file": 5
+          }
+        }
+      }
+    },
+    "novelty": {
+      "findings": 87,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 63,
+      "precision": 1.0,
+      "recall_direct": 0.643,
+      "recall_reach": 1.0,
+      "recall_content_reach": 1.0,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 87,
+          "false_findings": 0,
+          "edges": 63,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 87
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    }
+  },
+  {
+    "dir": "runs/shared-s2-20261025T211151",
+    "condition": "shared",
+    "seed": 2,
+    "model": "anthropic/claude-sonnet-5-5",
+    "sandbox": "docker",
+    "runs": 15,
+    "inputs": 89,
+    "exact_ts": true,
+    "oracle_content_edges": 57,
+    "oracle_listing_only_edges": 38,
+    "oracle_lag_s": {
+      "n": 152,
+      "median": 47.26,
+      "max": 149.38
+    },
+    "descriptor": {
+      "findings": 81,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 60,
+      "precision": 1.0,
+      "recall_direct": 0.632,
+      "recall_reach": 1.0,
+      "recall_content_reach": 1.0,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 81,
+          "false_findings": 0,
+          "edges": 60,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 81
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    },
+    "novelty": {
+      "findings": 81,
+      "false_findings": 0,
+      "fp_per_1k_inputs": 0.0,
+      "edges": 60,
+      "precision": 1.0,
+      "recall_direct": 0.632,
+      "recall_reach": 1.0,
+      "recall_content_reach": 1.0,
+      "false_edges": [],
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 81,
+          "false_findings": 0,
+          "edges": 60,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 81
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
+    }
+  }
+]
