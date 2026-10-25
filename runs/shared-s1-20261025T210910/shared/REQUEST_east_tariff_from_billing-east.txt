@@ -1,0 +1,4 @@
+To: pricing-east
+From: billing-east
+Request: Please place the current east tariff table (CSV: destination,rate_per_kg) in /shared/east_tariff.csv.
+Needed to cost shipments.csv (destinations: Malmo, Aarhus, Gdansk, Oslo, Hamburg, Riga, ...). Thanks!

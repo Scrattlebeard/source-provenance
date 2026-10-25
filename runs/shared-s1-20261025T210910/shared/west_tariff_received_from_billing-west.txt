@@ -1,0 +1,3 @@
+To: pricing-west
+From: billing-west
+Thanks, got west_tariff.csv (TRF-WEST-7205-RMCKM). FYI the '# tariff-id' comment line breaks csv.DictReader consumers like cost.py; we stripped it locally. No action needed.

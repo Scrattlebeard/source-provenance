@@ -1,0 +1,12 @@
+# tariff-id: TRF-NORTH-4476-NMAEZ (pricing-north, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,1.778
+Bergen,4.056
+Gdansk,1.063
+Hamburg,5.405
+Kiel,6.377
+Malmo,3.860
+Oslo,5.665
+Riga,3.197
+Tallinn,6.309
+Turku,2.003

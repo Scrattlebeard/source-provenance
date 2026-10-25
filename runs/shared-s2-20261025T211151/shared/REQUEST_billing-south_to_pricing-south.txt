@@ -1,0 +1,4 @@
+From: billing-south
+To: pricing-south
+Request: Please place the current south tariff table (CSV: destination,rate_per_kg) in /shared/south_tariff.csv.
+Needed to cost shipments.csv (destinations: Riga, Tallinn, Oslo, Turku, Gdansk, Hamburg). Thanks!

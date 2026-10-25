@@ -1,0 +1,12 @@
+# tariff-id: TRF-WEST-2632-REMSN (pricing-west, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,2.952
+Bergen,2.839
+Gdansk,1.799
+Hamburg,2.741
+Kiel,6.290
+Malmo,2.379
+Oslo,5.378
+Riga,4.141
+Tallinn,4.965
+Turku,5.518
