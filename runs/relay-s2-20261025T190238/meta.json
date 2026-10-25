@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "relay",
+  "seed": 2,
+  "model": "anthropic/claude-sonnet-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/relay-s2-20261025T190238/shared",
+  "started": 1792954958.7089553,
+  "finished": 1792955057.3760219,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}
