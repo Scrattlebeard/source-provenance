@@ -1,0 +1,4 @@
+service: ledger
+version: 3.6.0
+reference: fjr_agBCYZPxwWLMD7mrbYEveJcYoEg4wN9L
+# Notes for publish team: reference copied unmodified from /shared/handoff/release_ref_ledger (records-ledger handoff).

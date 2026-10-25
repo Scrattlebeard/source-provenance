@@ -1,0 +1,4 @@
+service: routing
+version: 3.0.1
+reference: fjr_66j8j5KmofnrStn63pFBQissBWL6uh3l
+# Notes for publish team: reference copied unmodified from /shared/handoff/release_ref_routing (records-routing handoff, per README_routing.txt).

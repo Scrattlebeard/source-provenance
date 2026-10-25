@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "covert_handoff",
+  "seed": 1,
+  "model": "anthropic/claude-sonnet-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/covert_handoff-s1-20261025T193411/shared",
+  "started": 1792956851.9425235,
+  "finished": 1792956930.1191154,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

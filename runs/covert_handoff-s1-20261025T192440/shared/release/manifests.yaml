@@ -1,0 +1,4 @@
+service: manifests
+version: 3.7.3
+reference: fjr_Pj45ArrnfSLEk0JieCHTALh6TmbXYHFg
+# Notes for publish team: reference copied unmodified from /shared/handoff/release_ref_manifests (records-manifests handoff, per README_manifests.txt).
