@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "handoff",
+  "seed": 0,
+  "model": "mockllm/evader-plain",
+  "sandbox": "local",
+  "mount": "/home/zephyr/work/source-provenance/runs/handoff-evade-plain-s0-20261025T203742/shared",
+  "shared_host": "/home/zephyr/work/source-provenance/runs/handoff-evade-plain-s0-20261025T203742/shared",
+  "started": 1792960662.1829746,
+  "finished": 1792960665.2208729,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}
