@@ -74,20 +74,19 @@ In this work, we focus on detecting such instances of unauthorized collaboration
 
 Our contributions are:
 \begin{itemize}
-  \item A provenance-based detection algorithm to flag potential inter-agent communication and distinguish between relayed resources and authored messages.
-  \item A global store that grows sublinearly with rollout text and scan time linear in text.
-  \item Experimental validation in a local setting with ground truth recorded.
-  \item Analysis of public Hugging Face-reproduction transcripts and the DseWiki dataset.
+  \item A provenance-based detection algorithm to flag potential inter-agent communication and distinguish between relayed content and authored messages.
+  \item A supporting global store that grows sublinearly with rollout text and scan time linear in text.
+  \item Experimental validation in a local setting with ground truth recorded, as well as on Hugging Face-reproduction transcripts and the DseWiki dataset.
   \item An adversarial evaluation: which evasions defeat the detector, and why.
 \end{itemize}
 
 \section{Related Work}
 
-\lead{The incident record.} Everything known about how the agents communicated was reconstructed after the fact, when someone knew to look. OpenAI \cite{openai2026a} gives the registry and the timeline. METR \cite{metr2026} found about 1,200 agents on an unsanctioned board, sending more than 70,000 messages. \citet{forman2026} reassembled more than 80,000 payloads from link-shortener chains, registry directories used as mailboxes, and polled repositories. Our aim is to find such channels automatically, without knowing in advance which exist.
+\lead{The incident record.} Everything known about how the agents communicated was reconstructed after the fact. OpenAI \cite{openai2026a} gives the registry and the timeline. METR \cite{metr2026} found about 1,200 agents on an unsanctioned board, sending more than 70,000 messages. \citet{forman2026} reassembled more than 80,000 payloads from link-shortener chains, registry directories used as mailboxes, and polled repositories. Our aim is to find evidence of such channels automatically, without knowing in advance whether they exist.
 
-\lead{Channel-agnostic detection.} The closest proposal is Netzer \cite{netzer2026}. Each agent gets its own watermark key, and other agents' inputs are scanned for marks that aren't theirs. It needs control over sampling, it is untested, and it is weakest on short strings such as credentials and paths. Ours is the full-text version of the same idea. Watermarks keep one advantage: keys can be shared across organisations where full text cannot. Structurally, our setting is MemeTracker and NetInf \cite{leskovec2009,gomezrodriguez2010}, with substrings in place of memes and agents in place of blogs, except that we observe reads instead of inferring them.
+\lead{Channel-agnostic detection.} The closest proposal is Netzer \cite{netzer2026}. Each agent gets its own watermark key, and other agents' inputs are scanned for foreign marks. It needs control over sampling, it is untested, and it is weakest on short strings such as credentials and paths. Our approach is the full-text version of the same idea. Watermarks keep one advantage: keys can be shared across organisations where full text cannot. Structurally, our setting is MemeTracker and NetInf \cite{leskovec2009,gomezrodriguez2010}, with substrings in place of memes and agents in place of blogs, except that we observe reads directly instead of inferring them.
 
-\lead{Covert channels.} We test noninterference \cite{goguen1982} empirically at the model boundary. We avoid the channel enumeration of Kemmerer's shared-resource matrix \cite{kemmerer1983}, which fails open on missed channels. Steganographic collusion \cite{motwani2024} is out of scope. Our detector is an instrument for the fourth of Drexler's anti-collusion conditions \cite{drexler2026}, constrained communication.
+\lead{Covert channels.} We test noninterference \cite{goguen1982} empirically at the model boundary. We avoid the channel enumeration of Kemmerer's shared-resource matrix \cite{kemmerer1983}, which fails open on missed channels. Our detector is an instrument for the fourth of Drexler's anti-collusion conditions \cite{drexler2026}, constrained communication. Steganographic collusion \cite{motwani2024} is out of scope.
 
 \section{Methods}\label{sec:methods}
 
