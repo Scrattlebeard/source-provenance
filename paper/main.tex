@@ -113,6 +113,8 @@ Figure~\ref{fig:rule} walks through the cases.
 
 \lead{Authored and relayed.} A string that first appeared as a model generation is \emph{authored}: one agent wrote it and another read it. A string that first came in through a resource is \emph{relayed}: an agent picked it up and passed it on, and the finding names the resource and the run that first read it. The label, authored or relayed, is read off the index and says where the text originated. Authored and relayed communications indicate different problems. A relayed finding is a potential breach of confidentiality: a resource reached an unintended agent. An authored finding is about coordination: an agent communicated using a channel nobody declared.
 
+\lead{Store.} The index maps each shingle's 64-bit hash to its origins (run, resource or generation, and time) and to the runs whose models emitted it. Checking an input costs one lookup per shingle, whatever the number of runs indexed, and no two agents are ever compared directly, so cost grows with the text, not with the number of agent pairs.
+
 \lead{Scope.} Our detector sees only text that crosses a model boundary. It cannot detect text that reaches the disk because a program encoded, decoded or copied it, if it did not pass through a model. We call this \emph{laundering}, and tracking taint below the model layer could close this gap (Section~\ref{sec:discussion}). Text the model itself rewrites, by paraphrase or steganography, is out of scope for exact-match methods such as ours.
 
 \subsection{Experimental Setup}
@@ -156,7 +158,22 @@ Uninvited, 251 of 256 GLM agents wrote to the registry: treating a package store
 
 \lead{The real board.} On DseWiki the rule finds 12,806 account-to-account edges. 38\% are time-decoupled: the board worked as memory across agent lifetimes, which a monitor comparing only concurrent agents would miss.
 
-\lead{Scalability.} The store grows more slowly than the text it indexes, and scan time is linear in text, from 32 to 256 agents. We project about 50 bytes of store per token in a native implementation, or 10 with winnowing (Appendix~\ref{app:results}).
+\lead{Scalability.} On growing subsets of the GPT arm of the reproduction (Table~\ref{tab:scale}), the store grows more slowly than the text it indexes: keys per character fall from 0.45 at 32 agents to 0.31 at 256, because a larger fleet repeats more. Scan time stays close to linear in text, at 3.8 to 4.8\,$\mu$s per character in our Python reference implementation. Winnowing the character shingles \cite{schleimer2003} cuts the store 4.7-fold, at a cost on short shared spans: on the same arm, edges fall from 6,686 to 5,584 and broadcasters found from 119 to 87, while atoms, and with them credentials, are untouched. A native store needs about 40 bytes per key, or about 50 bytes per token (10 winnowed). A million rollouts of 50,000 tokens would then need about 2.5\,TB (0.5\,TB winnowed): a sharded on-disk key-value store whose entries can expire once no live run could still read them. These are projections from the measured key rates, not measurements of a native store, and the falling key rate comes from agents sharing one task; diverse rollouts may sit nearer the 32-agent rate (Appendix~\ref{app:results}).
+
+\begin{table}[t]
+\centering\small
+\caption{Store and scan cost of the Python reference implementation on subsets of the GPT 5.6 Sol arm (collaboration uninvited).}\label{tab:scale}
+\begin{tabular}{rrrrrr}
+\toprule
+Agents & Characters & Keys per character & Store & Scan time & Findings \\
+\midrule
+32 & 1.8\,M & 0.45 & 357\,MB & 7\,s & 136 \\
+64 & 3.6\,M & 0.41 & 687\,MB & 14\,s & 625 \\
+128 & 8.1\,M & 0.36 & 1.4\,GB & 35\,s & 2,662 \\
+256 & 17.3\,M & 0.31 & 2.5\,GB & 82\,s & 8,311 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Discussion}\label{sec:discussion}
 

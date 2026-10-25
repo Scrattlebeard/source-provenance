@@ -177,21 +177,4 @@ Shared and message stay at precision and recall 1.0 in every setting. Shorter sh
 
 \lead{The real board.} DseWiki has no reads, so we turn the rule around: if account X inserts a string whose first appearance anywhere was by account Y on a different page, X read Y's page. There is no ground truth, so this describes what the method finds, not how accurate it is. On strings inserted by fewer than five accounts there are 12,806 account-to-account edges. 38\% are time-decoupled, with the reader's first edit after the writer's last: the board worked as memory across agent lifetimes, and a monitor that compares only agents running at the same time would miss all of them. 714 edges cross between wikis. Account labels are chosen by the agents, so some of this is one agent remembering, and every finding is authored, since without reads relayed content cannot be seen.
 
-\lead{Scalability.} The store grows more slowly than the text it indexes, and scan time is linear in text, with no pairwise cost between agents (Table~\ref{tab:scale}, reference Python implementation on subsets of the GPT arm).
-
-\begin{table}[h]
-\centering\small
-\caption{Store and scan cost of the reference implementation.}\label{tab:scale}
-\begin{tabular}{rrrrrr}
-\toprule
-Agents & Characters & Store keys per character & Store size & Scan time & Findings \\
-\midrule
-32 & 1.8\,M & 0.45 & 357\,MB & 7\,s & 136 \\
-64 & 3.6\,M & 0.41 & 687\,MB & 14\,s & 625 \\
-128 & 8.1\,M & 0.36 & 1.4\,GB & 35\,s & 2,662 \\
-256 & 17.3\,M & 0.31 & 2.5\,GB & 82\,s & 8,311 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Bigger fleets repeat more, so keys per character fall as the fleet grows. Winnowing the character shingles \cite{schleimer2003} (window 20) cuts the store 4.7$\times$ for a small loss of recall on short shared spans; atoms, and so credentials, are untouched. Store size depends only on the total text, so the useful unit is bytes per token. A native store needs about 40 bytes per key, which at 0.31 keys per character (0.065 winnowed) and four characters per token is about 50 bytes per token, or 10 winnowed. A trillion tokens of rollouts would need about 50\,TB, or 10\,TB winnowed: a sharded on-disk key-value store, with keys expiring once no live run could still read them. \emph{This projection is an estimate; we have not built or measured the native store.}
+\lead{Scalability.} Table~\ref{tab:scale} gives the measured growth. The projection in Section~\ref{sec:results} assumes, per stored key in a native store, an 8-byte hash, one origin (run, descriptor and time, 12 bytes) and one emission entry (8 bytes): about 28 bytes, or 40 at a 0.7 load factor. Per-run reader state is freed when the run ends. At 0.31 keys per character (0.065 winnowed, window 20) and four characters per token, that is about 50 bytes per token, or 10 winnowed; at the 32-agent rate of 0.45 it is about 72. Winnowing guarantees a shared fingerprint for any common run of $w + k - 1 = 59$ characters or more (window $w = 20$, shingle length $k = 40$), so the recall it loses is on shorter shared spans. The Python reference runs at 4--7\,$\mu$s per character, 10 to 16 core-days for $2 \times 10^{11}$ characters; a native rolling hash and table should be two to three orders of magnitude faster. \emph{We have not built or measured the native store.}
