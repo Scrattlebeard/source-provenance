@@ -171,12 +171,31 @@ def descriptor(function: str, arguments: Any,
     return normalise(f"{function}({body})")
 
 
+_ESC = (("\\n", "\n"), ("\\t", "\t"), ('\\"', '"'), ("\\'", "'"))
+
+
+def _unescape(v: str) -> str | None:
+    """printf / echo -e / string-literal escapes as they will land on disk.
+    Laundering through escapes broke both directions on the overnight runs:
+    a manifest written with printf 'a\\nb' never matched its own file (misses),
+    and reports built from "\\n".join([...]) came back as 'new' text (FPs)."""
+    if "\\" not in v:
+        return None
+    out = v
+    for a, b in _ESC:
+        out = out.replace(a, b)
+    return out if out != v else None
+
+
 def generation_text(text: str, tool_calls: Iterable[Any] | None) -> str:
     parts = [text] if text else []
     for tc in tool_calls or ():
         for v in _args(getattr(tc, "arguments", None)).values():
             if isinstance(v, str) and v:
                 parts.append(v)
+                u = _unescape(v)
+                if u:
+                    parts.append(u)
     return "\n".join(parts)
 
 

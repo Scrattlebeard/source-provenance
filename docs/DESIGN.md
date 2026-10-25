@@ -33,7 +33,11 @@ on the one nobody wrote down.
    result whose producing call is in the transcript, so an unknown channel still names
    itself in the finding.
 4. **Step back: no surprisal.** We scan inputs only, so generation convergence can never
-   fire. The language-model likelihood and entropy machinery that had grown around the
+   fire. *(Overnight runs, 2026-10-25, disproved "never": an agent that writes its report
+   through a program (f-strings, `"\n".join([...])`) reads its own words back as a tool
+   result the store doesn't recognise as its own. If another team paraphrased the shared task
+   prompt the same way, it fires. All 10 findings in the registry condition were this, 21 per
+   1,000 inputs. Convergence fires when it is laundered through program output.)* The language-model likelihood and entropy machinery that had grown around the
    threshold was solving a problem we no longer had. The real false positive is *multiple
    origins* (A writes `import numpy as np`, B reads it from a repository). Replacement: count
    distinct origins per shingle. One origin is a trace, many are furniture. Seed the store
@@ -65,6 +69,11 @@ class* over those axes, never by agent pair. Identities are ephemeral, and per-p
 Kemmerer's shared-resource matrix coming back.
 
 ## Known holes
+- **Laundering, in both directions.** The detector matches text at the model boundary, and
+  shells and programs transform text between the boundary and the disk. `printf 'a\nb'` and
+  `$(cat f)` hide a relay (misses). A report built by a script comes back looking new (false
+  positives). Generations are also indexed with `\n`, `\t` and quote escapes decoded, which
+  recovered two missed relay hops at no cost in precision. f-strings, `cp` and `$(...)` remain open.
 - **Effect channels.** `cp`, `mv`, shell substitution: the payload never enters any model's
   context. A trusted mediator that owns the file system could propagate taint through these.
 - **Names.** Filenames are shorter than any shingle.
