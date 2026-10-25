@@ -8,7 +8,9 @@ set -u
 [ -x "$HOME/.local/rigbin/docker" ] && PATH="$HOME/.local/rigbin:$PATH" && export PATH
 [ -f .env ] || { echo "no .env in $(pwd); see .env.example" >&2; exit 1; }
 echo "docker: $(docker --version)"
+M_CLI="${MODEL:-}"           # a MODEL given on the command line wins over .env
 set -a; . ./.env; set +a
+[ -n "$M_CLI" ] && MODEL="$M_CLI"
 M="${MODEL:?set MODEL in .env, e.g. anthropic/claude-haiku-5-5}"
 [ $# -gt 0 ] || set -- 0 1 2 3 4
 C="${CONDITIONS:-isolated shared handoff message}"
