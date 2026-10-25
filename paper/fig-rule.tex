@@ -1,0 +1,39 @@
+% Figure 1: the rule, case by case. Redrawn from Draft 2's figure, plus the
+% two-origins case and the laundering miss.
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  case/.style={draw=axis, line width=0.5pt, rounded corners=3pt, minimum width=4.6cm,
+               minimum height=0.82cm, align=left, text width=4.3cm, inner xsep=6pt},
+  fire/.style={case, draw=hot, line width=1pt, fill=hot!10},
+  miss/.style={case, dashed, draw=quiet},
+  arr/.style={-{Stealth[length=4pt]}, draw=axis, line width=0.5pt},
+  res/.style={align=left, text width=4.6cm, anchor=west},
+  hd/.style={font=\footnotesize\itshape, text=quiet, anchor=west},
+]
+\def\dy{1.02}
+\node[hd] at (0,0.75) {Where the string first appeared};
+\node[hd] at (5.2,0.75) {How agent B received it};
+\node[hd] at (10.4,0.75) {Result};
+% rows: origin | read | result | style of the read box
+\foreach \i/\o/\r/\res/\st in {%
+  0/{A wrote it: a note in \texttt{shared/notes}}/{B reads \texttt{shared/notes/a.txt}}/{\textbf{\color{hot}Finding: authored}\\{\color{quiet}names A as the origin}}/fire,
+  1/{A read it from its private \texttt{records/release\_ref}}/{B reads \texttt{shared/handoff}, where A typed it}/{\textbf{\color{hot}Finding: relayed}\\{\color{quiet}names the record and A's read}}/fire,
+  2/{B wrote it itself}/{B reads its own file back}/{\textbf{No finding: same run}}/case,
+  3/{A read \texttt{repo/README}}/{B reads \texttt{repo/README} too}/{\textbf{No finding: same route}\\{\color{quiet}shared furniture, not a message}}/case,
+  4/{A and C each wrote the same boilerplate}/{B reads C's copy}/{\textbf{No finding: two origins}\\{\color{quiet}convergent, not a trace}}/case,
+  5/{\texttt{pytest} printed it in A's run}/{\texttt{pytest} prints it in B's}/{\textbf{No finding: no carrier}\\{\color{quiet}no model ever emitted it}}/case,
+  6/{A read it from its private \texttt{records/release\_ref}}/{B reads \texttt{shared/handoff}, where A \texttt{cp}'d it}/{\textbf{\color{quiet}Missed: laundering}\\{\color{quiet}no model carried it across}}/miss%
+}{
+  \pgfmathsetmacro{\y}{-\i*\dy - (\i>5 ? 0.25 : 0)}
+  \node[case, anchor=west] (o\i) at (0,\y) {\o};
+  \node[\st, anchor=west] (r\i) at (5.2,\y) {\r};
+  \node[res] (x\i) at (10.4,\y) {\res};
+  \draw[arr] (o\i.east) -- (r\i.west);
+  \draw[arr] (r\i.east) -- (x\i.west);
+}
+\draw[quiet, line width=0.3pt, dash pattern=on 1pt off 2pt] (0,{-5.5*\dy-0.12}) -- (15.5,{-5.5*\dy-0.12});
+\end{tikzpicture}
+\caption{The rule, case by case. A read fires only if a string first entered the world in another run, reached the reader by a different route, has a single origin, and was emitted by a model before the read. Each row below the first two fails exactly one of these conditions. The last row is the detector's blind spot by construction: text moved by a program never crosses a model boundary, so the carrier condition that keeps pytest banners out keeps it out too.}\label{fig:rule}
+\end{figure}

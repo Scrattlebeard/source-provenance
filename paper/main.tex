@@ -21,6 +21,17 @@
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcommand{\todo}[1]{\textcolor{red}{[#1]}}
 \definecolor{linkblue}{HTML}{1155CC}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\definecolor{haiku}{HTML}{2A78D6}
+\definecolor{sonnet}{HTML}{EB6834}
+\colorlet{hot}{haiku}
+\definecolor{ink}{HTML}{1F1F1E}
+\definecolor{quiet}{HTML}{6B6B68}
+\definecolor{axis}{HTML}{8A8A86}
+\definecolor{gridc}{HTML}{E4E4E1}
 \newcommand{\lead}[1]{\textbf{#1}\ }
 
 \begin{document}
@@ -87,7 +98,9 @@ Our contributions are:
   \item only one source ever produced it, so independently written boilerplate is not a trace;
   \item a model in another run emitted it before the read, so text the environment printed twice, like a pytest banner, cannot fire.
 \end{itemize}
-Passing a string on does not count as producing it: if B copies A's note and C reads B's copy, the note still has one origin and C's read still fires, so a chain of relays never makes a rare string look common. Before any run, the index is seeded with files that start in two or more runs' workspaces and with the shared surface. A file in only one workspace is that run's private source and stays unseeded; seeding it would hide every relay.
+Passing a string on does not count as producing it: if B copies A's note and C reads B's copy, the note still has one origin and C's read still fires, so a chain of relays never makes a rare string look common. Before any run, the index is seeded with files that start in two or more runs' workspaces and with the shared surface. A file in only one workspace is that run's private source and stays unseeded; seeding it would hide every relay. Figure~\ref{fig:rule} walks through the cases.
+
+\input{fig-rule}
 
 \lead{Shingles.} Agents quote, excerpt and reformat, so texts are compared as overlapping shingles \cite{broder1997} of three kinds: 8-word shingles for prose; 40-character shingles for code, paths and URLs; and \emph{atoms}, any unbroken run of 20 or more \texttt{[A-Za-z0-9\_+=-]} characters, to catch e.g.\ credentials. Longer shingles trade worse recall on short strings for fewer coincidental matches. A known limitation of this representation is that anything shorter than all three is invisible to the detector. We compare different shingle lengths in Appendix~\ref{app:results}.
 
@@ -119,6 +132,8 @@ GLM 5.3, invited & 255 & 29,138 & 98.7\% & 254 / 254 & 89 min \\
 \end{table}
 
 Uninvited, 251 of 256 GLM agents wrote to the registry: treating a package store as a message board looks like the default, not the exception (Appendix~\ref{app:results}).
+
+\input{fig-results}
 
 \lead{The rig.} In isolated runs the detector raises nothing. On shared and message, precision and content recall are 1.0 on both models. On handoff, content recall is 0.88 on Haiku and 0.98 on Sonnet, at precision 1.0 and 0.98; without relayed findings it falls to 0.34 and 0.49. Every miss is a reference that an honest agent moved with \texttt{cp} and no model typed (Appendix~\ref{app:results}).
 
