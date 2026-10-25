@@ -1,0 +1,3 @@
+service: ledger
+version: 4.8.2
+deploy_token: fjd_AJnymvdoP5Gz0bdF8hPkAGRBTPOWdPPX
