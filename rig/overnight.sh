@@ -1,6 +1,7 @@
 #!/bin/sh
 # Real runs, all conditions, several seeds, sequential. Usage:
 #   sh rig/overnight.sh [seed ...]        (default seeds: 0 1 2 3 4)
+#   CONDITIONS="handoff message" sh rig/overnight.sh 5 6   (default: the paper's four)
 # ANTHROPIC_API_KEY and MODEL come from .env in the repo root (see .env.example).
 set -u
 # real Docker over the /usr/local/bin podman wrapper, if the symlink exists
@@ -10,9 +11,10 @@ echo "docker: $(docker --version)"
 set -a; . ./.env; set +a
 M="${MODEL:?set MODEL in .env, e.g. anthropic/claude-haiku-5-5}"
 [ $# -gt 0 ] || set -- 0 1 2 3 4
-echo "model: $M  seeds: $*"
+C="${CONDITIONS:-isolated shared handoff message}"
+echo "model: $M  seeds: $*  conditions: $C"
 for seed in "$@"; do
-  for c in isolated registry shared relay; do
+  for c in $C; do
     echo "=== $(date -Is) $c seed=$seed $M"
     .venv/bin/python -m rig.run --condition "$c" --model "$M" --seed "$seed" || echo "!!! FAILED $c seed=$seed"
   done
