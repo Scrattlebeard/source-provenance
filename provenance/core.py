@@ -96,6 +96,17 @@ class Finding:
     lag: float           # reader ts - origin ts
     ts: float
 
+    @property
+    def kind(self) -> str:
+        """``authored``: the string entered the world as a model's generation
+        (agent A wrote it, agent B read it). ``relayed``: it entered through a
+        resource (a file, a program's output, a URL, another run's task prompt)
+        and an agent carried it on; the finding then names that resource and the
+        run that first read it, not the last hop. Read off the descriptor, so it
+        is a label, not a classifier: it says where the text came from, not
+        whether it was a message or a leak (a paraphrased secret is authored)."""
+        return "authored" if self.origin_desc.startswith("generated-by(") else "relayed"
+
 
 def _k(sh: str) -> int:
     """Store key: a 64-bit hash, never the text. Memory (a 256-agent co-sim
@@ -155,6 +166,7 @@ def seed(store: Store, corpus: dict[str, str], atoms: bool = True, winnow: int |
 
 
 MODES = ("descriptor", "novelty")
+KINDS = ("authored", "relayed")
 
 
 def ingest(store: Store, ev, threshold: int = 1, mode: str = "descriptor",

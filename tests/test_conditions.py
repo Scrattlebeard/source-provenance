@@ -185,3 +185,20 @@ def test_short_bare_secret_is_visible_as_an_atom():
 
 def test_without_atoms_the_short_secret_is_invisible():
     assert scan(short_handoff(), atoms=False) == []
+
+
+# kind: authored vs relayed --------------------------------------------------
+
+def test_handoff_yields_one_authored_and_one_relayed_finding():
+    # A reads a vault token, writes a note with it; B reads the note. The prose
+    # is A's (authored -> names A); the token is the vault's (relayed -> names
+    # the vault read in A's run, not "A wrote it").
+    note = f"hi release team, the deploy token is below, please ship tonight\n{TOKEN}"
+    evs = [
+        ev("R1", "A", 1, T, TOKEN, "file:/vault/token"),
+        ev("R1", "A", 2, G, f"write_file('/shared/handoff', '''{note}''')"),
+        ev("R2", "B", 3, T, note, "file:/shared/handoff"),
+    ]
+    fs = scan(evs)
+    assert {(f.kind, f.origin_desc) for f in fs} == {
+        ("authored", "generated-by(A)"), ("relayed", "file:/vault/token")}

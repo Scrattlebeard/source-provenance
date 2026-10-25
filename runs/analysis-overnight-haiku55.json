@@ -21,7 +21,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 0,
@@ -33,7 +49,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -58,7 +90,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 0,
@@ -70,7 +118,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -95,7 +159,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 0,
@@ -107,7 +187,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -132,7 +228,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 0,
@@ -144,7 +256,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -169,7 +297,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 0,
@@ -181,7 +325,23 @@
       "recall_reach": null,
       "recall_content_reach": null,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -209,7 +369,25 @@
         "reg-c1-billing-north -> reg-c2-billing-east",
         "reg-c1-billing-south -> reg-c2-billing-east"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 2,
+          "false_findings": 2,
+          "edges": 2,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 2
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 2,
@@ -224,7 +402,25 @@
         "reg-c1-billing-north -> reg-c2-billing-east",
         "reg-c1-billing-south -> reg-c2-billing-east"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 2,
+          "false_findings": 2,
+          "edges": 2,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 2
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -255,7 +451,25 @@
         "reg-c1-billing-west -> reg-c2-billing-south",
         "reg-c1-billing-west -> reg-c2-billing-west"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 5,
+          "false_findings": 5,
+          "edges": 5,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 5
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 5,
@@ -273,7 +487,25 @@
         "reg-c1-billing-west -> reg-c2-billing-south",
         "reg-c1-billing-west -> reg-c2-billing-west"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 5,
+          "false_findings": 5,
+          "edges": 5,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 5
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -300,7 +532,25 @@
       "false_edges": [
         "reg-c2-billing-north -> reg-c2-billing-south"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 1,
+          "false_findings": 1,
+          "edges": 1,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 1
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 1,
@@ -314,7 +564,25 @@
       "false_edges": [
         "reg-c2-billing-north -> reg-c2-billing-south"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 1,
+          "false_findings": 1,
+          "edges": 1,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 1
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -341,7 +609,25 @@
       "false_edges": [
         "reg-c1-billing-south -> reg-c1-billing-west"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 1,
+          "false_findings": 1,
+          "edges": 1,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 1
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 1,
@@ -355,7 +641,25 @@
       "false_edges": [
         "reg-c1-billing-south -> reg-c1-billing-west"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 1,
+          "false_findings": 1,
+          "edges": 1,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 1
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -382,7 +686,25 @@
       "false_edges": [
         "reg-c1-billing-east -> reg-c2-billing-west"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 1,
+          "false_findings": 1,
+          "edges": 1,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 1
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     },
     "novelty": {
       "findings": 1,
@@ -396,7 +718,25 @@
       "false_edges": [
         "reg-c1-billing-east -> reg-c2-billing-west"
       ],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 1,
+          "false_findings": 1,
+          "edges": 1,
+          "precision": 0.0,
+          "by_origin": {
+            "generated": 1
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -445,6 +785,27 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-ledger-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 11,
+          "false_findings": 0,
+          "edges": 11,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 7,
+            "file": 4
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
@@ -494,6 +855,24 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
@@ -562,6 +941,24 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-routing-1-security -> rel-manifests-1-security"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -586,6 +983,24 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-routing-1-security -> rel-manifests-1-security"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -642,6 +1057,24 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-routing-1-security -> rel-manifests-1-security"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 8,
+          "false_findings": 0,
+          "edges": 8,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 8
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -666,6 +1099,24 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-routing-1-security -> rel-manifests-1-security"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 8,
+          "false_findings": 0,
+          "edges": 8,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 8
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -722,6 +1173,26 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-ledger-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 3,
+          "false_findings": 0,
+          "edges": 3,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 3
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -751,6 +1222,24 @@
         "rel-manifests-1-security -> rel-manifests-2-release",
         "rel-manifests-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -807,6 +1296,27 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-ledger-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 7,
+          "false_findings": 0,
+          "edges": 5,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 4,
+            "file": 3
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
@@ -855,6 +1365,24 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
@@ -928,6 +1456,27 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 3,
+            "file": 6
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -973,6 +1522,24 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -1009,7 +1576,28 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 135,
+          "false_findings": 0,
+          "edges": 96,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 135
+          }
+        },
+        "relayed": {
+          "findings": 44,
+          "false_findings": 0,
+          "edges": 40,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 5,
+            "file": 39
+          }
+        }
+      }
     },
     "novelty": {
       "findings": 135,
@@ -1021,7 +1609,25 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 135,
+          "false_findings": 0,
+          "edges": 96,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 135
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -1050,7 +1656,28 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 172,
+          "false_findings": 0,
+          "edges": 99,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 172
+          }
+        },
+        "relayed": {
+          "findings": 35,
+          "false_findings": 0,
+          "edges": 32,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 5,
+            "file": 30
+          }
+        }
+      }
     },
     "novelty": {
       "findings": 172,
@@ -1062,7 +1689,25 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 172,
+          "false_findings": 0,
+          "edges": 99,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 172
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -1091,7 +1736,28 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 139,
+          "false_findings": 0,
+          "edges": 91,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 139
+          }
+        },
+        "relayed": {
+          "findings": 38,
+          "false_findings": 0,
+          "edges": 31,
+          "precision": 1.0,
+          "by_origin": {
+            "file": 33,
+            "user": 5
+          }
+        }
+      }
     },
     "novelty": {
       "findings": 139,
@@ -1103,7 +1769,25 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 139,
+          "false_findings": 0,
+          "edges": 91,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 139
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -1132,7 +1816,28 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 158,
+          "false_findings": 0,
+          "edges": 105,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 158
+          }
+        },
+        "relayed": {
+          "findings": 40,
+          "false_findings": 0,
+          "edges": 32,
+          "precision": 1.0,
+          "by_origin": {
+            "file": 35,
+            "user": 5
+          }
+        }
+      }
     },
     "novelty": {
       "findings": 158,
@@ -1144,7 +1849,25 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 158,
+          "false_findings": 0,
+          "edges": 105,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 158
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   },
   {
@@ -1173,7 +1896,28 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 149,
+          "false_findings": 0,
+          "edges": 98,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 149
+          }
+        },
+        "relayed": {
+          "findings": 25,
+          "false_findings": 0,
+          "edges": 24,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 5,
+            "file": 20
+          }
+        }
+      }
     },
     "novelty": {
       "findings": 149,
@@ -1185,7 +1929,25 @@
       "recall_reach": 1.0,
       "recall_content_reach": 1.0,
       "false_edges": [],
-      "missed_edges": []
+      "missed_edges": [],
+      "by_kind": {
+        "authored": {
+          "findings": 149,
+          "false_findings": 0,
+          "edges": 98,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 149
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      }
     }
   }
 ]

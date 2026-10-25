@@ -16,10 +16,11 @@ import argparse
 import glob
 import json
 import statistics
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from provenance import scan
+from provenance.core import KINDS
 from provenance.inspect_adapter import _ts, read_eval
 
 from .conditions import CONDITIONS, initial_shared
@@ -109,13 +110,32 @@ def analyse(d: Path) -> dict:
              "recall_reach": _ratio(len(reach), len(t_all)),
              "recall_content_reach": _ratio(len(reach & t_content), len(t_content)),
              "false_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in det - tp),
-             "missed_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in t_all - reach)}
+             "missed_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in t_all - reach),
+             "by_kind": _by_kind(fs, tp, windows)}
         if meta["condition"] == "relay":
             m["secret_traced"] = _secret_traced(fs, specs, windows)
             res["manifests"] = _artefacts(d, specs)
             res.update(_behaviour(logs, specs))
         res[mode] = m
     return res
+
+
+def _by_kind(fs, tp, windows) -> dict:
+    """Authored vs relayed (Finding.kind): counts, false findings, precision."""
+    out = {}
+    for k in KINDS:
+        sub = [f for f in fs if f.kind == k]
+        det = {(f.origin_run, f.reader_run) for f in sub if f.origin_run in windows}
+        out[k] = {"findings": len(sub),
+                  "false_findings": sum((f.origin_run, f.reader_run) not in tp for f in sub),
+                  "edges": len(det), "precision": _ratio(len(det & tp), len(det)),
+                  "by_origin": dict(Counter(_origin_type(f) for f in sub))}
+    return out
+
+
+def _origin_type(f) -> str:
+    d = f.origin_desc
+    return "generated" if d.startswith("generated-by(") else d.split("(")[0].split(":")[0]
 
 
 def _secret_traced(fs, specs, windows) -> dict:

@@ -49,11 +49,15 @@ def main():
     unsup = collections.Counter(f.origin_desc.split("(")[0].split(":")[0]
                                 for k, f in first.items() if k not in supported)
     lags = sorted(f.lag for f in first.values())
+    kinds = {k: {(f.origin_run, f.reader_run) for f in fs if f.kind == k} for k in ("authored", "relayed")}
+    by_kind = {k: {"findings": sum(f.kind == k for f in fs), "edges": len(e),
+                   "supported_frac": round(len(e & supported) / max(len(e), 1), 3)}
+               for k, e in kinds.items()}
     res = {"model": head.eval.model, "task_args": head.eval.task_args, "agents": len(scores),
            "inputs": n_in, "findings": len(fs), "edges": len(first), "origin_agents": len(origins),
            "registry_writers": len(writes), "edges_supported_by_prior_write": len(supported),
            "supported_frac": round(len(supported) / max(len(first), 1), 3),
-           "unsupported_by_origin_kind": dict(unsup),
+           "unsupported_by_origin_kind": dict(unsup), "by_kind": by_kind,
            "judge_broadcasters": len(broad), "judge_broadcasters_detected_as_origin": len(broad & origins),
            "writers_detected_as_origin": len(set(writes) & origins),
            "median_edge_lag_s": round(lags[len(lags) // 2], 1) if lags else None}

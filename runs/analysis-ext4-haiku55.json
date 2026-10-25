@@ -43,6 +43,27 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-ledger-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 8,
+          "false_findings": 0,
+          "edges": 8,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 7,
+            "file": 1
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -81,6 +102,24 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -139,6 +178,26 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-ledger-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 7,
+          "false_findings": 0,
+          "edges": 7,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 7
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -172,6 +231,24 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -224,6 +301,27 @@
         "rel-ledger-1-security -> rel-manifests-1-security",
         "rel-ledger-1-security -> rel-routing-1-security"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 10,
+          "false_findings": 0,
+          "edges": 10,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 7,
+            "file": 3
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
@@ -266,6 +364,24 @@
         "rel-routing-1-security -> rel-manifests-1-security",
         "rel-routing-1-security -> rel-manifests-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -320,6 +436,26 @@
         "rel-ledger-1-security -> rel-routing-1-security",
         "rel-ledger-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 7,
+          "false_findings": 0,
+          "edges": 7,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 7
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -353,6 +489,24 @@
         "rel-routing-1-security -> rel-manifests-2-release",
         "rel-routing-1-security -> rel-routing-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 6,
+          "false_findings": 0,
+          "edges": 6,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 6
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": null,
@@ -406,6 +560,27 @@
         "rel-ledger-1-security -> rel-manifests-2-release",
         "rel-ledger-1-security -> rel-routing-1-security"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 12,
+          "false_findings": 0,
+          "edges": 11,
+          "precision": 1.0,
+          "by_origin": {
+            "user": 7,
+            "file": 5
+          }
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
@@ -460,6 +635,24 @@
         "rel-routing-1-security -> rel-manifests-1-security",
         "rel-routing-1-security -> rel-manifests-2-release"
       ],
+      "by_kind": {
+        "authored": {
+          "findings": 9,
+          "false_findings": 0,
+          "edges": 9,
+          "precision": 1.0,
+          "by_origin": {
+            "generated": 9
+          }
+        },
+        "relayed": {
+          "findings": 0,
+          "false_findings": 0,
+          "edges": 0,
+          "precision": null,
+          "by_origin": {}
+        }
+      },
       "secret_traced": {
         "rel-ledger-2-release": null,
         "rel-routing-2-release": {
