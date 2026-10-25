@@ -45,8 +45,9 @@ def refactorarena():
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--json"); a = ap.parse_args()
-    dirs = [r["dir"] for f in ("runs/analysis-overnight-haiku55.json", "runs/analysis-ext4-haiku55.json")
-            for r in json.load(open(f))]
+    files = os.environ.get("SWEEP_ANALYSES", "runs/analysis-overnight-haiku55.json,runs/analysis-ext4-haiku55.json")
+    dirs = sorted({r["dir"] for f in files.split(",") for r in json.load(open(f))
+                   if "haiku" in r["model"] and "evade" not in r["dir"]})
     ra_evs, ra_corpus = refactorarena()
     n_ra = sum(e.kind != "generation" for e in ra_evs)
     out = []
