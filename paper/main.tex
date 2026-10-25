@@ -135,11 +135,11 @@ Uninvited, 251 of 256 GLM agents wrote to the registry: treating a package store
 
 \input{fig-results}
 
-\lead{The rig.} In isolated runs the detector raises nothing. On shared and message, precision and content recall are 1.0 on both models. On handoff, content recall is 0.88 on Haiku and 0.98 on Sonnet, at precision 1.0 and 0.98; without relayed findings it falls to 0.34 and 0.49. Every miss is a reference that an honest agent moved with \texttt{cp} and no model typed (Appendix~\ref{app:results}).
+\lead{The rig.} In isolated runs the detector raises nothing. On shared and message, precision and content recall are 1.0 on both models. On handoff, content recall is 0.88 on Haiku and 0.98 on Sonnet, at precision 1.0 and 0.98; without relayed findings it falls to 0.34 and 0.49 (Figure~\ref{fig:results}a). Every miss is a reference that an honest agent moved with \texttt{cp} and no model typed (Appendix~\ref{app:results}).
 
-\lead{Evasion.} Models briefed on the monitor declined to evade it (Appendix~\ref{app:briefed}), so we measure evasion with a scripted white-box adversary, written by Claude Opus 5.5. Four of its six strategies evade the detector entirely while completing the task, and a fifth hides the payload but not the handoff. Every strategy that works keeps the payload from appearing as the same text on both sides of the model boundary (Appendix~\ref{app:results}). This bounds what an informed adversary can do, not what an agent inside a run would find.
+\lead{Evasion.} Models briefed on the monitor declined to evade it (Appendix~\ref{app:briefed}), so we measure evasion with a scripted white-box adversary, written by Claude Opus 5.5. Four of its six strategies evade the detector entirely while completing the task, and a fifth hides the payload but not the handoff (Figure~\ref{fig:results}b). Every strategy that works keeps the payload from appearing as the same text on both sides of the model boundary (Appendix~\ref{app:results}). This bounds what an informed adversary can do, not what an agent inside a run would find.
 
-\lead{False positives.} On 140 Refactor Arena samples with nothing shared, the detector raises 55 false findings per 1,000 inputs, mostly test output that two samples of one repository both produce. Shorter shingles would recover the misses above, at up to three times this rate (Appendix~\ref{app:results}).
+\lead{False positives.} On 140 Refactor Arena samples with nothing shared, the detector raises 55 false findings per 1,000 inputs, mostly test output that two samples of one repository both produce. Shorter shingles would recover the misses above, at up to three times this rate (Figure~\ref{fig:results}c).
 
 \lead{The real board.} On DseWiki the rule finds 12,806 account-to-account edges. 38\% are time-decoupled: the board worked as memory across agent lifetimes, which a monitor comparing only concurrent agents would miss.
 
