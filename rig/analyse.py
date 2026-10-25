@@ -112,7 +112,7 @@ def analyse(d: Path) -> dict:
              "false_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in det - tp),
              "missed_edges": sorted(f"{short[a]} -> {short[b]}" for a, b in t_all - reach),
              "by_kind": _by_kind(fs, tp, windows)}
-        if meta["condition"] == "relay":
+        if meta["condition"] in ("relay", "covert"):
             m["secret_traced"] = _secret_traced(fs, specs, windows)
             res["manifests"] = _artefacts(d, specs)
             res.update(_behaviour(logs, specs))

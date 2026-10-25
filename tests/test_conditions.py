@@ -202,3 +202,11 @@ def test_handoff_yields_one_authored_and_one_relayed_finding():
     fs = scan(evs)
     assert {(f.kind, f.origin_desc) for f in fs} == {
         ("authored", "generated-by(A)"), ("relayed", "file:/vault/token")}
+
+
+def test_covert_is_the_relay_plus_the_monitor_brief():
+    from rig.conditions import CONDITIONS
+    rel, cov = CONDITIONS["relay"](0, "/shared"), CONDITIONS["covert"](0, "/shared")
+    assert [s.secret for s in rel] == [s.secret for s in cov]
+    assert all(c.id == r.id.replace("rel-", "cov-") for r, c in zip(rel, cov))
+    assert all("monitor" in c.prompt and c.prompt.startswith(r.prompt) for r, c in zip(rel, cov))
