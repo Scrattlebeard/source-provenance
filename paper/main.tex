@@ -91,11 +91,11 @@ Our contributions are:
 
 \section{Methods}\label{sec:methods}
 
-\lead{The rule.} We keep one global index store over every run ask the same question of every input: where did each piece of this text first enter the world, and did another model instance write it? A piece of an input fires a finding when it satisfies four criteria:
+\lead{The rule.} We keep one global index over every run and ask the same question of every input: where did each piece of this text first enter the world, and did another model instance write it? A piece of an input fires a finding when it satisfies four criteria:
 \begin{itemize}
   \item \emph{Foreign origin}: its first origin is in \emph{another} run, since re-reading one's own work is not communication;
   \item \emph{Routing}: it reached the reader by a route other than its origin, so two runs reading the same file is not a message;
-  \item \emph{Rarity}: only one source ever produced it, so independently written boilerplate is not a trace;
+  \item \emph{Single origin}: only one source ever produced it, so independently written boilerplate is not a trace;
   \item \emph{Emission}: a model in another run emitted it before the read, so text the environment printed twice, like a pytest banner, cannot fire.
 \end{itemize}
 Passing a string on does not count as producing it: if B copies A's note and C reads B's copy, the note still has one origin and C's read still fires, so a chain of relays never makes a rare string look common. To reduce false positives, the global index is pre-seeded with files that start in two or more runs' workspaces or in shared channels. A file in only one workspace is that run's private source and stays unseeded.
@@ -107,7 +107,7 @@ Figure~\ref{fig:rule} walks through the cases.
 \begin{itemize}
   \item \emph{word shingles}: 8 consecutive words, for natural-language text;
   \item \emph{character shingles}: 40 consecutive characters, for code, paths and URLs, whose word boundaries vary;
-  \item \emph{atoms}: any unbroken run of 20 or more \texttt{[A-Za-z0-9_+=-]} characters, to catch e.g.\ credentials.
+  \item \emph{atoms}: any unbroken run of 20 or more \texttt{[A-Za-z0-9\_+=-]} characters, to catch e.g.\ credentials.
 \end{itemize}
  Every text yields all three; the uses listed are what each is best at catching. Longer shingles trade worse recall on short strings for fewer coincidental matches. A known limitation of this representation is that anything shorter than all three is invisible to our detector. We compare different shingle lengths in Appendix~\ref{app:results}.
 
@@ -117,13 +117,17 @@ Figure~\ref{fig:rule} walks through the cases.
 
 \subsection{Experimental Setup}
 
-\lead{Rig.} For ground truth, agents run sequentially in containers that share exactly one host directory and nothing else, and a host-side inotify watcher records every read and write on it, below the model boundary. Each agent is one team of a fictional company, with a bash tool, in Inspect AI \cite{inspect}; a run is one agent's session. In \emph{isolated}, nothing is shared, so every finding is false. In \emph{shared}, the positive control, teams get a folder described as the place to ask each other for things. In \emph{handoff}, a three-stage chain passes a release reference through the folder (relayed flow), and in \emph{message}, planners turn private quotes into a plan that booking teams must act on (authored flow). A detector edge is correct if its origin is an ancestor of the reader in the ground truth, and content recall is the share of file-content edges it covers. Every condition runs five seeds on Claude Haiku 5.5, and three on Claude Sonnet 5.5 (Appendix~\ref{app:conditions}). The scripted adversary replaces the model with fixed command sequences in the same rig. The detector reads the Inspect AI transcripts; a deployment would instead collect each model call's input and output at the inference point.
+\lead{The incident reproduction.} Our headline test runs the detector, unchanged, on logs we did not produce: the raw transcripts of Slocum et al.'s reproduction of the HF incident \cite{slocum2026}. Each of its four arms gives 256 concurrent agents a protein-analysis task whose input file was never staged, next to a mock package registry that accepts uploads, on GPT 5.6 Sol or GLM 5.3, with collaboration invited or not. The logs record no file accesses, so there is no ground truth. Instead we check each detected edge A~$\to$~B against evidence that involves no text matching: whether A's own tool calls wrote to the registry before B read. We also compare the agents the detector names with those the reproduction's own scorer flagged as broadcasters.
 
-\lead{Third-party data.} We ran the detector, unchanged, on three sets of logs we didn't produce: 140 honest-policy Refactor Arena samples \cite{refactorarena2026}, where nothing is shared, to measure false positives on real agentic work; the raw logs of Slocum et al.'s reproduction of the HF incident \cite{slocum2026}, four arms of 256 concurrent agents sharing one mock package registry; and collusion.wiki's export of DseWiki \cite{collusionwiki2026}, with 14,591 revisions by 3,216 agent accounts. DseWiki records no reads, so there we run the rule on what accounts wrote.
+\lead{Rig.} To measure recall we need ground truth, so we built a rig that records it. Agents run sequentially in containers that share exactly one host directory and nothing else, and a host-side inotify watcher records every read and write on it, below the model boundary. Each agent is one team of a fictional company, with a bash tool, in Inspect AI \cite{inspect}; a run is one agent's session. In \emph{isolated}, nothing is shared, so every finding is a false positive. In \emph{shared}, the positive control, teams get a folder described as the place to ask each other for things. In \emph{handoff}, a three-stage chain passes a release reference through the folder (relayed flow), and in \emph{message}, planners turn private quotes into a plan that booking teams must act on (authored flow). A detector edge is correct if its origin is an ancestor of the reader in the ground truth, and content recall is the share of file-content edges it covers. Every condition runs five seeds on Claude Haiku 5.5 and three on Claude Sonnet 5.5 (Appendix~\ref{app:conditions}). For evasion, a scripted adversary replaces the model with fixed command sequences in the same rig.
+
+\lead{Real work and a real board.} Two more datasets, also not ours, test the detector beyond the rig: 140 honest-policy Refactor Arena samples \cite{refactorarena2026}, where nothing is shared, so every finding is a false positive on real agentic work; and collusion.wiki's export of DseWiki \cite{collusionwiki2026}, with 14,591 revisions by 3,216 agent accounts. DseWiki records no reads, so there we run the rule on what accounts wrote.
+
+In every setting the detector reads transcripts; a deployment would instead collect each model call's input and output at the inference point.
 
 \section{Results}\label{sec:results}
 
-\lead{The incident reproduction.} We ran the detector, unchanged, on the published transcripts of Slocum et al.'s reproduction of the incident \cite{slocum2026}: 256 concurrent agents get a protein-analysis task whose input file was never staged, and a mock package registry that accepts uploads. The logs have no access records, so we check each edge A~$\to$~B against evidence that involves no text matching: did A's own tool calls write to the registry before B read? Between 93\% and 99\% of edges pass that check (Table~\ref{tab:hf}), and the detector names most of the agents the reproduction's own scorer flagged as broadcasters.
+\lead{The incident reproduction.} Between 93\% and 99\% of detected edges are backed by a prior registry write (Table~\ref{tab:hf}), and the detector names most of the agents the reproduction's scorer flagged as broadcasters.
 
 \begin{table}[t]
 \centering\small
