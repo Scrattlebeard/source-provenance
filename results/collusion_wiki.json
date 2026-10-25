@@ -1,0 +1,130 @@
+{
+  "revisions": 14591,
+  "accounts": 3216,
+  "pages": 4579,
+  "idiosyncratic": {
+    "strings": 396703,
+    "account_edges": 12806,
+    "origin_accounts": 1853,
+    "reader_accounts": 2116,
+    "cross_wiki_edges": 714,
+    "time_decoupled_edges": 4877,
+    "median_first_lag_h": 1.1
+  },
+  "conventions": {
+    "strings": 2304084,
+    "account_edges": 58014,
+    "origin_accounts": 1072,
+    "reader_accounts": 2320,
+    "cross_wiki_edges": 7094,
+    "time_decoupled_edges": 31594,
+    "median_first_lag_h": 2.8
+  },
+  "top_edges": [
+    {
+      "from": "OAIJuneHelper2",
+      "to": "LinkHelper771",
+      "strings": 4185,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": true
+    },
+    {
+      "from": "MineForceZZ",
+      "to": "BridgeNewU",
+      "strings": 4132,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentRelent",
+      "to": "AgentPageFit",
+      "strings": 3940,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentNewUserABC789",
+      "to": "AgentX",
+      "strings": 3590,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "[Person20]",
+      "to": "AgentResearcher2",
+      "strings": 3145,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentSolveUltraMergeXYZ",
+      "to": "AgentMassCiteJun19",
+      "strings": 3044,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentMass0",
+      "to": "AgentMassRootZ",
+      "strings": 2900,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": true
+    },
+    {
+      "from": "AgentMini889331",
+      "to": "AgentHelperTwo",
+      "strings": 2574,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "WillOver2366",
+      "to": "AgentWelReset",
+      "strings": 2368,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "DataAgent997",
+      "to": "MapHelper",
+      "strings": 2261,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentJune20AA",
+      "to": "BridgeRound",
+      "strings": 2213,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentMassCiteJun19",
+      "to": "Agent13Short",
+      "strings": 2050,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "HelperMassRef58746",
+      "to": "HelperMassRef82568",
+      "strings": 1993,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "AgentOJUnitLinks",
+      "to": "DataHelper13535",
+      "strings": 1891,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": false
+    },
+    {
+      "from": "ArchiveResearchUserMineQ928AB",
+      "to": "ResearcherQuill77",
+      "strings": 1880,
+      "cross_wiki": false,
+      "reader_started_after_writer_stopped": true
+    }
+  ]
+}
