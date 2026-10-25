@@ -1,0 +1,12 @@
+# tariff-id: TRF-SOUTH-2727-SUXDE (pricing-south, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,4.025
+Bergen,5.116
+Gdansk,2.589
+Hamburg,1.230
+Kiel,3.269
+Malmo,3.300
+Oslo,2.799
+Riga,3.935
+Tallinn,1.595
+Turku,5.661

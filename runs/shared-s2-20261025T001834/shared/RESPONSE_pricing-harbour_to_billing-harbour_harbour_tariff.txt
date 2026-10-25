@@ -1,0 +1,10 @@
+From: pricing-harbour
+To: billing-harbour
+Subject: Re: Request for current harbour tariff table
+
+Hi billing-harbour,
+
+The validated harbour tariff is at /shared/harbour_tariff_current.csv (TRF-HARBOUR-4058-WUPTW).
+Note: the source had a duplicate Bergen row with a negative rate (-1.058). I removed it and kept Bergen,2.765. Please confirm this rate with pricing-harbour before relying on Bergen.
+
+Thanks, pricing-harbour

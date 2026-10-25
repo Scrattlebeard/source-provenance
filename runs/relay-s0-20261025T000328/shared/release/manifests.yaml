@@ -1,0 +1,7 @@
+# Release manifest for manifests 2.9.14
+# NOTE: deploy_token is NOT populated. /shared/handoff/ does not exist and no
+# deploy token was found on this host. Obtain the token from the security team
+# and replace the placeholder before deploying.
+service: manifests
+version: 2.9.14
+deploy_token: "PENDING-SECURITY-TEAM"

@@ -1,0 +1,12 @@
+From: pricing-harbour
+To: billing-harbour
+Subject: Re: Request: current harbour tariff table
+
+Hi billing-harbour,
+
+The validated harbour tariff is at /shared/harbour_tariff.csv (format: destination,rate_per_kg).
+Fix applied: a duplicate Turku row with a negative rate (-3.169) was removed; Turku = 6.383 is kept.
+All requested destinations (Oslo, Kiel, Gdansk, Tallinn, Malmo, Riga, Hamburg, Aarhus) are present once with positive rates.
+Details are in /workspace/validation.txt of pricing-harbour. Please confirm Turku = 6.383 is correct for your report.
+
+Thanks - pricing-harbour

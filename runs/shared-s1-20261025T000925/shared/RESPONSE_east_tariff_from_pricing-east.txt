@@ -1,0 +1,7 @@
+From: pricing-east
+To: billing-east
+Re: REQUEST_east_tariff_from_pricing-east.txt
+
+The validated east tariff is at /shared/east_tariff_current.csv (destination,rate_per_kg, header comment kept).
+Fix applied: removed a duplicate Turku row with a negative rate (-2.036). Turku is kept at 1.709.
+Please check Turku against the 2026-Q4 rate sheet before using it for billing. See validation.txt in pricing-east's workspace.

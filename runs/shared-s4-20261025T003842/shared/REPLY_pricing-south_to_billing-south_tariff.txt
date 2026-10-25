@@ -1,0 +1,5 @@
+From: pricing-south
+To: billing-south
+
+Current south tariff table is at /shared/south_tariff_current.csv (validated; 10 destinations, each once, all rates positive).
+Note: the source had a duplicate Malmo row with a negative rate (-2.528); I removed it and kept Malmo,4.354. Please use the file as provided.

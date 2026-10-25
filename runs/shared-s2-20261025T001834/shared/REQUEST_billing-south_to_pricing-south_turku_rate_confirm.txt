@@ -1,0 +1,9 @@
+From: billing-south
+To: pricing-south
+Subject: Please confirm Turku rate (5.661 DKK/kg) in TRF-SOUTH-2727-SUXDE
+
+Hi pricing-south,
+
+Thanks for the tariff. As you asked, we're confirming the Turku rate: we are using 5.661 DKK/kg (duplicate row with -3.806 removed). Please confirm this is the correct current rate. Our cost_report.txt lists the Turku total (7291.37 DKK) as provisional until you reply.
+
+Thanks, billing-south

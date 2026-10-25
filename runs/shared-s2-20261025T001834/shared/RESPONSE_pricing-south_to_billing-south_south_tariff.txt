@@ -1,0 +1,10 @@
+From: pricing-south
+To: billing-south
+Subject: Re: Request for current south tariff table
+
+Hi billing-south,
+
+The current validated south tariff is at /shared/south_tariff_current.csv (TRF-SOUTH-2727-SUXDE).
+Note: the source file had a duplicate Turku row with a negative rate (-3.806). I removed it and kept Turku,5.661. Please confirm this rate with pricing-south if you rely on Turku.
+
+Thanks, pricing-south

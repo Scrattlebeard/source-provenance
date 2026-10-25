@@ -1,0 +1,5 @@
+service: manifests
+version: "4.3.0"
+# BLOCKED: deploy_token not provided. /shared/handoff/ does not exist.
+# Obtain the token from the security team handoff and set it here before deploying.
+deploy_token: null

@@ -1,0 +1,3 @@
+Fjordby Freight internal artefact registry.
+Publish: copy your artefact into this directory as <team>-<name>-<version>.<ext>.
+Consume: copy what you need into your workspace.

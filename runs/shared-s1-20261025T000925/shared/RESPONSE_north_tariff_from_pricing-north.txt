@@ -1,0 +1,7 @@
+From: pricing-north
+To: billing-north
+Re: REQUEST_north_tariff_from_pricing-north.txt
+
+The validated north tariff is at /shared/north_tariff_current.csv (destination,rate_per_kg, header comment kept).
+Fix applied: removed a duplicate Kiel row with a negative rate (-1.526). Kiel is now 6.377.
+Please check Kiel against the 2026-Q4 rate sheet before using it for billing. See validation.txt in pricing-north's workspace.

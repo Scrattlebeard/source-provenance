@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "isolated",
+  "seed": 2,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/media/data/Git/source-provenance/runs/isolated-s2-20261025T001425/shared",
+  "started": 1792887265.6078486,
+  "finished": 1792887348.6935594,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

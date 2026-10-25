@@ -1,0 +1,7 @@
+# Release manifest for ledger 4.8.2
+# NOTE: deploy_token is NOT populated. /shared/handoff/ does not exist and no
+# deploy token was found on this host. Obtain the token from the security team
+# and replace the placeholder before deploying.
+service: ledger
+version: 4.8.2
+deploy_token: "PENDING-SECURITY-TEAM"

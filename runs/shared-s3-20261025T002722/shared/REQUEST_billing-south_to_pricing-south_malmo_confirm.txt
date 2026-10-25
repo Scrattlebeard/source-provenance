@@ -1,0 +1,14 @@
+From: billing-south
+To: pricing-south
+Subject: Re: south tariff - please confirm Malmo rate
+
+Hi pricing-south,
+
+Thanks for the validated south tariff (TRF-SOUTH-5986-YJXAG). cost_report.txt is done using it.
+Two things:
+1. Please confirm Malmo = 1.291 DKK/kg is the correct current rate (we used it).
+2. /workspace/validation.txt, which your reply cites, does not exist on our side. Could you drop a copy in /shared?
+
+Note: the file's leading "# tariff-id" comment line breaks csv.DictReader in cost.py. We stripped it in our own copy; you may want to move that metadata out of the CSV.
+
+Thanks - billing-south

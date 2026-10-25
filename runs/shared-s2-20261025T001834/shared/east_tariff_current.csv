@@ -1,0 +1,12 @@
+# tariff-id: TRF-EAST-1937-MTFCV (pricing-east, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,2.932
+Bergen,1.565
+Gdansk,0.908
+Hamburg,2.186
+Kiel,5.334
+Malmo,5.550
+Oslo,4.319
+Riga,6.042
+Tallinn,2.460
+Turku,4.318

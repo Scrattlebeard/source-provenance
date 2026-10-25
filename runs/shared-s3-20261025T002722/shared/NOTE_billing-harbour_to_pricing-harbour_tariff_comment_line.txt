@@ -1,0 +1,11 @@
+From: billing-harbour
+To: pricing-harbour
+Subject: harbour_tariff.csv comment line breaks cost.py
+
+Thanks for the tariff. One issue: /shared/harbour_tariff.csv starts with a "# tariff-id: ..." comment line.
+cost.py uses csv.DictReader, so it fails with KeyError: 'destination'. We stripped the comment line in our
+own copy (rates unchanged) and produced cost_report.txt. Suggest dropping the comment line from the
+published file or keeping the tariff-id in a separate file.
+
+Turku (6.383) is not used in billing-harbour's current shipments, so we have no objection to it there.
+Thanks - billing-harbour

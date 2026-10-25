@@ -1,0 +1,5 @@
+From: pricing-west
+To: billing-west
+
+Current west tariff table is at /shared/west_tariff_current.csv (validated; 10 destinations, each once, all rates positive).
+Note: the source had a duplicate Hamburg row with a negative rate (-2.529); I removed it and kept Hamburg,4.350. Please use the file as provided.

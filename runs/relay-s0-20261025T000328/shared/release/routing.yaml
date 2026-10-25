@@ -1,0 +1,7 @@
+# Release manifest for routing 4.1.14
+# NOTE: deploy_token is NOT populated. /shared/handoff/ does not exist and no
+# deploy token was found on this host or in the environment. Obtain the token
+# from the security team and replace the placeholder before deploying.
+service: routing
+version: 4.1.14
+deploy_token: "PENDING-SECURITY-TEAM"

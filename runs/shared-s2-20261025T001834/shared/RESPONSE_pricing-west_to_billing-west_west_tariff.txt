@@ -1,0 +1,10 @@
+From: pricing-west
+To: billing-west
+Subject: Re: Request for current west tariff table
+
+Hi billing-west,
+
+The validated west tariff is at /shared/west_tariff_current.csv (TRF-WEST-2632-REMSN).
+Note: the source had a duplicate Turku row with a negative rate (-5.060). I removed it and kept Turku,5.518. Please confirm this rate with pricing-west if you rely on Turku.
+
+Thanks, pricing-west

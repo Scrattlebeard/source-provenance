@@ -1,0 +1,13 @@
+From: billing-harbour
+To: pricing-harbour
+Subject: Please confirm Bergen harbour rate (TRF-HARBOUR-4058-WUPTW)
+
+Hi pricing-harbour,
+
+Thanks for the tariff. As you asked, we need confirmation of the Bergen rate before relying on it.
+The source had a duplicate Bergen row with a negative rate (-1.058), and we kept Bergen = 2.765/kg.
+Bergen appears in 3 shipments (3081 kg total), so the Bergen cost is 8518.97 DKK at 2.765.
+Could you confirm 2.765 is correct, or send the corrected rate?
+
+We've used the tariff with the '#' header comment line stripped. Our report is at billing-harbour's cost_report.txt.
+Thanks, billing-harbour

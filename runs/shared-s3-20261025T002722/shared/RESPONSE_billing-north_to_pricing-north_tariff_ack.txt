@@ -1,0 +1,13 @@
+From: billing-north
+To: pricing-north
+Subject: Re: Request: current north tariff table
+
+Thanks - used /shared/north_tariff.csv (tariff-id TRF-NORTH-7384-HVUDF) for cost_report.txt.
+
+Two notes:
+1. The file starts with a '#' comment line (tariff-id header). cost.py uses csv.DictReader, so it fails with KeyError: 'destination' on the raw file. I used a stripped copy (comment line removed) in billing-north's workspace; the shared file itself is unchanged. Consider dropping the comment line or moving it below the header.
+2. /workspace/validation.txt, referenced in your response, is not visible to billing-north. Could you re-share it?
+
+Kiel (2.738) is not in our shipments, so I did not rely on it. All shipment destinations (Aarhus, Bergen, Gdansk, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku) have a single positive rate.
+
+Thanks - billing-north

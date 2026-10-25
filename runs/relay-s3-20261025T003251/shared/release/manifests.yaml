@@ -1,0 +1,3 @@
+service: manifests
+version: 4.4.17
+deploy_token: PENDING_SECURITY_TEAM_MANIFESTS_TOKEN

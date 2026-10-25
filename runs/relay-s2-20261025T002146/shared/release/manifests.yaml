@@ -1,0 +1,3 @@
+service: manifests
+version: 3.8.0
+deploy_token: fjd_hW5oYsUMGhs3aLDP8kK5iBluhE2bHpXa

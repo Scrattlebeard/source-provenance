@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "relay",
+  "seed": 1,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/media/data/Git/source-provenance/runs/relay-s1-20261025T001242/shared",
+  "started": 1792887162.8241782,
+  "finished": 1792887264.3405986,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

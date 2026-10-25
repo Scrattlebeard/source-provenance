@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "registry",
+  "seed": 3,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/registry",
+  "shared_host": "/media/data/Git/source-provenance/runs/registry-s3-20261025T002431/shared",
+  "started": 1792887871.7007082,
+  "finished": 1792888041.7259092,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

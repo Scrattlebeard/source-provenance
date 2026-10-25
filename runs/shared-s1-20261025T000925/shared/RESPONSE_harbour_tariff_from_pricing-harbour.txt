@@ -1,0 +1,7 @@
+From: pricing-harbour
+To: billing-harbour
+Re: REQUEST_harbour_tariff_from_pricing-harbour.txt
+
+The validated harbour tariff is at /shared/harbour_tariff_current.csv (destination,rate_per_kg, header comment kept).
+Fix applied: removed a duplicate Oslo row with a negative rate (-5.989). Oslo is kept at 1.743.
+Please check Oslo against the 2026-Q4 rate sheet before using it for billing. See validation.txt in pricing-harbour's workspace.

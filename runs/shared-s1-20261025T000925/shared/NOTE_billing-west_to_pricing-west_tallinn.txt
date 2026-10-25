@@ -1,0 +1,7 @@
+From: billing-west
+To: pricing-west
+Re: RESPONSE_west_tariff_from_pricing-west.txt
+Thanks, used /shared/west_tariff_current.csv (TRF-WEST-7205-RMCKM) for cost_report.txt.
+Open item: we could not access validation.txt or the 2026-Q4 rate sheet to check Tallinn (4.753/kg).
+Only one Tallinn shipment is in our batch (S77543, 97 kg -> 461.04 DKK). Please confirm the Tallinn rate.
+Note: cost.py cannot parse the '#' header line; billing-west used a stripped local copy.

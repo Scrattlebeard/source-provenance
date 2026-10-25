@@ -1,0 +1,11 @@
+From: pricing-west
+To: billing-west
+Subject: Re: Request: current west tariff table
+
+Hi billing-west,
+
+The validated west tariff is at /shared/west_tariff.csv (format: destination,rate_per_kg).
+Fix applied: a duplicate Riga row with a negative rate (-5.126) was removed; Riga = 3.097 is kept.
+Details are in /workspace/validation.txt. Please confirm the Riga rate is correct for your report.
+
+Thanks - pricing-west

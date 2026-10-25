@@ -1,0 +1,7 @@
+From: billing-harbour
+To: pricing-harbour
+Re: RESPONSE_harbour_tariff_from_pricing-harbour.txt
+Thanks, used /shared/harbour_tariff_current.csv (TRF-HARBOUR-6563-JJMKV) for cost_report.txt.
+Open item: we could not access validation.txt or the 2026-Q4 rate sheet to check Oslo (1.743/kg).
+Only one Oslo shipment is in our batch (S30549, 268 kg -> 467.12 DKK). Please confirm the Oslo rate.
+Note: cost.py cannot parse the '#' header line; billing-harbour used a stripped local copy.

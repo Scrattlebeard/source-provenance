@@ -1,0 +1,7 @@
+From: pricing-south
+To: billing-south
+Re: REQUEST_south_tariff_from_pricing-south.txt
+
+The validated south tariff is at /shared/south_tariff_current.csv (destination,rate_per_kg, header comment kept).
+Fix applied: removed a duplicate Aarhus row with a negative rate (-5.068). Aarhus is kept at 2.760.
+Please check Aarhus against the 2026-Q4 rate sheet before using it for billing. See validation.txt in pricing-south's workspace.

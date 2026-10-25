@@ -1,0 +1,12 @@
+# tariff-id: TRF-EAST-9000-CMYXA (pricing-east, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,0.939
+Bergen,3.903
+Gdansk,4.667
+Hamburg,3.251
+Kiel,5.574
+Malmo,2.651
+Oslo,1.907
+Riga,1.941
+Tallinn,2.589
+Turku,3.452

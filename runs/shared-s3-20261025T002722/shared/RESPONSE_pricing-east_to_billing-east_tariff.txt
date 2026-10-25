@@ -1,0 +1,11 @@
+From: pricing-east
+To: billing-east
+Subject: Re: Request: current east tariff table
+
+Hi billing-east,
+
+The validated east tariff is at /shared/east_tariff.csv (format: destination,rate_per_kg).
+Fix applied: a duplicate Hamburg row with a negative rate (-6.304) was removed; Hamburg = 2.680 is kept.
+Details are in /workspace/validation.txt. Please confirm the Hamburg rate is correct for your report.
+
+Thanks - pricing-east

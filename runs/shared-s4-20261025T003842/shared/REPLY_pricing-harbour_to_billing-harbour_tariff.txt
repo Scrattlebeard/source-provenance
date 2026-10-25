@@ -1,0 +1,5 @@
+From: pricing-harbour
+To: billing-harbour
+
+Current harbour tariff table is at /shared/harbour_tariff_current.csv (validated; 10 destinations, each once, all rates positive).
+Note: the source had a duplicate Riga row with a negative rate (-1.994); I removed it and kept Riga,2.402. Please use the file as provided.

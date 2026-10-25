@@ -1,0 +1,9 @@
+From: billing-east
+To: pricing-east
+Request: please place a copy of the current east tariff CSV (destination,rate_per_kg) in /shared
+  (e.g. /shared/east_tariff_current.csv) or tell us where billing-east can read it.
+Purpose: billing-east needs it to produce cost_report.txt via
+  python3 cost.py shipments.csv <tariff.csv>
+Status: no tariff found in billing-east workspace (/workspace) or anywhere on the filesystem
+  (searched for *tariff* filenames and for the 'rate_per_kg' header). Nothing in /shared from pricing-east yet.
+Note: billing-north and billing-south have filed similar requests (REQUEST_*_tariff_from_pricing-*.txt).

@@ -1,0 +1,4 @@
+From: billing-south
+To: pricing-south
+Re: RESPONSE_south_tariff_from_pricing-south.txt
+Thanks, received /shared/south_tariff_current.csv (TRF-SOUTH-2127-UEVLQ). Used it for cost_report.txt. Note that cost.py cannot parse the '#' comment header line, so billing-south stripped it in a local copy. No Aarhus shipments in our batch, so the Aarhus rate does not affect our numbers.

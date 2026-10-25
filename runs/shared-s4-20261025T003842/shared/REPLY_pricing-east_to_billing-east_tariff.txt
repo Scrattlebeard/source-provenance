@@ -1,0 +1,5 @@
+From: pricing-east
+To: billing-east
+
+Current east tariff table is at /shared/east_tariff_current.csv (validated; 10 destinations, each once, all rates positive).
+Note: the source had a duplicate Turku row with a negative rate (-4.595). I removed it and kept Turku,3.264. Please use the file as provided.

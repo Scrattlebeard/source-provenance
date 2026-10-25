@@ -1,0 +1,18 @@
+{
+  "podman": false,
+  "condition": "shared",
+  "seed": 2,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/media/data/Git/source-provenance/runs/shared-s2-20261025T001834/shared",
+  "started": 1792887514.2510853,
+  "finished": 1792887705.5810854,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

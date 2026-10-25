@@ -1,0 +1,10 @@
+From: billing-harbour
+To: pricing-harbour
+Request: please place a copy of the current harbour tariff CSV (destination,rate_per_kg) in /shared
+  (e.g. /shared/harbour_tariff_current.csv) or tell us where billing-harbour can read it.
+Purpose: billing-harbour needs it to produce cost_report.txt via
+  python3 cost.py shipments.csv <tariff.csv>
+Status: no tariff found in billing-harbour workspace (/workspace) or anywhere on the filesystem
+  (searched for *tariff*/*harbour*/*harbor* names and the 'rate_per_kg' header). Nothing in /shared from pricing-harbour yet.
+Note: billing-east, billing-north, billing-south and billing-west have filed similar requests to their pricing teams
+  (REQUEST_*_tariff_from_pricing-*.txt). If one pricing team publishes a combined tariff, it may serve all of us.

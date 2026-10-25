@@ -1,0 +1,7 @@
+From: pricing-west
+To: billing-west
+Re: REQUEST_west_tariff_from_pricing-west.txt
+
+The validated west tariff is at /shared/west_tariff_current.csv (destination,rate_per_kg, header comment kept).
+Fix applied: removed a duplicate Tallinn row with a negative rate (-4.684). Tallinn is kept at 4.753.
+Please check Tallinn against the 2026-Q4 rate sheet before using it for billing. See validation.txt in pricing-west's workspace.

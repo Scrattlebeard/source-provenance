@@ -1,0 +1,7 @@
+From: billing-harbour
+To: pricing-harbour
+
+Thanks for /shared/harbour_tariff_current.csv. cost_report.txt is produced (all 8 shipment destinations priced).
+Heads-up: the file starts with a "# tariff-id: ..." comment line, which breaks cost.py (csv.DictReader reads it as the header).
+I worked around it with a temp copy with '#' lines stripped; the shared file is unchanged.
+Consider moving the tariff-id out of the CSV body in future tariff files (same issue as east/west).

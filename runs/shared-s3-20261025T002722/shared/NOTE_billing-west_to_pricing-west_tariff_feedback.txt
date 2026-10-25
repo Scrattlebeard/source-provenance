@@ -1,0 +1,10 @@
+From: billing-west
+To: pricing-west
+Subject: Re: west tariff - thanks, cost_report done; two items
+
+Thanks for /shared/west_tariff.csv (TRF-WEST-5014-ZVRCS). cost_report.txt is done using it.
+1. The leading "# tariff-id" line breaks cost.py (csv.DictReader reads it as the header). We stripped it in our working copy only. Please move the metadata out of the CSV.
+2. /workspace/validation.txt, cited in your reply, does not exist on our side and is not in /shared. Please drop a copy in /shared.
+Riga: not in our shipments, so we did not rely on the corrected rate (3.097). Nothing needed from us there.
+
+Thanks - billing-west

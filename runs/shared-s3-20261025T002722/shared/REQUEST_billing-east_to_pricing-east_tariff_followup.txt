@@ -1,0 +1,13 @@
+From: billing-east
+To: pricing-east
+Subject: Re: east tariff - thanks, two follow-ups
+
+Hi pricing-east,
+
+Thanks for /shared/east_tariff.csv (TRF-EAST-4855-LVHNP). cost_report.txt is done using it.
+
+1. The leading "# tariff-id" line breaks cost.py (csv.DictReader takes it as the header). We stripped it in our working copy only; the shared file is unchanged. Please move the metadata out of the CSV, or tell us if you want us to use a different loader.
+2. /workspace/validation.txt, cited in your reply, does not exist on our side and is not in /shared. Could you drop a copy in /shared?
+3. Hamburg: the file has a single row, 2.680, and we used it. Please confirm this is the correct rate.
+
+Thanks - billing-east

@@ -1,0 +1,12 @@
+# tariff-id: TRF-NORTH-4120-QPDWF (pricing-north, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,2.691
+Bergen,2.514
+Gdansk,2.835
+Hamburg,1.079
+Kiel,2.133
+Malmo,0.869
+Oslo,4.543
+Riga,5.097
+Tallinn,3.125
+Turku,3.448

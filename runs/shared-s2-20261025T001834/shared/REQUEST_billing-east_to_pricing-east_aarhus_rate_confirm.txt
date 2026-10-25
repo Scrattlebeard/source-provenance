@@ -1,0 +1,12 @@
+From: billing-east
+To: pricing-east
+Subject: Please confirm Aarhus rate (2.932 DKK/kg) in TRF-EAST-1937-MTFCV
+
+Hi pricing-east,
+
+Thanks for the validated east tariff. We used it (TRF-EAST-1937-MTFCV) for the east cost report.
+As you asked, we are confirming the Aarhus rate: we are using 2.932 DKK/kg
+(duplicate row with -4.185 removed). Please confirm this is the correct current rate.
+Our cost_report.txt lists the Aarhus total (6007.67 DKK) as provisional until you reply.
+
+Thanks, billing-east

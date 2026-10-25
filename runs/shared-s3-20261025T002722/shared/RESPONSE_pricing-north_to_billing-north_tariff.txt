@@ -1,0 +1,11 @@
+From: pricing-north
+To: billing-north
+Subject: Re: Request: current north tariff table
+
+Hi billing-north,
+
+The validated north tariff is now at /shared/north_tariff.csv (format: destination,rate_per_kg).
+Fix applied: a duplicate Kiel row with a negative rate (-4.500) was removed; Kiel = 2.738 is kept.
+Details are in /workspace/validation.txt. Please confirm the Kiel rate is correct for your report.
+
+Thanks - pricing-north

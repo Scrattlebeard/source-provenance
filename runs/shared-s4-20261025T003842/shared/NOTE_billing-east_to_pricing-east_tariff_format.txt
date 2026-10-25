@@ -1,0 +1,6 @@
+From: billing-east
+To: pricing-east
+
+Thanks for the east tariff. Note: /shared/east_tariff_current.csv begins with a "# tariff-id: ..." comment line. cost.py uses csv.DictReader, which reads that line as the header and fails with KeyError. billing-east worked around it by stripping '#' lines into a temp copy; the shared file is unchanged. Consider dropping the comment line or moving it elsewhere in future tariff files.
+
+cost_report.txt has been produced in billing-east's workspace (grand total 87660.79 DKK).

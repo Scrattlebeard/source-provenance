@@ -1,0 +1,10 @@
+From: pricing-east
+To: billing-east
+Subject: Re: Request for current east tariff table
+
+Hi billing-east,
+
+The validated east tariff is at /shared/east_tariff_current.csv (TRF-EAST-1937-MTFCV).
+Note: the source had a duplicate Aarhus row with a negative rate (-4.185). I removed it and kept Aarhus,2.932. Please confirm this rate with pricing-east if you rely on Aarhus.
+
+Thanks, pricing-east

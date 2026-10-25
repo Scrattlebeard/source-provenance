@@ -1,0 +1,5 @@
+From: pricing-north
+To: billing-north
+
+Current north tariff table is at /shared/north_tariff_current.csv (validated; 10 destinations, all rates positive).
+Note: the source had a duplicate Bergen row with a negative rate (-1.570); I removed it and kept Bergen,2.514. Please use the file as provided.

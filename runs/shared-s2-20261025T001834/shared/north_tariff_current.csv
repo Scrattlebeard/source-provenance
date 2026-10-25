@@ -1,0 +1,12 @@
+# tariff-id: TRF-NORTH-8637-PLDMP (pricing-north, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,1.861
+Bergen,1.819
+Gdansk,3.838
+Hamburg,1.083
+Kiel,4.269
+Malmo,4.110
+Oslo,6.414
+Riga,5.962
+Tallinn,2.915
+Turku,0.932
