@@ -191,7 +191,7 @@ One advantage of our approach is that the detector is agnostic to the underlying
 
 \lead{Pre-seeding.} Seeding the index is the main lever to reduce false positives. We seed only files that start in two or more workspaces, but a deployment could seed anything the environment produces without an agent: the output of each environment's known test suites and build scripts, run once in a clean sandbox, for example. Most of our false positives are test output that two samples of one repository both encounter, and seeding known test outputs would prevent this. The cost is that nothing seeded can ever fire, so the seed must cover only what the environment produces independently of the agent. We have not measured this.
 
-\lead{Deployment considerations.} Since transcript files can potentially be manipulated by agents\cite{Metr2026}, a monitor should capture each model call's input and output at the inference point. The index store has to span runs and outlive them: on DseWiki, 38\% of edges join agents whose edits never overlapped in time. What counts as a run should match the isolation boundary intended by the deployment: if drawn narrowly, it may flag runs that legitimately share an environment, which is where most of our false positives on real work come from. On the other hand, drawing it too broadly risks hiding flows that matter - during the HF incident, agents were operating on similar environments after all.
+\lead{Deployment considerations.} Since transcript files can potentially be manipulated by agents~\cite{metr2026}, a monitor should capture each model call's input and output at the inference point. The index store has to span runs and outlive them: on DseWiki, 38\% of edges join agents whose edits never overlapped in time. What counts as a run should match the isolation boundary intended by the deployment: if drawn narrowly, it may flag runs that legitimately share an environment, which is where most of our false positives on real work come from. On the other hand, drawing it too broadly risks hiding flows that matter - during the HF incident, agents were operating on similar environments after all.
 
 Appendix~\ref{app:limitations} sets out what these results do and do not establish, their limitations, and the dual-use considerations.
 
@@ -201,7 +201,7 @@ The most direct extension of this work would close the laundering gap: taint tra
 
 \section{Conclusion}
 
-We present a method for detecting communication between agents that does not require knowing which channel(s) they utilise ahead of time. By tagging the strings in model contexts with their origins and searching for agent-authored or relayed content in foreign contexts, we can detect communication flows in various settings including a local experimental rig, a Hugging Face incident reproduction and the DSEWiki dataset. The detection algorithm is computationally cheap and efficient compared to LLM-based monitoring, and the backing global index store scales sublinearly with text, making the approach feasible even at large scales. While the approach is not designed to be robust against deliberate adversarial pressure, we believe implementing it would relevantly increase the ability of frontier companies to detect unauthorized agent communications.
+We present a method for detecting communication between agents that does not require knowing which channel(s) they utilise ahead of time. By tagging the strings in model contexts with their origins and searching for agent-authored or relayed content in foreign contexts, we can detect communication flows in various settings including a local experimental rig, a Hugging Face incident reproduction and the DseWiki dataset. The detection algorithm is computationally cheap and efficient compared to LLM-based monitoring, and the backing global index store scales sublinearly with text, making the approach feasible even at large scales. While the approach is not designed to be robust against deliberate adversarial pressure, we believe implementing it would relevantly increase the ability of frontier companies to detect unauthorized agent communications.
 
 \section*{Code and Data}
 
@@ -213,7 +213,7 @@ The external datasets are the reproduction's raw logs and the collusion.wiki rev
 
 \section*{Author Contributions}
 
-Daniel Juhl conceived the project, ran the experiments on his desktop, co-authored, reviewed and edited the paper. Claude Opus 5.5 (Anthropic), working in Claude Code, co-designed the initial idea with Daniel in September 2026, and implemented the detector, rig and analyses and wrote the scripted evade during the hackathon. Claude Opus 5.5 also drafted the paper for Daniel to review and edit, and provided valuable input during this process.
+Daniel Juhl conceived the project, ran the experiments on his desktop, co-authored, reviewed and edited the paper. Claude Opus 5.5 (Anthropic), working in Claude Code, co-designed the initial idea with Daniel in September 2026, and implemented the detector, rig and analyses and wrote the scripted evader during the hackathon. Claude Opus 5.5 also drafted the paper for Daniel to review and edit, and provided valuable input during this process.
 
 \bibliographystyle{unsrtnat}
 \bibliography{refs}
