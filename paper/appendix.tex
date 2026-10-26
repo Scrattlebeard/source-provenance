@@ -3,13 +3,10 @@
 
 \lead{What this establishes.} On agent transcripts, exact-text provenance finds inter-agent flows with high precision without enumerating channels. On a public reproduction of the incident, 93--99\% of its edges are backed by evidence that involves no text matching. In a rig with ground truth, the positive control and the authored flows are found completely, and relayed flows at 0.91--0.92 content recall. \lead{What it does not establish:} that the detector stops an adversary who knows the rule (Section~\ref{sec:results} shows it does not), that it works beyond exact text, or that it scales as projected.
 
-\lead{Limitations.}
+\lead{Limitations.} The technique's own blind spots, exact matching, short payloads, laundering and convergent boilerplate, are set out in Sections~\ref{sec:methods} and~\ref{sec:discussion}. The limitations of this work are:
 \begin{itemize}
-  \item \lead{Exact matching only.} Paraphrase, translation and steganography \cite{motwani2024} are out of scope.
-  \item \lead{Short payloads are invisible.} Anything shorter than eight words, 40 characters or a 20-character atom, such as a file name, a flag or a three-word message, cannot match.
-  \item \lead{Laundering.} Content that never crosses a model boundary as the same string is not seen, and honest agents do this routinely with \texttt{cp}.
-  \item \lead{Convergent boilerplate.} Agents given the same prompt write the same text. When one assembles it with a program and reads it back, it looks inbound from the other. This produced 11 of the 12 false positives in our rig (Appendix~\ref{app:conditions}), and will grow with fleet size. The eleventh was a character shingle spanning the end of one file and the start of the next within a single read.
   \item \lead{Ground truth is small.} We have it only in our rig: at most 15 agents per episode, ten seeds, two Claude models. The incident check is against registry writes, not reads, and DseWiki has no ground truth.
+  \item \lead{The rig is synthetic.} One fictional company, short tasks, and agents that run one after another; concurrency appears only in the reproduction's logs.
   \item \lead{The adversary is scripted.} Its strategies were written by one model with white-box access. No agent inside a run tried to evade, so we have not measured what a capable, willing one would find.
   \item \lead{The scale projection is an estimate.} The native store is not built.
 \end{itemize}
