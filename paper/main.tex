@@ -138,7 +138,7 @@ In all of our settings, the detector reads transcript files; a live deployment w
 
 \section{Results}\label{sec:results}
 
-\lead{Hugging Face incident reproduction.} Between 93\% and 99\% of the edges we detect are backed by a prior registry write by the origin agent, evidence that involves no text matching (Table~\ref{tab:hf}). This holds in the uninvited arms too (96.5\% and 98.4\%), where nothing told the agents to communicate, which is the case a monitor exists for. Of the agents the detector names as origins, 88\% to 99.6\% per arm wrote to the registry. The reproduction's own scorer flags agents that intended to broadcast; the detector finds 76\% of them in the uninvited GPT arm and 96\% to 100\% in the other three. On the GPT arms it also names 64 and 89 agents the scorer did not flag, because it names any agent whose text another agent read, whatever that agent intended.
+\lead{Hugging Face incident reproduction.} Between 93\% and 99\% of the edges we detect are backed by a prior registry write by the origin agent, seprate evidence from our text matching (Table~\ref{tab:hf}). This holds in the uninvited arms too (96.5\% and 98.4\%), where nothing told the agents to communicate, which is the case a monitor exists for. Of the agents the detector names as origins, 88\% to 99.6\% per arm wrote to the registry. The reproduction's own scorer flags agents that intended to broadcast; the detector finds 76\% of them in the uninvited GPT arm and 96\% to 100\% in the other three. On the GPT arms it also names 64 and 89 agents the scorer did not flag, because it names any agent whose text another agent read, whatever that agent intended.
 
 \begin{table}[t]
 \centering\small
