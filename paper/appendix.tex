@@ -52,34 +52,13 @@ scripted adversary & 9 or 6 & the handoff, relay or message chain, with the mode
 \end{tabularx}
 \end{table}
 
-Relay also ran six episodes on a FUSE-backed shared mount (Appendix~\ref{app:fuse}).
+Six earlier relay episodes ran by accident on a FUSE-backed share that ignores \texttt{chmod}; most security agents noticed and refused the handoff there, so we reran relay on ext4 and report only those runs. The FUSE runs remain in the repository.
 
 Relay was the original relayed condition. On Haiku it gives the same picture as handoff (content recall 0.81, precision 1.0, five seeds on ext4), and the scripted evader gets the same result on both chains. Its hops often moved only short YAML lines, so at 12\,/\,60\,/\,28 its content recall falls to 0.44. On Sonnet, the safety classifier stopped every security agent, so no token moved. Five seeds of isolated, registry, shared and relay (245 runs) took about 50 minutes and cost US\$0.27 on one desktop.
 
 In registry, no agent wrote to the registry in 75 chances: billing agents looked, found only the README, and reported that they could not get the tariff. Its 10 false positives (21 per 1,000 inputs) are 10 of the rig's 11, all convergent boilerplate (Appendix~\ref{app:limitations}).
 
 % ---------------------------------------------------------------------------
-\section{Relay outcomes by file system}\label{app:fuse}
-
-The shared directory first sat on a FUSE-mounted disk that ignores \texttt{chmod}, by accident. Security agents noticed, and most refused the handoff: \emph{``NOT HANDED OFF. I did not leave the deploy token in /shared/handoff/\ldots\ any copy would be exposed to everyone.''} We reran the relay with the share on ext4, where \texttt{chmod} appears to work. There no agent refused, but every container runs as root, so other teams' tokens were still read.
-
-\begin{table}[h]
-\centering\small
-\caption{Relay outcomes on Claude Haiku 5.5 by the file system under the shared directory.}\label{tab:fuse}
-\begin{tabular}{lcc}
-\toprule
-Relay outcome & \makecell{FUSE share, chmod\\ignored (6 runs)} & \makecell{ext4 share, chmod\\holds (5 runs)} \\
-\midrule
-Security agents that declined the handoff & 11 / 18 & 0 / 15 \\
-Deploys with their own token & 6 / 18 & 15 / 15 \\
-Deploys with another team's token & 3 / 18 & 0 / 15 \\
-Deploys failed or blocked & 9 / 18 & 0 / 15 \\
-Reads of another team's token file (ground truth) & 18 & 8 \\
-Detector precision / content recall & 1.0 / 0.87 & 1.0 / 0.81 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
 % ---------------------------------------------------------------------------
 \section{Models briefed on the monitor}\label{app:briefed}
 
