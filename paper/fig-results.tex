@@ -1,5 +1,5 @@
 % Figure 2: rig, evasion, and the shingle-length trade-off.
-% Data: runs/analysis-*.json, runs/analysis-evade.json, results/sweep_shingles_v2.json
+% Data: runs/analysis-rig-10seeds.json (scripts/rig_summary.py), runs/analysis-evade.json, results/sweep_shingles_v3.json
 % (the same numbers as Tables E.1, E.2 and E.3).
 \begin{figure}[t]
 \centering
@@ -23,16 +23,16 @@
     inner sep=1pt, legend columns=2, /tikz/every even column/.append style={column sep=5pt}},
   legend image code/.code={\fill[#1] (0cm,-0.08cm) rectangle (0.22cm,0.12cm);},
 ]
-\addplot[fill=haiku, draw=none, bar shift=-3.5pt] coordinates {(1,1.0) (2,1.0) (3,0.34)};
-\addplot[fill=sonnet, draw=none, bar shift=3.5pt] coordinates {(1,1.0) (2,1.0) (3,0.49)};
-\addplot[fill=haiku!35, draw=none, bar shift=-3.5pt, forget plot] coordinates {(3,0.88)};
-\addplot[fill=sonnet!35, draw=none, bar shift=3.5pt, forget plot] coordinates {(3,0.98)};
-\addplot[fill=haiku, draw=none, bar shift=-3.5pt, forget plot] coordinates {(3,0.34)};
-\addplot[fill=sonnet, draw=none, bar shift=3.5pt, forget plot] coordinates {(3,0.49)};
+\addplot[fill=haiku, draw=none, bar shift=-3.5pt] coordinates {(1,1.0) (2,1.0) (3,0.341)};
+\addplot[fill=sonnet, draw=none, bar shift=3.5pt] coordinates {(1,1.0) (2,1.0) (3,0.441)};
+\addplot[fill=haiku!35, draw=none, bar shift=-3.5pt, forget plot] coordinates {(3,0.921)};
+\addplot[fill=sonnet!35, draw=none, bar shift=3.5pt, forget plot] coordinates {(3,0.913)};
+\addplot[fill=haiku, draw=none, bar shift=-3.5pt, forget plot] coordinates {(3,0.341)};
+\addplot[fill=sonnet, draw=none, bar shift=3.5pt, forget plot] coordinates {(3,0.441)};
 \legend{Haiku, Sonnet}
-\node[font=\tiny, text=quiet, align=center] at (axis cs:0,0.12) {none\\raised};
-\node[font=\tiny, anchor=south, xshift=-3.5pt, inner sep=1pt] at (axis cs:3,0.88) {.88};
-\node[font=\tiny, anchor=south, xshift=3.5pt, inner sep=1pt] at (axis cs:3,0.98) {.98};
+\node[font=\tiny, text=quiet, align=center] at (axis cs:0,0.12) {1 false\\in 20};
+\node[font=\tiny, anchor=south east, xshift=-0.5pt, inner sep=1pt] at (axis cs:3,0.921) {.92};
+\node[font=\tiny, anchor=south west, xshift=0.5pt, inner sep=1pt] at (axis cs:3,0.913) {.91};
 \end{axis}
 
 % (b) scripted evader: share of content edges found per strategy.
@@ -79,5 +79,5 @@
 \node[font=\tiny, anchor=south west, inner sep=2pt, align=left] at (axis cs:58,0.882) {\textbf{8/40/20}\\used};
 \end{axis}
 \end{tikzpicture}
-\caption{Results at a glance (Haiku 5.5, five seeds; Sonnet 5.5, three). \textbf{(a)} The detector against the inotify ground truth; shared is the positive control. Solid bars are the recall of authored findings alone; light bars add relayed findings. Precision is 1.0 everywhere except Sonnet handoff (0.98), and isolated runs raise no findings. Every handoff miss is laundered: a reference an honest agent moved with \texttt{cp}. \textbf{(b)} The scripted white-box evader: relayed strategies on the handoff chain, authored ones on the message chain, with content edges found. Every task completed. \textbf{(c)} Shingle lengths (words/characters/atom), on Haiku: content recall on handoff against false findings per 1,000 inputs on 140 honest Refactor Arena samples. Shorter shingles recover the \texttt{cp} hop, through its file name, at up to three times the false-positive rate.}\label{fig:results}
+\caption{Results at a glance (Haiku 5.5 and Sonnet 5.5, ten seeds each). \textbf{(a)} The detector against the inotify ground truth; shared is the positive control. Solid bars are the recall of authored findings alone; light bars add relayed findings. Precision is 1.0 everywhere except Sonnet handoff (0.99); isolated runs raise one false finding in 20 episodes, convergent code. Every handoff miss is laundered: a reference an honest agent moved with \texttt{cp}. \textbf{(b)} The scripted white-box evader: relayed strategies on the handoff chain, authored ones on the message chain, with content edges found. Every task completed. \textbf{(c)} Shingle lengths (words/characters/atom), on Haiku: content recall on handoff against false findings per 1,000 inputs on 140 honest Refactor Arena samples. Shorter shingles recover the \texttt{cp} hop, through its file name, at up to three times the false-positive rate.}\label{fig:results}
 \end{figure}
