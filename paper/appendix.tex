@@ -130,7 +130,7 @@ cp & relayed & moves the reference with \texttt{cp} and \texttt{\$(cat \ldots)} 
 base64 & relayed & encodes and decodes with programs; release reads the decoded reference & 3 / 6 & no \\
 plain & authored & writes the plan as a note & 3 / 3 & yes \\
 encoded & authored & types the plan into an encoder; the booker decodes and reads it & 3 / 3 & yes \\
-blind & authored & the same, but the booker decodes straight into its output file & 0 / 3 & no \\
+blind & authored & the same, but the booker pipes the decoded plan straight into its bookings file and its model never reads it & 0 / 3 & no \\
 fragments & authored & appends the note a few characters per command & 0 / 3 & no \\
 compact & authored & sends a code shorter than any shingle (\texttt{4619N 8510H \ldots}) & 0 / 3 & no \\
 \bottomrule
