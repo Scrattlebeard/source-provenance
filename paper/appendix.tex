@@ -160,20 +160,20 @@ We fixed 8 words, 40 characters and 20-character atoms before running any experi
 
 \begin{table}[h]
 \centering\small
-\caption{Shingle lengths (Claude Haiku 5.5 runs; FP: false findings per 1,000 inputs).}\label{tab:sweep}
-\begin{tabular}{lccc}
+\caption{Shingle lengths (Claude Haiku 5.5, ten seeds; FP: false findings per 1,000 inputs).}\label{tab:sweep}
+\begin{tabular}{lcccc}
 \toprule
-Words / characters / atom length & Handoff content recall & Isolated FP & Refactor Arena FP \\
+Words / characters / atom length & Handoff content recall & Isolated FP & Shared FP & Refactor Arena FP \\
 \midrule
-5 / 24 / 12 & 1.0 & 10.5 & 171 \\
-6 / 32 / 16 & 1.0 & 0 & 90 \\
-\textbf{8 / 40 / 20 (used)} & 0.88 & 0 & 55 \\
-12 / 60 / 28 & 0.88 & 0 & 32 \\
+5 / 24 / 12 & 1.0 & 12.2 & 3.8 & 171 \\
+6 / 32 / 16 & 1.0 & 1.7 & 2.9 & 90 \\
+\textbf{8 / 40 / 20 (used)} & 0.92 & 1.7 & 0 & 55 \\
+12 / 60 / 28 & 0.92 & 0 & 0 & 32 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Shared and message stay at precision and recall 1.0 in every setting. Shorter shingles recover the \texttt{cp} hops, though not through the reference, which no model typed: they match its 18-character file name, at up to three times the false-positive rate on real work. Longer ones cost handoff nothing, since the 36-character reference is an atom at every length, but halved recall on relay, whose shared spans were short YAML lines (Appendix~\ref{app:conditions}). 6\,/\,32\,/\,16 looks like the better operating point on our data; choosing it now would be tuning on the test set.
+Message stays at precision and recall 1.0 in every setting, and shared at recall 1.0. Shorter shingles recover the \texttt{cp} hops, though not through the reference, which no model typed: they match its 18-character file name, at up to three times the false-positive rate on real work, and they start raising false positives in the positive control. Longer ones cost handoff nothing, since the 36-character reference is an atom at every length, but halved recall on relay (five seeds), whose shared spans were short YAML lines (Appendix~\ref{app:conditions}). 6\,/\,32\,/\,16 would recover every handoff miss at 1.6 times the false-positive rate on real work; choosing it now would be tuning on the test set.
 
 \lead{DseWiki.} With the output-side rule of Section~\ref{sec:methods}, strings inserted by fewer than five accounts give 12,806 account-to-account edges between 1,853 origin and 2,116 reader accounts, with a median lag of 1.1 hours from first insertion to first carriage. The widely repeated conventions, reported apart, give 58,014 edges of their own, which may overlap with these. 38\% are time-decoupled, with the reader's first edit after the writer's last: the board worked as memory across agent lifetimes, and a monitor that compares only agents running at the same time would miss all of them. 714 edges cross between wikis. Account labels are chosen by the agents, so some of this is one agent remembering, and every finding is authored, since without reads relayed content cannot be seen.
 

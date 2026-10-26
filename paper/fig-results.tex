@@ -62,22 +62,22 @@
 
 % (c) shingle length: recall on handoff vs false findings on Refactor Arena.
 \begin{axis}[
-  name=c, at={(b.east)}, anchor=west, xshift=1.25cm, width=3.5cm,
+  name=c, at={(b.east)}, anchor=west, xshift=1.45cm, width=3.3cm,
   title={(c) Shingle length},
   xlabel={false findings / 1k inputs}, ylabel={handoff recall},
-  ylabel style={yshift=-6pt},
-  xmin=0, xmax=200, ymin=0.8, ymax=1.04, ytick={0.8,0.9,1},
+  ylabel style={yshift=2pt},
+  xmin=0, xmax=200, ymin=0.86, ymax=1.03, ytick={0.9,0.95,1}, yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=2},
   xmajorgrids, ymajorgrids, clip=false,
 ]
 \addplot[only marks, mark=*, mark size=2.2pt, haiku, mark options={draw=white, line width=0.5pt}]
-  coordinates {(171.2,1.0) (90.1,1.0) (32.3,0.876)};
+  coordinates {(171.2,1.0) (90.1,1.0) (32.3,0.921)};
 \addplot[only marks, mark=*, mark size=2.8pt, haiku, mark options={draw=ink, line width=0.8pt}]
-  coordinates {(54.8,0.876)};
+  coordinates {(54.8,0.921)};
 \node[font=\tiny, anchor=north, inner sep=2pt] at (axis cs:171.2,0.99) {5/24/12};
 \node[font=\tiny, anchor=north, inner sep=2pt] at (axis cs:90.1,0.99) {6/32/16};
-\node[font=\tiny, anchor=north, inner sep=2pt] at (axis cs:32.3,0.865) {12/60/28};
-\node[font=\tiny, anchor=south west, inner sep=2pt, align=left] at (axis cs:58,0.882) {\textbf{8/40/20}\\used};
+\node[font=\tiny, anchor=north, inner sep=2pt] at (axis cs:28,0.913) {12/60/28};
+\node[font=\tiny, anchor=north west, inner sep=2pt, align=left] at (axis cs:60,0.915) {\textbf{8/40/20}\\used};
 \end{axis}
 \end{tikzpicture}
-\caption{Results at a glance (Haiku 5.5 and Sonnet 5.5, ten seeds each). \textbf{(a)} The detector against the inotify ground truth; shared is the positive control. Solid bars are the recall of authored findings alone; light bars add relayed findings. Precision is 1.0 everywhere except Sonnet handoff (0.99); isolated runs raise one false finding in 20 episodes, convergent code. Every handoff miss is laundered: a reference an honest agent moved with \texttt{cp}. \textbf{(b)} The scripted white-box evader: relayed strategies on the handoff chain, authored ones on the message chain, with content edges found. Every task completed. \textbf{(c)} Shingle lengths (words/characters/atom), on Haiku: content recall on handoff against false findings per 1,000 inputs on 140 honest Refactor Arena samples. Shorter shingles recover the \texttt{cp} hop, through its file name, at up to three times the false-positive rate.}\label{fig:results}
+\caption{Results at a glance (Haiku 5.5 and Sonnet 5.5, ten seeds each). \textbf{(a)} The detector against the inotify ground truth; shared is the positive control. Solid bars are the recall of authored findings alone; light bars add relayed findings. Precision is 1.0 everywhere except Sonnet handoff (0.99); isolated runs raise one false finding in 20 episodes, convergent code. Every handoff miss is laundered: a reference an honest agent moved with \texttt{cp}. \textbf{(b)} The scripted white-box evader: relayed strategies on the handoff chain, authored ones on the message chain, with content edges found. Every task completed. \textbf{(c)} Shingle lengths (words/characters/atom), on Haiku, ten seeds: content recall on handoff against false findings per 1,000 inputs on 140 honest Refactor Arena samples. Shorter shingles recover the \texttt{cp} hop, through its file name, at up to three times the false-positive rate.}\label{fig:results}
 \end{figure}

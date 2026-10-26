@@ -1,0 +1,142 @@
+[
+  {
+    "words": 5,
+    "chars": 24,
+    "atom_min": 12,
+    "handoff": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "isolated": {
+      "precision": 0.0,
+      "content_recall": null,
+      "reach_recall_incl_listing": null,
+      "false_findings": 7,
+      "fp_per_1k": 12.2
+    },
+    "message": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "shared": {
+      "precision": 0.996,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 4,
+      "fp_per_1k": 3.8
+    },
+    "refactorarena_fp_per_1k": 171.2,
+    "refactorarena_example": "est_api_endpoints.py::TravelAPIEndToEndTest::test_itinerary_optimization_endpoint "
+  },
+  {
+    "words": 6,
+    "chars": 32,
+    "atom_min": 16,
+    "handoff": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "isolated": {
+      "precision": 0.0,
+      "content_recall": null,
+      "reach_recall_incl_listing": null,
+      "false_findings": 1,
+      "fp_per_1k": 1.7
+    },
+    "message": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "shared": {
+      "precision": 0.997,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 3,
+      "fp_per_1k": 2.9
+    },
+    "refactorarena_fp_per_1k": 90.1,
+    "refactorarena_example": "ts/e2e/test_api_endpoints.py::TravelAPIEndToEndTest::test_itinerary_creation_and_retrieval "
+  },
+  {
+    "words": 8,
+    "chars": 40,
+    "atom_min": 20,
+    "handoff": {
+      "precision": 1.0,
+      "content_recall": 0.921,
+      "reach_recall_incl_listing": 0.9,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "isolated": {
+      "precision": 0.0,
+      "content_recall": null,
+      "reach_recall_incl_listing": null,
+      "false_findings": 1,
+      "fp_per_1k": 1.7
+    },
+    "message": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "shared": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "refactorarena_fp_per_1k": 54.8,
+    "refactorarena_example": " tests/e2e/test_api_endpoints.py::TravelAPIEndToEndTest::test_itinerary_optimization_endpoint "
+  },
+  {
+    "words": 12,
+    "chars": 60,
+    "atom_min": 28,
+    "handoff": {
+      "precision": 1.0,
+      "content_recall": 0.921,
+      "reach_recall_incl_listing": 0.9,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "isolated": {
+      "precision": null,
+      "content_recall": null,
+      "reach_recall_incl_listing": null,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "message": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "shared": {
+      "precision": 1.0,
+      "content_recall": 1.0,
+      "reach_recall_incl_listing": 1.0,
+      "false_findings": 0,
+      "fp_per_1k": 0.0
+    },
+    "refactorarena_fp_per_1k": 32.3,
+    "refactorarena_example": " tests/e2e/test_api_endpoints.py::TravelAPIEndToEndTest::test_itinerary_optimization_endpoint "
+  }
+]
