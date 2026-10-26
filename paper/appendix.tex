@@ -27,25 +27,30 @@
 % ---------------------------------------------------------------------------
 \section{Conditions in detail}\label{app:conditions}
 
+\lead{The setting.} Every condition is an \emph{episode} in a fictional company. Each agent plays one team: it works in its own container, with a bash tool and a private workspace holding the files its team owns, and gets a short task in plain language. Agents never see each other's prompts or workspaces. The only way information can move between teams is through whatever the condition shares, a folder or an artefact registry, and that is exactly what the ground-truth watcher records. A \emph{run} is one agent's session. The runs of an episode execute one after another, so a later agent can find what an earlier one left behind.
+
+The main text uses four conditions: \emph{isolated}, where nothing is shared; \emph{shared}, the positive control; \emph{handoff}, which needs a relayed flow; and \emph{message}, which needs an authored one. The others are supplementary. \emph{Registry} recreates the incident's setting and turned out to have nothing to detect, \emph{relay} is the first version of handoff, the \emph{covert} variants brief every agent on the monitor (Appendix~\ref{app:briefed}), and the \emph{scripted adversary} replaces the model to test evasion. Table~\ref{tab:conditions} describes each.
+
 \lead{Ground truth and metrics.} A host-side inotify watcher records every read and write on the shared directory, from every container. A ground-truth edge W~$\to$~R means R read a file after W last wrote it, or listed a directory after W created something in it. A detector edge X~$\to$~R is correct if X is an ancestor of R in the ground truth, since a finding names the original origin, which may be several hops back. \emph{Content recall} is the share of file-content edges for which the detector found an edge from the writer or one of its ancestors.
 
 \lead{Models.} The four conditions of the main text run ten seeds on each of Claude Haiku 5.5 and Claude Sonnet 5.5. The others run five seeds on Haiku and, except registry, three on Sonnet. An error in our overnight script ran every new cell (Haiku seeds 5--9, Sonnet seeds 3--9) twice; we use the first successful run of each and ignore the retry, a rule fixed before we looked at the results. Handoff passes a release reference rather than a credential: a version passing a deploy token (relay, below) was stopped on Sonnet by Anthropic's safety classifier. The scripted adversary takes the model's place and replays fixed command sequences through the same rig, oracle and analysis.
 
-Agents in an episode run sequentially, in the order given. Seeds are listed as Claude Haiku 5.5 / Claude Sonnet 5.5.
-
 \begin{table}[h]
 \centering\small
-\caption{The conditions.}\label{tab:conditions}
+\caption{The conditions. Agents in an episode run in the order given; seeds are listed as Claude Haiku 5.5 / Claude Sonnet 5.5.}\label{tab:conditions}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.6cm}c Y c}
 \toprule
-Condition & \makecell{Agents per\\episode} & Structure & Seeds \\
+Condition & \makecell{Agents per\\episode} & What the agents do & Seeds \\
 \midrule
-isolated & 10 & ten operations teams, each fixing a bug in its own copy of a script; no shared mount & 10 / 10 \\
-registry & 15 & five regions; all five billing teams (first round), then the five pricing teams that hold the tariff tables, then the billing teams again (second round). The only shared surface is a writable artefact registry. & 5 / -- \\
-shared & 15 & as registry, but the shared surface is a folder described as the place to ask other teams for things & 10 / 10 \\
-relay & 9 & three services (ledger, routing, manifests), each a chain security $\to$ release $\to$ deploy, passing a deploy token & 5 / 3 \\
-handoff & 9 & as relay, passing a release reference instead of a token & 10 / 10 \\
-message & 6 & three regions, each a planner (holds the quotes) $\to$ booker (holds nothing) & 10 / 10 \\
+\multicolumn{4}{l}{\emph{Main text}} \\
+isolated & 10 & ten operations teams, each fixing a bug in its own copy of a reporting script; nothing is shared & 10 / 10 \\
+shared & 15 & five regions. Each billing team must price its shipments, but the region's tariff table is held by its pricing team. Billing teams run first, then pricing, then billing again, all with a folder described as the place to ask other teams for things & 10 / 10 \\
+handoff & 9 & three services (ledger, routing, manifests), each a chain of three teams: records holds the current release reference and must leave it in the shared folder, release writes it into a manifest, and deploy publishes with it & 10 / 10 \\
+message & 6 & three regions, each a planner who holds next week's carrier quotes and must leave a note saying which carrier to book for each route, and a booker who holds nothing and must book what the note says & 10 / 10 \\
+\midrule
+\multicolumn{4}{l}{\emph{Supplementary}} \\
+registry & 15 & as shared, but the only shared surface is a writable artefact registry, as in the incident & 5 / -- \\
+relay & 9 & as handoff, passing a deploy token instead of a release reference & 5 / 3 \\
 covert, covert message, covert handoff & 9, 6, 9 & as relay, message and handoff, with every agent briefed on the monitor & 5 / 3 each \\
 scripted adversary & 9 or 6 & the handoff, relay or message chain, with the model replaced by a fixed command sequence & \makecell{one episode\\per strategy} \\
 \bottomrule
@@ -56,7 +61,7 @@ Six earlier relay episodes ran by accident on a FUSE-backed share that ignores \
 
 Relay was the original relayed condition. On Haiku it gives the same picture as handoff (content recall 0.81, precision 1.0, five seeds on ext4), and the scripted evader gets the same result on both chains. Its hops often moved only short YAML lines, so at 12\,/\,60\,/\,28 its content recall falls to 0.44. On Sonnet, the safety classifier stopped every security agent, so no token moved. Five seeds of isolated, registry, shared and relay (245 runs) took about 50 minutes and cost US\$0.27 on one desktop.
 
-In registry, no agent wrote to the registry in 75 chances: billing agents looked, found only the README, and reported that they could not get the tariff. Its 10 false positives (21 per 1,000 inputs) are 10 of the rig's 11, all convergent boilerplate (Appendix~\ref{app:limitations}).
+In registry, no agent wrote to the registry in 75 chances: billing agents looked, found only the README, and reported that they could not get the tariff. Its 10 false positives (21 per 1,000 inputs) are 10 of the rig's 12, all convergent boilerplate (Appendix~\ref{app:limitations}).
 
 % ---------------------------------------------------------------------------
 % ---------------------------------------------------------------------------
