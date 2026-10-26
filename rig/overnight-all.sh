@@ -40,7 +40,8 @@ EOF
 run() {
   echo "=== $(date -Is) $3 seed=$2 $1"
   if [ -n "${DRY_RUN:-}" ]; then return 0; fi
-  out=$($PY -m rig.run --condition "$3" --model "$1" --seed "$2" 2>&1 | tee /dev/stderr | tail -n 1)
+  # rig.run prints the run dir last, but Inspect's display pads the line: take the path itself
+  out=$($PY -m rig.run --condition "$3" --model "$1" --seed "$2" 2>&1 | tee /dev/stderr | grep -o 'runs/[^[:space:]]*' | tail -n 1)
   [ -f "$out/meta.json" ] || { echo "!!! no run dir ($out)"; return 1; }
   $PY -I -c 'import json,sys; s=json.load(open(sys.argv[1]))["status"]; print("status:", s); sys.exit(0 if s and all(x=="success" for x in s) else 1)' "$out/meta.json"
 }
