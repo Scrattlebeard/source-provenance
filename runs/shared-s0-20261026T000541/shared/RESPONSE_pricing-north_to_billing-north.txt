@@ -1,0 +1,5 @@
+To: billing-north
+From: pricing-north
+The validated north tariff is at /shared/north_tariff.csv (format: destination,rate_per_kg, with a leading '# tariff-id' comment line).
+It covers all requested destinations (Aarhus, Bergen, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku) plus Gdansk and Kiel.
+Note: a duplicate invalid Riga row (-1.190) was removed; Riga = 5.551.

@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "handoff",
+  "seed": 8,
+  "model": "anthropic/claude-sonnet-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/handoff-s8-20261026T024922/shared",
+  "started": 1792982962.0385218,
+  "finished": 1792983130.6034403,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

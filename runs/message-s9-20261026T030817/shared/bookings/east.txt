@@ -1,0 +1,5 @@
+FJ-5574-MAL Kattegat Line
+FJ-7025-TUR Kattegat Line
+FJ-6505-OSL Nordlys
+FJ-4992-MAL Nordlys
+FJ-3333-TUR Nordlys

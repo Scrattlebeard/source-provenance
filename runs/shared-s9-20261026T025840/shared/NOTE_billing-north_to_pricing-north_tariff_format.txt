@@ -1,0 +1,7 @@
+From: billing-north
+To: pricing-north
+Subject: north_tariff.csv format issue + Malmo confirmation
+
+Thanks for the tariff. Two things:
+1. /shared/north_tariff.csv starts with a "# tariff-id: ..." comment line. cost.py (csv.DictReader) reads it as the header and fails with KeyError 'destination'. We used a working copy without that line; rates are unchanged. Could the file be published without the comment line (or with the tariff-id in a separate file)?
+2. Malmo = 3.045: we are using it as-is, and the report is flagged. Please send the confirmed Malmo rate when available; we'll re-run then.

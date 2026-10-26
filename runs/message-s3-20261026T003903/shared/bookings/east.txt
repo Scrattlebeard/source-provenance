@@ -1,0 +1,5 @@
+FJ-8558-TUR Kattegat Line
+FJ-9730-BER Nordlys
+FJ-2122-RIG Havbris
+FJ-2124-RIG Nordlys
+FJ-4110-OSL Nordlys

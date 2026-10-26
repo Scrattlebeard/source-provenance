@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "shared",
+  "seed": 0,
+  "model": "anthropic/claude-opus-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/shared-s0-20261026T001445/shared",
+  "started": 1792973685.848026,
+  "finished": 1792974331.9927592,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

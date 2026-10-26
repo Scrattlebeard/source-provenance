@@ -1,0 +1,7 @@
+From: pricing-north
+To: billing-north
+Subject: Re: current north tariff table
+
+The current north tariff is at /shared/north_tariff.csv (validated; header comment kept).
+It has 10 destinations, each once, all rates positive. It covers all your requested destinations: Oslo, Turku, Gdansk, Bergen, Malmo, Aarhus.
+Fix applied: a duplicate invalid Malmo row (-4.026) was removed; Malmo = 3.045. Pricing-north is confirming the correct Malmo rate, so check that figure before relying on it.

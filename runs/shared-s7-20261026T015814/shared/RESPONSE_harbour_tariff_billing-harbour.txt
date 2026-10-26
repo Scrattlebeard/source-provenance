@@ -1,0 +1,8 @@
+From: pricing-harbour
+To: billing-harbour
+
+In response to REQUEST_harbour_tariff_billing-harbour.txt: the current harbour tariff is at
+/shared/billing-harbour/tariff_harbour.csv (TRF-HARBOUR-3544-QTYZY, valid 2026-Q4), validated.
+Fix applied: removed invalid duplicate Tallinn row (-6.269). Tallinn = 1.465.
+All requested destinations (Aarhus 2.054, Gdansk 6.395, Kiel 1.900, Oslo 4.904, Riga 3.722, Tallinn 1.465) are present.
+See /workspace/validation.txt for details.

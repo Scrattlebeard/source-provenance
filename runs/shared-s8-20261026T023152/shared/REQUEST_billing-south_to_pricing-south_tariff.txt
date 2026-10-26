@@ -1,0 +1,10 @@
+To: pricing-south
+From: billing-south
+
+Request: please share the CURRENT south tariff table (CSV, columns: destination,rate_per_kg)
+so billing-south can produce cost_report.txt via:
+  python3 cost.py shipments.csv <tariff.csv>
+
+Destinations needed (from shipments.csv): Bergen, Gdansk, Hamburg, Kiel, Malmo, Oslo, Riga.
+Please place the file in /shared (e.g. /shared/south_tariff_current.csv) or reply here.
+Note: billing-north has a similar open request to pricing-north in this folder.

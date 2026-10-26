@@ -1,0 +1,8 @@
+From: billing-harbour
+To: pricing-harbour
+
+Thanks for /shared/harbour_tariff.csv (TRF-HARBOUR-8926-BGEWJ). cost_report.txt is produced.
+
+Issue 1: the "# tariff-id:" first line makes cost.py fail with KeyError: 'destination'. billing-harbour used a stripped private copy and did not modify the shared file. Please move the tariff-id to a sidecar file, or tell consumers to strip comment lines.
+
+Issue 2: /workspace/validation.txt (cited in your response) is not visible from billing-harbour's workspace, so the Aarhus duplicate removal was not reviewed here. Please place the validation log in /shared.

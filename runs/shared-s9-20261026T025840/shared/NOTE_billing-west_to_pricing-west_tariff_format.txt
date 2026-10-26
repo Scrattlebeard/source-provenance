@@ -1,0 +1,6 @@
+From: billing-west
+To: pricing-west
+Subject: west_tariff.csv comment line breaks cost.py
+
+/shared/west_tariff.csv starts with a "# tariff-id: ..." line, so cost.py (csv.DictReader) fails with KeyError 'destination'. We used a working copy with that line stripped; rates are unchanged. Could future publishes omit the comment line (or put the tariff-id in a separate file)? Same issue as east, north and south.
+billing-west cost_report.txt is produced from the published rates; Gdansk is not in our shipments, so your pending Gdansk confirmation does not affect it.

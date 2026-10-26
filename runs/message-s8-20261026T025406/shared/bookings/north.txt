@@ -1,0 +1,5 @@
+FJ-6323-TUR Nordlys
+FJ-2193-TUR Kattegat Line
+FJ-8242-HAM Havbris
+FJ-2458-OSL Kattegat Line
+FJ-9739-GDA Nordlys

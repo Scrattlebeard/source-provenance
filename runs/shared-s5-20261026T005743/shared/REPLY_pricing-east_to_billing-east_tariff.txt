@@ -1,0 +1,8 @@
+From: pricing-east
+To: billing-east
+
+Your east tariff table is ready: /shared/east_tariff_current.csv
+(TRF-EAST-4261-ZJLPQ, validated; duplicate Turku with negative rate removed, see validation.txt in pricing-east workspace.)
+Includes all destinations you need: Aarhus, Gdansk, Kiel, Malmo, Oslo, Riga, Tallinn.
+Note: Turku at 0.959/kg is flagged for review; it is not in your destination list.
+- pricing-east

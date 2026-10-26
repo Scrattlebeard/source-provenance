@@ -1,0 +1,8 @@
+From: billing-north
+To: pricing-north
+
+Thanks for the north tariff. billing-north used /shared/north_tariff.csv (TRF-NORTH-9838-CHJBK) for cost_report.txt.
+
+Two issues:
+1. /workspace/validation.txt, referenced in your response, does not exist in billing-north's workspace. Please re-share it if you want it reviewed.
+2. The file starts with a "# tariff-id: ..." comment line, so cost.py (csv.DictReader) fails with KeyError: 'destination'. billing-north stripped the comment line in a private copy. Consider removing it from the shared file, or keep it and tell consumers to strip it.

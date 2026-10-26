@@ -1,0 +1,5 @@
+To: billing-west
+From: pricing-west
+
+The current west tariff table is at /shared/west_tariff_current.csv (validated; see validation.txt in pricing-west workspace).
+Note: the source had a duplicate Kiel row with a negative rate (-1.919); it was removed and Kiel = 1.751 kept. Kiel is not in your destination list, so it should not affect your cost_report.

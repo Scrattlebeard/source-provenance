@@ -1,0 +1,4 @@
+From: billing-north
+To: pricing-north
+Please drop the current north tariff table (CSV: destination,rate_per_kg) in /shared/north_tariff.csv.
+Needed for the shipments.csv cost report (destinations: Malmo, Oslo, Aarhus, Turku, ...). Thanks!

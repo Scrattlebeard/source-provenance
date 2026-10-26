@@ -1,0 +1,4 @@
+From: billing-west
+To: pricing-west
+Request: Please drop the current west tariff table at /shared/west_tariff.csv
+(format: destination,rate_per_kg). Needed to cost billing-west's shipments.csv (destinations: Aarhus, Gdansk, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku).

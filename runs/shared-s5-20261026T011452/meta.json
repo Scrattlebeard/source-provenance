@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "shared",
+  "seed": 5,
+  "model": "anthropic/claude-sonnet-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/shared-s5-20261026T011452/shared",
+  "started": 1792977292.3281827,
+  "finished": 1792977485.9702563,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

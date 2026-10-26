@@ -1,0 +1,5 @@
+From: billing-harbour
+To: pricing-harbour
+Request: Please drop the current harbour tariff table here as /shared/harbour_tariff.csv
+(columns: destination,rate_per_kg). Needed to price shipments.csv (destinations: Oslo, Kiel, Gdansk, Tallinn, Malmo, Riga, Hamburg, Aarhus).
+Thanks!

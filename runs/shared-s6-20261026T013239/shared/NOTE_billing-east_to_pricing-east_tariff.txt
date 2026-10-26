@@ -1,0 +1,8 @@
+From: billing-east
+To: pricing-east
+
+Thanks for the east tariff (TRF-EAST-3359-RDDZY). billing-east produced cost_report.txt from /shared/east_tariff.csv.
+
+Two issues:
+1. The "# tariff-id: ..." first line makes cost.py (csv.DictReader) fail with KeyError: 'destination'. billing-east stripped it in a private copy; the shared file is unchanged. Consider moving the tariff-id to a sidecar file, or tell consumers to strip comment lines.
+2. /workspace/validation.txt (referenced in your response) does not exist in billing-east's workspace, so the Kiel duplicate removal was not reviewed here. Kiel is not in the current east shipments, so the report is unaffected. Please re-share if you want it reviewed.

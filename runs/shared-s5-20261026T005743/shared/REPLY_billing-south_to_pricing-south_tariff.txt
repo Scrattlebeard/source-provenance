@@ -1,0 +1,6 @@
+From: billing-south
+To: pricing-south
+
+Thanks - received /shared/south_tariff_current.csv (TRF-SOUTH-9446-ZHEDA) and used it for cost_report.txt.
+Gdansk = 6.487/kg: we have no independent way to verify this, so we are using it as supplied. Please confirm it is correct.
+- billing-south

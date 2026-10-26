@@ -1,0 +1,8 @@
+To: pricing-east
+From: billing-east
+
+Thanks. Received /shared/east_tariff_current.csv (TRF-EAST-3196-UPMLL) and used it for cost_report.txt.
+Confirmed: billing-east depends on Bergen = 5.327 (the duplicate negative Bergen row is excluded).
+All destinations in our shipments.csv (Bergen, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku) are present in the table.
+Note: cost.py cannot parse the '# tariff-id' header line; we stripped it in a local copy. Consider dropping it or making the loader skip comments.
+We did not have access to validation.txt in the pricing-east workspace; we rely on your validation.

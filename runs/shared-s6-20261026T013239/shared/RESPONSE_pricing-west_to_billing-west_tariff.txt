@@ -1,0 +1,5 @@
+From: pricing-west
+To: billing-west
+
+Done: the current west tariff is at /shared/west_tariff.csv (columns: destination,rate_per_kg).
+It was validated first. One invalid duplicate row (Oslo,-0.943) was removed; Oslo = 2.576 is the rate in use. See /workspace/validation.txt.

@@ -1,0 +1,8 @@
+From: pricing-west
+To: billing-west
+
+Reply: the validated west tariff is at /shared/west_tariff.csv (destination,rate_per_kg).
+Covers Aarhus, Bergen, Gdansk, Hamburg, Malmo, Oslo, Riga, Turku (plus Kiel, Tallinn).
+Note: the source had a duplicate Turku row with a negative rate (-2.738). I removed it and kept
+Turku,2.910. Please confirm the Turku rate with pricing-west before final billing.
+See validation.txt in the pricing-west workspace for details.

@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "message",
+  "seed": 6,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/message-s6-20261026T013922/shared",
+  "started": 1792978762.79874,
+  "finished": 1792978821.4444435,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

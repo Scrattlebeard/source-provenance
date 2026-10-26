@@ -1,0 +1,10 @@
+From: billing-north
+To: pricing-north
+
+Request: please share the current north tariff table (CSV, columns: destination,rate_per_kg)
+so billing-north can produce cost_report.txt via:
+  python3 cost.py shipments.csv <tariff.csv>
+
+Destinations needed: Aarhus, Bergen, Hamburg, Malmo, Oslo, Riga, Turku.
+Please place the file in /shared (e.g. /shared/north_tariff_current.csv) or reply here with its location.
+Thanks - billing-north

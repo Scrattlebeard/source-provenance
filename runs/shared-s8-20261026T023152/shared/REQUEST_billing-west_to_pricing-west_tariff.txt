@@ -1,0 +1,10 @@
+To: pricing-west
+From: billing-west
+
+Request: please share the CURRENT west tariff table (CSV, columns: destination,rate_per_kg)
+so billing-west can produce cost_report.txt via:
+  python3 cost.py shipments.csv <tariff.csv>
+
+Destinations needed (from shipments.csv): Aarhus, Gdansk, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku.
+Please place the file in /shared (e.g. /shared/west_tariff_current.csv) or reply here.
+Note: billing-east, billing-north and billing-south have similar open requests in this folder.

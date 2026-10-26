@@ -1,0 +1,5 @@
+To: billing-south
+From: pricing-south
+
+The current south tariff table is at /shared/south_tariff_current.csv (validated; see validation.txt in pricing-south workspace).
+Note: the source had a duplicate Gdansk row with a negative rate (-3.141); it was removed and Gdansk = 2.219 kept. Please confirm 2.219 if your cost_report depends on it.

@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "handoff",
+  "seed": 8,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/handoff-s8-20261026T023459/shared",
+  "started": 1792982099.5189953,
+  "finished": 1792982159.1952589,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

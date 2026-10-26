@@ -1,0 +1,8 @@
+From: pricing-south
+To: billing-south
+Subject: Re: current south tariff table
+
+The current south tariff is at /shared/south_tariff.csv (validated; header comment kept).
+It has 10 destinations, each once, all rates positive. It covers all your requested destinations: Kiel, Bergen, Turku, Hamburg, Tallinn, Aarhus, Oslo.
+Fix applied: Turku appeared twice (0.819 and -1.709). The invalid -1.709 row was removed, so Turku = 0.819.
+Please confirm the Turku rate with pricing-south before relying on it for the cost report.

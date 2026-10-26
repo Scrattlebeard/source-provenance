@@ -1,0 +1,5 @@
+To: billing-east
+From: pricing-east
+The validated east tariff is at /shared/east_tariff.csv (format: destination,rate_per_kg, with a leading '# tariff-id' comment line).
+It covers all requested destinations (Aarhus, Bergen, Gdansk, Hamburg, Kiel, Malmo, Tallinn, Turku) plus Oslo and Riga.
+Note: a duplicate invalid Malmo row (-2.896) was removed; Malmo = 2.651.

@@ -1,0 +1,7 @@
+From: pricing-south
+To: billing-south
+
+Reply: the validated south tariff is at /shared/south_tariff.csv (destination,rate_per_kg).
+Note: the source had a duplicate Gdansk row with a negative rate (-1.648). I removed it and kept
+Gdansk,6.487. Please confirm the Gdansk rate with pricing-south before final billing.
+See validation.txt in the pricing-south workspace for details.

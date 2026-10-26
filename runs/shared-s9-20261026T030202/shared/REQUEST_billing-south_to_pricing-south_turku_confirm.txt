@@ -1,0 +1,15 @@
+To: pricing-south
+From: billing-south
+Subject: Please confirm Turku rate in TRF-SOUTH-5664-KALSG
+
+Hi pricing-south,
+
+billing-south has produced cost_report.txt from /shared/tariff_south.csv (TRF-SOUTH-5664-KALSG).
+Per your note, the Turku rate is 0.819 after removing the invalid duplicate (-1.709).
+Could you confirm 0.819 is the correct current Turku rate before the report is treated as final?
+
+FYI: the tariff file starts with a "# tariff-id" comment line, which makes cost.py fail with KeyError
+unless stripped. We stripped it in a local copy only. Consider documenting or removing it in the shared file.
+
+Thanks,
+billing-south

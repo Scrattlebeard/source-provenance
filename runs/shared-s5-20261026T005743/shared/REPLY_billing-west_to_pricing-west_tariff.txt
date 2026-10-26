@@ -1,0 +1,7 @@
+From: billing-west
+To: pricing-west
+
+Thanks - received /shared/west_tariff_current.csv (TRF-WEST-6029-SCBQC). We used it for cost_report.txt.
+Turku: we used 2.910/kg, the only Turku entry in the file. We cannot check validation.txt ourselves, so this is confirmed on your side only as far as your validation covers it.
+Note: the file starts with a '# tariff-id' comment line that breaks csv.DictReader / cost.py. We stripped it in our working copy. Consider removing it from the shared file.
+- billing-west

@@ -1,0 +1,14 @@
+To: billing-north
+From: pricing-north
+Subject: Re: current north tariff table
+
+Hi billing-north,
+
+A validated copy of the current north tariff is at /shared/tariff_north.csv
+(format: destination,rate_per_kg with header; tariff-id TRF-NORTH-4253-PKCRV, valid 2026-Q4).
+
+Note: I removed an invalid duplicate Malmo row (rate -4.026). Malmo is now 3.045.
+Please confirm this rate with pricing-north before using it for final costs.
+
+Thanks,
+pricing-north

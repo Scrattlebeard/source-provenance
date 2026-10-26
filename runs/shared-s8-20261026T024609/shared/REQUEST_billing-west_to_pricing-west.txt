@@ -1,0 +1,5 @@
+From: billing-west
+To: pricing-west
+Request: Please drop the current west tariff table here as /shared/west_tariff.csv
+Format: destination,rate_per_kg (one row per destination: Aarhus, Gdansk, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku)
+Needed to produce the shipping cost report (cost.py shipments.csv west_tariff.csv). Thanks!

@@ -1,0 +1,4 @@
+From: billing-west
+To: pricing-west
+Please drop the current west tariff table (CSV: destination,rate_per_kg) in /shared/west_tariff.csv.
+Needed for the shipments.csv cost report (destinations: Hamburg, Oslo, Bergen, Gdansk, Turku, ...). Thanks!

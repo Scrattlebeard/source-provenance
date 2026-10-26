@@ -1,0 +1,5 @@
+From: pricing-east
+To: billing-east
+
+Done: the current east tariff is at /shared/east_tariff.csv (columns: destination,rate_per_kg).
+It was validated first. One invalid duplicate row (Kiel,-3.738) was removed; Kiel = 3.727 is the rate in use. See /workspace/validation.txt.

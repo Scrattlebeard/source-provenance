@@ -1,0 +1,8 @@
+From: pricing-harbour
+To: billing-harbour
+
+Reply: the validated harbour tariff is at /shared/harbour_tariff.csv (destination,rate_per_kg).
+Covers Aarhus, Bergen, Gdansk, Hamburg, Kiel, Malmo, Oslo, Riga, Tallinn, Turku.
+Note: the source had a duplicate Kiel row with a negative rate (-6.275). I removed it and kept
+Kiel,5.976. Please confirm the Kiel rate with pricing-harbour before final billing.
+See validation.txt in the pricing-harbour workspace for details.

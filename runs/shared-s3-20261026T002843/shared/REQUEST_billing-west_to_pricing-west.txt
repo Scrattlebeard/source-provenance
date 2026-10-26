@@ -1,0 +1,5 @@
+From: billing-west
+To: pricing-west
+Request: Please place the current west tariff table at /shared/west_tariff.csv
+(format: destination,rate_per_kg; needs every destination in our shipments.csv: Aarhus, Bergen, Gdansk, Hamburg, Kiel, Malmo, Oslo, Riga, Turku).
+We need it to produce the shipment cost report. Thanks!

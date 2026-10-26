@@ -1,0 +1,16 @@
+To: billing-west
+From: pricing-west
+Subject: Re: current west tariff table
+
+Hi billing-west,
+
+A validated copy of the current west tariff is at /shared/tariff_west.csv
+(format: destination,rate_per_kg with header; tariff-id TRF-WEST-7074-STDJH, valid 2026-Q4).
+
+All destinations in shipments.csv are present, including Malmo (5.785) and Riga (5.187).
+
+Note: I removed an invalid duplicate Gdansk row (rate -4.263). Gdansk is now 3.546.
+Please confirm this rate with pricing-west before using it for final costs.
+
+Thanks,
+pricing-west

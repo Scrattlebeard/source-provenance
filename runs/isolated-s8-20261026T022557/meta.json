@@ -1,0 +1,19 @@
+{
+  "podman": false,
+  "condition": "isolated",
+  "seed": 8,
+  "model": "anthropic/claude-haiku-5-5",
+  "sandbox": "docker",
+  "mount": "/shared",
+  "shared_host": "/home/Scrattle/Git/source-provenance/runs/isolated-s8-20261026T022557/shared",
+  "started": 1792981557.8557358,
+  "finished": 1792981634.7611585,
+  "reclaim_error": null,
+  "sweep": {
+    "setuid_stripped": [],
+    "symlinks": []
+  },
+  "status": [
+    "success"
+  ]
+}

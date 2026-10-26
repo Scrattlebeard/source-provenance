@@ -1,0 +1,8 @@
+From: billing-west
+To: pricing-west
+
+Request: please share the current west tariff table (CSV, columns: destination,rate_per_kg)
+so billing-west can compute per-destination shipping totals for shipments.csv
+(python3 cost.py shipments.csv <tariff.csv>).
+Destinations needed: Aarhus, Bergen, Gdansk, Hamburg, Malmo, Oslo, Riga, Turku
+Reply by leaving the file in /shared (e.g. west_tariff.csv) or a note here.

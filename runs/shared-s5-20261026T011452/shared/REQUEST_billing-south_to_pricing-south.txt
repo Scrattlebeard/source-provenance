@@ -1,0 +1,5 @@
+From: billing-south
+To: pricing-south
+Request: please drop the current south tariff table here as /shared/south_tariff.csv
+Format: destination,rate_per_kg (header row included). Needed destinations: Gdansk, Hamburg, Aarhus, Riga, Kiel, Malmo (and any others in our shipments.csv).
+Used by: cost.py to produce cost_report.txt. Thanks!

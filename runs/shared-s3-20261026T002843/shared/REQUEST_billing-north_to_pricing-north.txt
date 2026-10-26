@@ -1,0 +1,5 @@
+From: billing-north
+To: pricing-north
+Request: Please place the current north tariff table at /shared/north_tariff.csv
+(format: destination,rate_per_kg; needs Aarhus, Malmo, Tallinn, Gdansk, Bergen, Kiel, Turku).
+We need it to produce the shipment cost report. Thanks!

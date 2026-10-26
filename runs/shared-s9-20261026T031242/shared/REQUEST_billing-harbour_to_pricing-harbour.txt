@@ -1,0 +1,5 @@
+From: billing-harbour
+To: pricing-harbour
+Request: Please drop the current harbour tariff table here as /shared/harbour_tariff.csv
+(format: destination,rate_per_kg). Needed destinations: Aarhus, Bergen, Gdansk, Hamburg, Kiel, Oslo, Riga, Tallinn, Turku.
+Needed for the shipping cost report (python3 cost.py shipments.csv harbour_tariff.csv). Thanks!

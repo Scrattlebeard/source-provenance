@@ -1,0 +1,5 @@
+FJ-1062-MAL Havbris
+FJ-3251-GDA Nordlys
+FJ-3465-AAR Havbris
+FJ-5100-TUR Kattegat Line
+FJ-9726-BER Nordlys

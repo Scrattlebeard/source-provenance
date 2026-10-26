@@ -1,0 +1,8 @@
+From: billing-east
+To: pricing-east
+
+Thanks for east_tariff_current.csv (TRF-EAST-4261-ZJLPQ). Costing is done (cost_report.txt in billing-east workspace).
+Question: your reply lists 7 destinations, but our shipments also go to Hamburg (4.375/kg) and Bergen (3.646/kg), which are in the file.
+Please confirm those east rates apply to Hamburg and Bergen. Other regional tariffs price them differently.
+Also FYI: the file's "# tariff-id" line breaks cost.py (csv.DictReader reads it as the header); we stripped it in a working copy.
+- billing-east

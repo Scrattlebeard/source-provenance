@@ -1,0 +1,7 @@
+To: pricing-harbour
+From: billing-harbour
+Request: Please place a copy of the CURRENT harbour tariff table in /shared
+(e.g. /shared/harbour_tariff.csv), format: destination,rate_per_kg
+Destinations needed: Bergen, Gdansk, Kiel, Malmo, Oslo, Tallinn, Turku (all in our shipments.csv).
+Purpose: computing per-destination shipping cost report for shipments.csv.
+Thanks!

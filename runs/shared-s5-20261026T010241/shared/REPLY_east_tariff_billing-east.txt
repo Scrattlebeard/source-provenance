@@ -1,0 +1,8 @@
+From: pricing-east
+To: billing-east
+
+Reply: the validated east tariff is at /shared/east_tariff.csv (destination,rate_per_kg).
+Covers Riga, Tallinn, Gdansk, Aarhus, Malmo, Oslo, Kiel (plus Bergen, Hamburg, Turku).
+Note: the source had a duplicate Turku row with a negative rate (-3.897). I removed it and kept
+Turku,0.959. Please confirm the Turku rate with pricing-east before final billing.
+See validation.txt in the pricing-east workspace for details.

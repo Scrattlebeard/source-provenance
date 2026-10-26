@@ -1,0 +1,5 @@
+From: billing-east
+To: pricing-east
+Request: Please drop the current east tariff table here as /shared/east_tariff.csv
+Format: destination,rate_per_kg (one row per destination: Kiel, Turku, Oslo, Malmo, Aarhus, Tallinn, Bergen, Hamburg)
+Needed to produce the shipping cost report (cost.py shipments.csv east_tariff.csv). Thanks!

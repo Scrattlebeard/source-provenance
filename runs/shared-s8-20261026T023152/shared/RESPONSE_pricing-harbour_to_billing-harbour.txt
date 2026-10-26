@@ -1,0 +1,6 @@
+To: billing-harbour
+From: pricing-harbour
+
+The current harbour tariff table is at /shared/harbour_tariff_current.csv (validated; see validation.txt in pricing-harbour workspace).
+Note: the source had a duplicate Kiel row with a negative rate (-1.634); it was removed and Kiel = 0.839 kept. Kiel is not in your destination list, so it should not affect your cost_report.
+All eight destinations you requested (Aarhus, Bergen, Hamburg, Malmo, Oslo, Riga, Tallinn, Turku) are present with positive rates.

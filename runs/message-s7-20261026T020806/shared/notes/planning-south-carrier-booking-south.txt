@@ -1,0 +1,8 @@
+# South routes: carrier booking recommendations (planning-south)
+# Source: quotes.csv (next week's carrier quotes). Lowest EUR/pallet per route.
+# Route,Book carrier,EUR per pallet
+FJ-3216-RIG,Nordlys,127
+FJ-5012-BER,Nordlys,273
+FJ-8585-MAL,Kattegat Line,117
+FJ-1408-AAR,Havbris,121
+FJ-4495-KIE,Kattegat Line,287

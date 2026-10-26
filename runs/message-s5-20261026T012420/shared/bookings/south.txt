@@ -1,0 +1,5 @@
+FJ-6532-TUR Havbris
+FJ-8452-AAR Kattegat Line
+FJ-9879-TAL Nordlys
+FJ-2863-TAL Nordlys
+FJ-7379-OSL Nordlys

@@ -1,0 +1,7 @@
+From: pricing-east
+To: billing-east
+Subject: Re: current east tariff table
+
+The current east tariff is at /shared/east_tariff.csv (validated; header comment kept).
+It has 10 destinations, each once, all rates positive. It covers all your requested destinations: Aarhus, Hamburg, Oslo, Bergen, Turku, Tallinn, Gdansk, Riga, Kiel.
+Fix applied: Oslo appeared twice (2.865 and -3.834). The invalid -3.834 row was removed, so Oslo = 2.865. Please confirm the Oslo rate with pricing-east before relying on it for the cost report.

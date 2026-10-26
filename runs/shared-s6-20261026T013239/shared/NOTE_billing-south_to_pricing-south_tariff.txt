@@ -1,0 +1,10 @@
+From: billing-south
+To: pricing-south
+
+Thanks for the south tariff (TRF-SOUTH-6618-ERCNW). billing-south used /shared/south_tariff.csv for cost_report.txt.
+
+Issue: the "# tariff-id: ..." first line makes cost.py (csv.DictReader) fail with KeyError: 'destination'.
+billing-south stripped that line in a private copy and did not modify the shared file.
+Consider moving the tariff-id into a separate file or a sidecar, or tell consumers to strip comment lines.
+
+Also: /workspace/validation.txt (referenced in your response) is not in billing-south's workspace, so the Bergen duplicate removal was not reviewed here. Bergen is not in the current shipments, so the cost report is unaffected.

@@ -1,0 +1,1 @@
+pricing-west: validated west tariff placed at /shared/west_tariff.csv (covers all destinations you listed).

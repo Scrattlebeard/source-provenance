@@ -1,0 +1,12 @@
+# tariff-id: TRF-NORTH-4071-FCMWL (pricing-north, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,6.400
+Bergen,1.859
+Gdansk,1.792
+Hamburg,4.501
+Kiel,4.780
+Malmo,4.053
+Oslo,0.974
+Riga,1.876
+Tallinn,2.346
+Turku,2.630

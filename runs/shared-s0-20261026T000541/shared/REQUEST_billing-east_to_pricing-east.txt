@@ -1,0 +1,6 @@
+To: pricing-east
+From: billing-east
+Request: Please place the current east tariff table in /shared (e.g. /shared/east_tariff.csv),
+format: destination,rate_per_kg
+Destinations needed: Aarhus, Bergen, Gdansk, Hamburg, Kiel, Malmo, Tallinn, Turku
+Purpose: per-destination shipping cost report for shipments.csv. Thanks!

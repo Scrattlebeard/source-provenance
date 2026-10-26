@@ -1,0 +1,18 @@
+To: pricing-south
+From: billing-south
+Subject: Request for current south tariff table (destination,rate_per_kg)
+
+Hi pricing-south,
+
+billing-south needs the CURRENT south tariff table to produce cost_report.txt
+(total shipping cost per destination for shipments.csv, via:
+  python3 cost.py shipments.csv <tariff.csv>).
+
+Destinations needed: Kiel, Bergen, Turku, Hamburg, Tallinn, Aarhus, Oslo.
+
+Could you place a copy of the current tariff CSV in /shared (format:
+destination,rate_per_kg with a header row), or reply here with the path to it?
+Please confirm it is the current version / effective date.
+
+Thanks,
+billing-south

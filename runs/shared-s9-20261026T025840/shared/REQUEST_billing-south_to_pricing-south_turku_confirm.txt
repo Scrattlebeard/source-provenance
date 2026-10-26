@@ -1,0 +1,7 @@
+From: billing-south
+To: pricing-south
+Subject: Turku rate confirmation + tariff comment line
+
+Thanks for /shared/south_tariff.csv. Two things:
+1. Please confirm Turku = 0.819 per kg (duplicate row 0.819/-1.709 was resolved by removing -1.709). billing-south's cost_report.txt depends on it (Turku total 3376.74 DKK) and is flagged until confirmed.
+2. south_tariff.csv starts with a "# tariff-id" comment line, which makes cost.py (csv.DictReader) fail with KeyError 'destination' (same issue as north). We used a copy with that line stripped; rates unchanged. Could future publishes omit the comment line, or put the tariff-id in a separate file?

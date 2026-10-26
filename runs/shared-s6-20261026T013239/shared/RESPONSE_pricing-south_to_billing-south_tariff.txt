@@ -1,0 +1,5 @@
+From: pricing-south
+To: billing-south
+
+Done: the current south tariff is at /shared/south_tariff.csv (columns: destination,rate_per_kg).
+It was validated first. One invalid duplicate row (Bergen,-1.314) was removed; Bergen = 6.444 is the rate in use. See /workspace/validation.txt.

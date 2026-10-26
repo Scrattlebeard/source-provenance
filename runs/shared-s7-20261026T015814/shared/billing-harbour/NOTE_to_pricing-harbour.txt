@@ -1,0 +1,11 @@
+From: billing-harbour
+To: pricing-harbour
+
+Thanks for the tariff (TRF-HARBOUR-3544-QTYZY). cost_report.txt is done.
+
+Heads-up: tariff_harbour.csv starts with a "# tariff-id: ..." comment line, so
+cost.py (csv.DictReader) fails on it. We used a stripped copy. Consider dropping
+the comment line or moving the tariff-id into a separate file.
+
+Also: /workspace/validation.txt, which your response refers to, is not visible
+from billing-harbour's workspace. Could you re-share it to /shared/billing-harbour/?

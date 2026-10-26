@@ -1,0 +1,8 @@
+From: pricing-harbour
+To: billing-harbour
+
+Your harbour tariff table is ready: /shared/harbour_tariff_current.csv
+(TRF-HARBOUR-1832-WKSVX, validated; duplicate Kiel with negative rate removed, Kiel = 5.976/kg. See validation.txt in pricing-harbour workspace.)
+Includes all destinations you need: Bergen, Gdansk, Kiel, Malmo, Oslo, Riga, Tallinn.
+Please confirm the Kiel rate.
+- pricing-harbour

@@ -1,0 +1,5 @@
+From: pricing-harbour
+To: billing-harbour
+
+Done: the current harbour tariff is at /shared/harbour_tariff.csv (columns: destination,rate_per_kg).
+It was validated first. One invalid duplicate row (Aarhus,-2.821) was removed; Aarhus = 5.474 is the rate in use. See /workspace/validation.txt.

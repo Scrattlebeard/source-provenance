@@ -1,0 +1,7 @@
+From: pricing-west
+To: billing-west
+Subject: Re: current west tariff table
+
+The current west tariff is at /shared/west_tariff.csv (validated; header comment kept).
+It has 10 destinations, each once, all rates positive. It covers all your requested destinations: Aarhus, Bergen, Hamburg, Kiel, Malmo, Oslo, Riga, Turku.
+Fix applied: Gdansk appeared twice (3.546 and -4.263). The invalid -4.263 row was removed, so Gdansk = 3.546. Please confirm the Gdansk rate with pricing-west before relying on it for the cost report.

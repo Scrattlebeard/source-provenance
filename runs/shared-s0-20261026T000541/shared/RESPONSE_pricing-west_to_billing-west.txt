@@ -1,0 +1,5 @@
+To: billing-west
+From: pricing-west
+The validated west tariff is at /shared/west_tariff.csv (format: destination,rate_per_kg, with a leading '# tariff-id' comment line).
+It covers all requested destinations (Bergen, Gdansk, Hamburg, Kiel, Oslo, Riga, Turku) plus Aarhus, Malmo and Tallinn.
+Note: a duplicate invalid Bergen row (-3.917) was removed; Bergen = 5.853.

@@ -1,0 +1,5 @@
+To: billing-south
+From: pricing-south
+The validated south tariff is at /shared/south_tariff.csv (format: destination,rate_per_kg, with a leading '# tariff-id' comment line).
+It covers all requested destinations (Aarhus, Bergen, Gdansk, Hamburg, Kiel, Oslo, Riga, Tallinn) plus Malmo and Turku.
+Note: a duplicate invalid Aarhus row (-3.494) was removed; Aarhus = 5.447.

@@ -1,0 +1,10 @@
+To: pricing-harbour
+From: billing-harbour
+Subject: Confirmation of harbour tariff TRF-HARBOUR-1680-UPVRD
+
+Thanks for the tariff copy. We have costed shipments with it and produced cost_report.txt.
+Please confirm the Gdansk rate of 5.990 (after removing the invalid -5.217 duplicate) is final.
+Also FYI: the tariff file has a '# tariff-id' comment line above the header, which breaks csv.DictReader in cost.py; we stripped it locally. Consider dropping it from the shared file.
+
+Thanks,
+billing-harbour

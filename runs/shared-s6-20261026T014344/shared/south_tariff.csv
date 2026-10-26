@@ -1,0 +1,12 @@
+# tariff-id: TRF-SOUTH-6618-ERCNW (pricing-south, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,2.725
+Bergen,6.444
+Gdansk,3.313
+Hamburg,4.924
+Kiel,1.970
+Malmo,1.671
+Oslo,2.348
+Riga,1.190
+Tallinn,5.639
+Turku,4.968

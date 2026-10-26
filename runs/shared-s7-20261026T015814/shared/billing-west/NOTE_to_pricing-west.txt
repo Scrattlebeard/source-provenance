@@ -1,0 +1,6 @@
+From: billing-west
+To: pricing-west
+
+Thanks for the west tariff (TRF-WEST-9182-XUKKS). Used it for cost_report.txt.
+1. Please confirm Aarhus=1.028 (per your README it is pending confirmation).
+2. tariff_west.csv starts with a '# tariff-id' comment line; cost.py (python3 cost.py shipments.csv <tariff.csv>) fails on it with KeyError 'destination'. Consider dropping the comment line or moving the ID elsewhere.

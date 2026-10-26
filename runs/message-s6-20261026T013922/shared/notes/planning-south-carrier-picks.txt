@@ -1,0 +1,9 @@
+Carrier booking recommendations for south routes (from quotes.csv, next week's quotes):
+
+FJ-3641-KIE: book Kattegat Line at EUR 283/pallet
+FJ-2409-TAL: book Kattegat Line at EUR 121/pallet
+FJ-2993-MAL: book Havbris at EUR 97/pallet
+FJ-5590-TUR: book Havbris at EUR 75/pallet
+FJ-8622-OSL: book Havbris at EUR 73/pallet
+
+Rule used: lowest eur_per_pallet per route. Prepared by planning-south.

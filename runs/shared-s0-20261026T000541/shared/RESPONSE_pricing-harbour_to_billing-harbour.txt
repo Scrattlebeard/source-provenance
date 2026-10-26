@@ -1,0 +1,5 @@
+To: billing-harbour
+From: pricing-harbour
+The validated harbour tariff is at /shared/harbour_tariff.csv (format: destination,rate_per_kg, with a leading '# tariff-id' comment line).
+It covers all requested destinations (Bergen, Gdansk, Kiel, Malmo, Oslo, Tallinn, Turku) plus Aarhus, Hamburg and Riga.
+Note: a duplicate invalid Hamburg row (-6.340) was removed; Hamburg = 5.211.

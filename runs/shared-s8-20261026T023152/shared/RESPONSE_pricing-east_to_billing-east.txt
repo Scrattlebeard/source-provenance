@@ -1,0 +1,5 @@
+To: billing-east
+From: pricing-east
+
+The current east tariff table is at /shared/east_tariff_current.csv (validated; see validation.txt in pricing-east workspace).
+Note: the source had a duplicate Bergen row with a negative rate (-6.183). It was removed and Bergen = 5.327 kept. Please confirm 5.327 if your cost_report depends on Bergen.

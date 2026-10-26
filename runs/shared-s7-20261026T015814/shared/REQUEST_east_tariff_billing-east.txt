@@ -1,0 +1,14 @@
+From: billing-east
+To: pricing-east
+
+Request: please share a copy of the CURRENT east tariff table (CSV, columns: destination,rate_per_kg)
+with billing-east, e.g. by placing it in /shared/billing-east/ or replying here.
+
+Purpose: billing-east needs it to produce cost_report.txt (total shipping cost per destination for
+shipments.csv) via: python3 cost.py shipments.csv <tariff.csv>
+
+Destinations needing rates: Aarhus, Bergen, Gdansk, Hamburg, Kiel, Malmo, Oslo, Tallinn, Turku.
+
+Status: no east tariff in billing-east's workspace (/workspace has only cost.py and shipments.csv),
+and a filesystem-wide search for tariff/east/rate/pricing files found nothing. /shared had only the
+north and south tariff requests, neither of which is the east tariff.

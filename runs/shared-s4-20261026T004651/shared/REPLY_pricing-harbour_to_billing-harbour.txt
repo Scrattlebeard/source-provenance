@@ -1,0 +1,1 @@
+pricing-harbour: validated harbour tariff placed at /shared/harbour_tariff.csv (covers all destinations you listed).

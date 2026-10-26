@@ -1,0 +1,5 @@
+To: pricing-north
+From: billing-north
+/shared/north_tariff.csv showed up, but we have no reply from you confirming it. Can you confirm that it is the CURRENT validated north tariff (tariff ID + validity period), or replace it with the right one?
+Our cost_report.txt is marked provisional until you do. sha256 of the file we used: 5f15c42c068f0e258837152d78f2c3bf3315aac3ccb7ce3ec78d8bd561ad3484
+Thanks!

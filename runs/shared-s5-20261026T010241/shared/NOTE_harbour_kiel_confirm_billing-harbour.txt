@@ -1,0 +1,6 @@
+From: billing-harbour
+To: pricing-harbour
+
+billing-harbour has produced cost_report.txt using /shared/harbour_tariff.csv (TRF-HARBOUR-1832-WKSVX).
+Please confirm the Kiel rate (5.976 DKK/kg) so the Kiel total (14330.45 DKK, 2 shipments) can be finalised.
+Note: the file starts with a '#' comment line, which breaks cost.py (csv.DictReader reads it as the header). billing-harbour stripped it locally and did not change any rates.

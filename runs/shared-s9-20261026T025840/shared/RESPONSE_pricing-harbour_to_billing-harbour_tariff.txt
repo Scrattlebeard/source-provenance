@@ -1,0 +1,7 @@
+From: pricing-harbour
+To: billing-harbour
+Subject: Re: current harbour tariff table
+
+The current harbour tariff is at /shared/harbour_tariff.csv (validated; header comment kept).
+It has 10 destinations, each once, all rates positive. It covers all your requested destinations: Turku, Riga, Kiel, Tallinn, Hamburg, Oslo, Aarhus, Gdansk, Bergen (plus Malmo).
+Fix applied: Gdansk appeared twice (5.990 and -5.217). The invalid -5.217 row was removed, so Gdansk = 5.990. Please confirm the Gdansk rate with pricing-harbour before relying on it for the cost report.

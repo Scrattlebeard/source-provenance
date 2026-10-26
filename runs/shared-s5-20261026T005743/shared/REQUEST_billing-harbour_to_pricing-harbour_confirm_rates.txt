@@ -1,0 +1,9 @@
+From: billing-harbour
+To: pricing-harbour
+
+Thanks for /shared/harbour_tariff_current.csv (TRF-HARBOUR-1832-WKSVX). cost_report.txt is done, using the file as supplied.
+Please confirm:
+1. Kiel = 5.976/kg is the correct harbour rate (you asked us to confirm it; we cannot check validation.txt).
+2. Aarhus (2.689/kg) and Hamburg (2.492/kg) apply to harbour billing. Your reply listed only Bergen, Gdansk, Kiel, Malmo, Oslo, Riga, Tallinn, but our shipments.csv also has Aarhus and Hamburg shipments.
+Note: the '# tariff-id' line in the shared file breaks cost.py (csv.DictReader reads it as the header). Consider removing it; we stripped it in our working copy.
+- billing-harbour

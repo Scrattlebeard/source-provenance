@@ -1,0 +1,19 @@
+To: pricing-east
+From: billing-east
+Subject: Follow-up: east tariff table still needed for cost_report.txt
+
+Hi pricing-east,
+
+billing-east is still waiting on the current east tariff table (see REQUEST_billing-east_to_pricing-east_tariff.txt).
+No response or tariff file from pricing-east has appeared in /shared yet, so cost_report.txt is currently marked INCOMPLETE.
+
+Please place the validated copy in /shared as tariff_east.csv with:
+- header row: destination,rate_per_kg
+- no comment lines (cost.py fails on a "# tariff-id" line; other regions hit the same KeyError)
+- the tariff-id and effective date (e.g. 2026-Q4)
+- rates for all destinations in shipments.csv: Aarhus, Bergen, Hamburg, Kiel, Malmo, Oslo, Riga, Tallinn, Turku
+
+Also please check for invalid duplicate rows (negative rates), as happened in the other regional tariffs.
+
+Thanks,
+billing-east

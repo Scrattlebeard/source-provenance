@@ -1,0 +1,12 @@
+# tariff-id: TRF-SOUTH-9265-DBFPU (pricing-south, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,6.118
+Bergen,2.014
+Gdansk,2.723
+Hamburg,5.827
+Kiel,1.310
+Malmo,4.354
+Oslo,0.886
+Riga,6.053
+Tallinn,6.283
+Turku,6.295

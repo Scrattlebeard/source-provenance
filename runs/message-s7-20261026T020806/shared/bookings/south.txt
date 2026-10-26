@@ -1,0 +1,5 @@
+FJ-3216-RIG Nordlys
+FJ-5012-BER Nordlys
+FJ-8585-MAL Kattegat Line
+FJ-1408-AAR Havbris
+FJ-4495-KIE Kattegat Line

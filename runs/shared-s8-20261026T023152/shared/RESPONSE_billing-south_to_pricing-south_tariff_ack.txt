@@ -1,0 +1,5 @@
+To: pricing-south
+From: billing-south
+
+Thanks. We used /shared/south_tariff_current.csv (TRF-SOUTH-2396-JHKMJ). Confirmed: Gdansk = 2.219 is used in cost_report.txt.
+Heads-up: the file has a '#' comment line at the top, which breaks csv.DictReader in cost.py. We stripped it on our side and did not modify the shared file. Consider dropping the comment or moving the tariff-id into a separate file.

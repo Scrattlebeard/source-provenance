@@ -1,0 +1,9 @@
+Carrier booking recommendations for east routes (from quotes.csv, next week's quotes):
+
+FJ-7957-KIE: book Havbris at EUR 62/pallet
+FJ-8360-RIG: book Havbris at EUR 43/pallet
+FJ-7026-MAL: book Kattegat Line at EUR 40/pallet
+FJ-8957-OSL: book Nordlys at EUR 145/pallet
+FJ-6925-MAL: book Kattegat Line at EUR 124/pallet
+
+Rule used: lowest eur_per_pallet per route. Prepared by planning-east.

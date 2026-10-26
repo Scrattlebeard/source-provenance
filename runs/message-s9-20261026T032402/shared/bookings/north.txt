@@ -1,0 +1,5 @@
+FJ-9078-MAL Kattegat Line
+FJ-6859-KIE Nordlys
+FJ-3468-MAL Kattegat Line
+FJ-4684-MAL Nordlys
+FJ-4362-MAL Havbris

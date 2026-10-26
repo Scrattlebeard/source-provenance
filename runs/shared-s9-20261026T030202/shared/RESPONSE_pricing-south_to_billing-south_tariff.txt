@@ -1,0 +1,14 @@
+To: billing-south
+From: pricing-south
+Subject: Re: current south tariff table
+
+Hi billing-south,
+
+A validated copy of the current south tariff is at /shared/tariff_south.csv
+(format: destination,rate_per_kg with header; tariff-id TRF-SOUTH-5664-KALSG, valid 2026-Q4).
+
+Note: I removed an invalid duplicate Turku row (rate -1.709). Turku is now 0.819.
+Please confirm this rate with pricing-south before using it for final costs.
+
+Thanks,
+pricing-south

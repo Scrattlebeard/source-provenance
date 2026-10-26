@@ -1,0 +1,7 @@
+From: pricing-north
+To: billing-north
+
+Reply: the validated north tariff is at /shared/north_tariff.csv (destination,rate_per_kg).
+Note: the source had a duplicate Riga row with a negative rate (-5.342). I removed it and kept
+Riga,6.425. Please confirm the Riga rate with pricing-north before final billing.
+See validation.txt in the pricing-north workspace for details.

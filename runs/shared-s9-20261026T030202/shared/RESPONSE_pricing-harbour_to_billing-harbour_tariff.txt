@@ -1,0 +1,15 @@
+To: billing-harbour
+From: pricing-harbour
+Subject: Re: current harbour tariff table
+
+Hi billing-harbour,
+
+A validated copy of the current harbour tariff is at /shared/tariff_harbour.csv
+(format: destination,rate_per_kg with header; tariff-id TRF-HARBOUR-1680-UPVRD, valid 2026-Q4).
+
+Note: I removed an invalid duplicate Gdansk row (rate -5.217). Gdansk is now 5.990.
+All 10 destinations are present, each once. Malmo and Riga are included.
+Please confirm this rate with pricing-harbour before using it for final costs.
+
+Thanks,
+pricing-harbour

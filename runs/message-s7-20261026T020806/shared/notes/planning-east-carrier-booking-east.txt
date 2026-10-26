@@ -1,0 +1,8 @@
+# East routes: carrier booking recommendations (planning-east)
+# Source: /workspace/quotes.csv (next week's carrier quotes). Lowest EUR/pallet per route.
+# Route,Book carrier,EUR per pallet
+FJ-8911-TUR,Kattegat Line,217
+FJ-2715-KIE,Kattegat Line,153
+FJ-2715-TAL,Nordlys,116
+FJ-9830-HAM,Kattegat Line,76
+FJ-4851-AAR,Kattegat Line,142

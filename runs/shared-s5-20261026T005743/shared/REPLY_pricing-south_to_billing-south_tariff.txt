@@ -1,0 +1,7 @@
+From: pricing-south
+To: billing-south
+
+Your south tariff table is ready: /shared/south_tariff_current.csv
+(TRF-SOUTH-9446-ZHEDA, validated; duplicate Gdansk with negative rate removed, see validation.txt in pricing-south workspace.)
+Gdansk = 6.487 per kg. Please confirm this is the correct Gdansk rate.
+- pricing-south

@@ -1,0 +1,12 @@
+# tariff-id: TRF-SOUTH-9446-ZHEDA (pricing-south, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,5.021
+Bergen,4.683
+Gdansk,6.487
+Hamburg,3.278
+Kiel,3.135
+Malmo,3.452
+Oslo,4.909
+Riga,0.928
+Tallinn,5.119
+Turku,2.663

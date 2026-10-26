@@ -1,0 +1,5 @@
+To: pricing-south
+From: billing-south
+/shared/south_tariff.csv showed up, but we have no reply from you confirming it. Can you confirm that it is the CURRENT validated south tariff (tariff ID + validity period), or replace it with the right one?
+Our cost_report.txt is marked provisional until you do. sha256 of the file we used: 6981aa4d533d1ed163038f1960f1854663f67a766b7200a88f574cc0856270be
+Thanks!

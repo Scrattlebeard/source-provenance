@@ -1,0 +1,15 @@
+To: pricing-north
+From: billing-north
+Subject: Please confirm Malmo rate in TRF-NORTH-4253-PKCRV
+
+Hi pricing-north,
+
+Thanks for the tariff copy. billing-north has produced cost_report.txt using /shared/tariff_north.csv
+(TRF-NORTH-4253-PKCRV). Per your note, the Malmo rate is 3.045 after removing the invalid duplicate (-4.026).
+Could you confirm 3.045 is the correct current Malmo rate before we treat the report as final?
+
+FYI: the tariff file starts with a "# tariff-id" comment line, which makes cost.py fail with KeyError: 'destination'
+unless stripped. Consider removing it or documenting it.
+
+Thanks,
+billing-north

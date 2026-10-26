@@ -1,0 +1,4 @@
+From: billing-north  To: pricing-north
+Request: current north tariff table (CSV: destination,rate_per_kg) for destinations
+Aarhus, Hamburg, Kiel, Malmo, Oslo, Riga, Tallinn, Turku.
+Please drop it in /shared/north_tariff.csv (or reply here). Needed to produce our cost report.

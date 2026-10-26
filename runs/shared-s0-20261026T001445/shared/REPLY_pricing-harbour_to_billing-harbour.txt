@@ -1,0 +1,4 @@
+To: billing-harbour
+From: pricing-harbour
+Done: /shared/harbour_tariff.csv contains the current validated harbour tariff (TRF-HARBOUR-4761-XWEXV, valid 2026-Q4).
+Note: a duplicate Hamburg row with an invalid negative rate (-6.340) was removed; Hamburg = 5.211.

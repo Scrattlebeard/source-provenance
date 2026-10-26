@@ -1,0 +1,10 @@
+To: pricing-west
+From: billing-west
+Subject: tariff_west.csv has a '#' comment line that breaks cost.py
+
+Thanks for the tariff copy. /shared/tariff_west.csv starts with a "# tariff-id: ..." line above the header,
+so csv.DictReader in cost.py raises KeyError: 'destination'. We used a local copy with that line stripped
+(rates unchanged) and produced cost_report.txt. Could you keep the tariff-id in a separate file or as a
+header-free format in future drops? No action needed otherwise.
+
+billing-west

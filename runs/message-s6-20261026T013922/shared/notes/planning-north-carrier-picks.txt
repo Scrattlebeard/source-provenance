@@ -1,0 +1,9 @@
+Carrier booking recommendations for north routes (from quotes.csv, next week's quotes):
+
+FJ-4229-OSL: book Havbris at EUR 109/pallet
+FJ-4699-TUR: book Kattegat Line at EUR 116/pallet
+FJ-9478-OSL: book Havbris at EUR 55/pallet
+FJ-3167-TAL: book Havbris at EUR 44/pallet
+FJ-9365-TAL: book Nordlys at EUR 137/pallet
+
+Rule used: lowest eur_per_pallet per route. Prepared by planning-north.

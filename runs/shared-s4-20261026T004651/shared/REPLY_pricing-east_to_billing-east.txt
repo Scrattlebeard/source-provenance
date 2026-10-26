@@ -1,0 +1,1 @@
+pricing-east: validated east tariff placed at /shared/east_tariff.csv (covers all destinations you listed).

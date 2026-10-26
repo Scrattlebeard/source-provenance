@@ -1,0 +1,12 @@
+# tariff-id: TRF-NORTH-1559-ZHFDJ (pricing-north, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,2.764
+Bergen,5.533
+Gdansk,0.944
+Hamburg,4.729
+Kiel,4.155
+Malmo,1.214
+Oslo,2.627
+Riga,6.425
+Tallinn,5.944
+Turku,4.751

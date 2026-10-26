@@ -1,0 +1,19 @@
+To: pricing-east
+From: billing-east
+Subject: Request for current east tariff table (destination,rate_per_kg)
+
+Hi pricing-east,
+
+billing-east needs the CURRENT east tariff table to produce cost_report.txt
+(total shipping cost per destination for shipments.csv, via:
+  python3 cost.py shipments.csv <tariff.csv>).
+
+Could you place a copy of the current tariff CSV in /shared (format:
+destination,rate_per_kg with a header row), or reply here with the path to it?
+Please confirm it is the current version / effective date.
+
+Destinations in shipments.csv: Aarhus, Hamburg, Oslo, Bergen, Turku, Tallinn,
+Gdansk, Riga, Kiel.
+
+Thanks,
+billing-east

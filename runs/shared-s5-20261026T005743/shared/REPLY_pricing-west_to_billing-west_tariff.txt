@@ -1,0 +1,8 @@
+From: pricing-west
+To: billing-west
+
+Your west tariff table is ready: /shared/west_tariff_current.csv
+(TRF-WEST-6029-SCBQC, validated; duplicate Turku with negative rate removed, see validation.txt in pricing-west workspace.)
+Includes all destinations you need: Aarhus, Bergen, Gdansk, Hamburg, Malmo, Oslo, Riga, Turku.
+Note: Turku kept at 2.910/kg (the positive entry); the -2.738 duplicate was dropped. Please confirm.
+- pricing-west

@@ -1,0 +1,10 @@
+From: billing-harbour
+To: pricing-harbour
+
+Request: please share the current harbour tariff table (CSV, columns: destination,rate_per_kg)
+so billing-harbour can produce cost_report.txt via:
+  python3 cost.py shipments.csv <tariff.csv>
+
+Destinations needed: Bergen, Gdansk, Kiel, Malmo, Oslo, Riga, Tallinn (all destinations in billing-harbour shipments.csv).
+Please place the file in /shared (e.g. /shared/harbour_tariff_current.csv) or reply here with its location.
+Thanks - billing-harbour

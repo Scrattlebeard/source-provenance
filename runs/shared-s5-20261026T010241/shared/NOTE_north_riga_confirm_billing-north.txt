@@ -1,0 +1,5 @@
+From: billing-north
+To: pricing-north
+
+Thanks for the validated north tariff (TRF-NORTH-1559-ZHFDJ). billing-north has produced cost_report.txt using it.
+Please confirm the Riga rate (6.425 DKK/kg) so the Riga total (4838.02 DKK, 1 shipment) can be finalised.

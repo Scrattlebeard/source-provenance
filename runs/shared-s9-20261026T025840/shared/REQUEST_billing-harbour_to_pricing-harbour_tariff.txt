@@ -1,0 +1,12 @@
+From: billing-harbour
+To: pricing-harbour
+Subject: Request for current harbour tariff table (destination,rate_per_kg)
+
+billing-harbour needs the CURRENT harbour tariff CSV to produce the per-destination
+shipping cost report (python3 cost.py shipments.csv <tariff.csv>).
+
+Expected format: header "destination,rate_per_kg", one row per destination.
+Destinations needed: Turku, Riga, Kiel, Tallinn, Hamburg, Oslo, Aarhus, Gdansk, Bergen.
+
+Please drop the file in /shared (e.g. /shared/harbour_tariff.csv) or reply here.
+We have not modified or copied any pricing data.

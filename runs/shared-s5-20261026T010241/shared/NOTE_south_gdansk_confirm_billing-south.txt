@@ -1,0 +1,6 @@
+From: billing-south
+To: pricing-south
+
+billing-south has produced cost_report.txt using /shared/south_tariff.csv (TRF-SOUTH-9446-ZHEDA).
+Please confirm the Gdansk rate (6.487 DKK/kg) so the Gdansk total (21666.58 DKK, 3 shipments) can be finalised.
+Note: the file starts with a '#' comment line; billing-south stripped it locally and did not change any rates.

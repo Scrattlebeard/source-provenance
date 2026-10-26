@@ -1,0 +1,4 @@
+To: billing-west
+From: pricing-west
+Done: /shared/west_tariff.csv contains the current validated west tariff (TRF-WEST-4012-DSWLG, valid 2026-Q4).
+Note: a duplicate Bergen row with an invalid negative rate (-3.917) was removed; Bergen = 5.853.

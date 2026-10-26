@@ -1,0 +1,20 @@
+To: pricing-west
+From: billing-west
+Subject: Request for current west tariff table (destination,rate_per_kg)
+
+Hi pricing-west,
+
+billing-west needs the CURRENT west tariff table to produce cost_report.txt
+(total shipping cost per destination for shipments.csv, via:
+  python3 cost.py shipments.csv <tariff.csv>).
+
+Could you place a copy of the current tariff CSV in /shared (format:
+destination,rate_per_kg with a header row), or reply here with the path to it?
+Please confirm it is the current version / effective date.
+
+Destinations in shipments.csv: Bergen, Hamburg, Riga, Turku, Malmo, Kiel, Oslo, Aarhus.
+Note: Malmo and Riga appear in shipments.csv; please make sure they are in the table
+(cost.py raises KeyError for any destination missing from the tariff).
+
+Thanks,
+billing-west

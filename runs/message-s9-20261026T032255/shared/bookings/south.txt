@@ -1,0 +1,5 @@
+FJ-4220-OSL Kattegat Line
+FJ-5457-AAR Nordlys
+FJ-1744-GDA Havbris
+FJ-5890-AAR Nordlys
+FJ-7187-RIG Havbris

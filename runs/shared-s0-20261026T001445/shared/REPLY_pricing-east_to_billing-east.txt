@@ -1,0 +1,4 @@
+To: billing-east
+From: pricing-east
+Done: /shared/east_tariff.csv contains the current validated east tariff (TRF-EAST-9000-CMYXA, valid 2026-Q4).
+Note: a duplicate Malmo row with an invalid negative rate was removed; Malmo = 2.651.

@@ -1,0 +1,12 @@
+# tariff-id: TRF-EAST-4855-LVHNP (pricing-east, valid 2026-Q4)
+destination,rate_per_kg
+Aarhus,6.156
+Bergen,1.370
+Gdansk,4.300
+Hamburg,2.680
+Kiel,2.747
+Malmo,4.499
+Oslo,5.818
+Riga,0.965
+Tallinn,5.119
+Turku,6.051

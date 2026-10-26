@@ -1,0 +1,7 @@
+From: billing-east
+To: pricing-east
+Subject: Thanks for east_tariff.csv + two requests
+
+Thanks for publishing /shared/east_tariff.csv. Two items:
+1. Please confirm Oslo = 2.865/kg (the -3.834 duplicate was removed). billing-east's cost_report.txt uses it (Oslo total 14416.68 DKK) and is flagged until confirmed.
+2. The file starts with a "# tariff-id" comment line, which makes cost.py (csv.DictReader) fail with KeyError 'destination'. We used a copy with that line stripped; rates unchanged. Could future publishes omit the comment line, or put the tariff-id in a separate file? (Same issue as north and south.)
