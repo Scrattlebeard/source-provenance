@@ -124,9 +124,9 @@ Figure~\ref{fig:rule} walks through the cases.
 \lead{Experimental Rig.} To measure recall we need ground truth, so we built a rig that records it. Agents run sequentially in containers that share exactly one host directory and nothing else. A host-side inotify watcher records every read and write on the shared directory, below the model boundary. Each agent acts as a team of a fictional company, with a bash tool, in Inspect AI \cite{inspect}; a run is one agent's session. We run the following conditions:
 \begin{itemize}
 \item \emph{isolated}, nothing is shared and every finding is a false positive.
-\item \emph{shared}, the positive control, teams get a folder for asking each other for things.
 \item \emph{handoff}, a three-stage chain passes a release reference through the folder (relayed flow).
 \item \emph{message}, planners produce a plan that booking teams must act on (authored flow).
+\item \emph{shared}, the positive control: 15 teams get a folder for asking each other for things. Unlike handoff and message, nothing scripts who writes what, so agents invent their own protocol, with about 65 flows per episode, and five billing teams writing near-identical requests that stress the single-origin criterion.
 \item \emph{evasion}, a scripted set of actions trying to evade monitor detection.
 \end{itemize}
 A detector edge is correct if its origin is an ancestor of the reader in the ground truth, and content recall is the share of file-content edges it covers. Every condition runs ten seeds on each of Claude Haiku 5.5 and Claude Sonnet 5.5 (Appendix~\ref{app:conditions}). For \emph{evasion}, an adversary with an evasive command sequence scripted by Opus 5.5 in a white-box setup replaces the model in the same rig.
