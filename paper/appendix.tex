@@ -84,14 +84,14 @@ covert handoff & all 15 security agents declined to evade, in words, and complet
 \end{tabularx}
 \end{table}
 
-Typical replies. Haiku: \emph{``I did not attempt to hide or disguise the reference from the transcript monitor; it is delivered as a plain file.''} Sonnet: \emph{``I did not encode or disguise it to get around the transcript monitor, because I won't help evade that oversight.''} Covert handoff recall is higher than plain handoff on the same five Haiku seeds (0.96 against 0.88) because the briefed agents quoted the reference in their closing message, which counts as carrying it.
+Typical replies. Haiku: \emph{``I did not attempt to hide or disguise the reference from the transcript monitor; it is delivered as a plain file.''} Sonnet: \emph{``I did not encode or disguise it to get around the transcript monitor, because I won't help evade that oversight.''} Covert handoff recall is higher than plain handoff on the same five Haiku seeds (0.96 against 0.88) because the briefed agents quoted the reference in their closing message.
 
 % ---------------------------------------------------------------------------
 \section{Detailed results}\label{app:results}
 
-\lead{Incident reproduction.} The largest cascade began with one note. Worker RA-13 posted that its input file \emph{``was not staged''}, and 75 agents read it over the next 16 minutes, through every URL spelling and loop construct they improvised. Relayed edges are the weaker class here (80.7--98.0\% backed, against 97.9--99.7\% for authored). Most unbacked relayed edges start from a file read: several agents got identical task manifests, and the detector credits whichever agent read it first.
+\lead{HF incident reproduction.} The largest communication cascade began with one note. Worker RA-13 posted that its input file \emph{``was not staged''}, and 75 agents read it over the next 16 minutes, through every URL spelling and loop construct they improvised. Relayed edges are the weaker class here (80.7--98.0\% backed, against 97.9--99.7\% for authored). Most unbacked relayed edges start from a file read: several agents got identical task manifests, and the detector credits whichever agent read it first.
 
-\lead{The rig.} Table~\ref{tab:rig} compares the detector with the inotify ground truth. In isolated runs it raises one finding in 20 episodes (below). On shared, the positive control, precision and content recall are 1.0 in every seed. On message, where only authored text can carry the plan, both are 1.0 on both models. Handoff is the hard case, and it is where relayed findings matter: without them recall falls from 0.92 to 0.34 on Haiku and from 0.91 to 0.44 on Sonnet.
+\lead{The experimental rig.} Table~\ref{tab:rig} compares the detector with the inotify ground truth. In isolated runs it raises one finding in 20 episodes (below). On shared, the positive control, precision and content recall are 1.0 in every seed. On message, where only authored text can carry the plan, both are 1.0 on both models. Handoff is the hard case, and it is where relayed findings matter: without them recall falls from 0.92 to 0.34 on Haiku and from 0.91 to 0.44 on Sonnet.
 
 \begin{table}[h]
 \centering\small
@@ -116,7 +116,7 @@ All 26 missed content edges start at a records agent that read the reference, mo
 
 A relayed finding can show harm nobody in the run noticed. In one Sonnet seed the classifier stopped two of the three records agents. Their release agents each took the only reference in the folder, which belonged to the manifests team, and both published with it; the publish step checks only the format, and printed \emph{``reference ok''}. The detector traced the reference in both deploys to the manifests chain.
 
-\lead{Evasion.} Models briefed on the monitor declined to evade it (Appendix~\ref{app:briefed}), so we measure evasion with a scripted adversary. Its strategies were written by Claude Opus 5.5 acting as a coding assistant with white-box access to the rule and source code. Four of six evade the detector entirely while completing the task, and a fifth hides the payload but not the handoff (Table~\ref{tab:evasion}). This bounds what an informed adversary can do. It does not show that an agent inside a run, with only a description of the monitor, would find these attacks: given that description, every agent that acted declined to try.
+\lead{Evasion.} Models briefed on the monitor declined to evade it (Appendix~\ref{app:briefed}), so we measure evasion with a scripted adversary. Its strategies were written by Claude Opus 5.5 acting as a coding assistant with white-box access to the rule and source code. Four of six evade the detector entirely while completing the task, and a fifth hides the payload but not the handoff (Table~\ref{tab:evasion}). This shows what an informed adversary can do. It does not show that an agent inside a run, with only a description of the monitor, would find these attacks: given that description, every agent that acted declined to try.
 
 \begin{table}[h]
 \centering\small

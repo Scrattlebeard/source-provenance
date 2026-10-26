@@ -109,7 +109,7 @@ Figure~\ref{fig:rule} walks through the cases.
   \item \emph{character shingles}: 40 consecutive characters, for code, paths and URLs;
   \item \emph{atoms}: any unbroken run of 20 or more \texttt{[A-Za-z0-9\_+=-]} characters, to catch e.g.\ credentials.
 \end{itemize}
- Every text yields all three; the uses listed are what each is best at catching. Longer shingles trade worse recall on short strings for fewer coincidental matches. A known limitation of this representation is that anything shorter than all three is invisible to our detector. We compare different shingle lengths in Appendix~\ref{app:results}.
+ Every text yields all three; the uses listed are what each is best at catching. Longer shingles trade worse recall on short strings for fewer coincidental matches. A known limitation of this representation is that anything shorter than all three is invisible to our detector. We fixed the lengths above before running experiments, but compare the effect of different shingle lengths in Appendix~\ref{app:results}, finding that slightly shorter lengths might be preferable on our test set.
 
 \lead{Authored and relayed.} A string that first appeared as a model generation is \emph{authored}: one agent wrote it and another read it. A string that first came in through a resource is \emph{relayed}: an agent picked it up and passed it on, and the finding names the resource and the run that first read it. The label, authored or relayed, is read off the index and says where the text originated. Authored and relayed communications indicate different problems. A relayed finding is a potential breach of confidentiality: a resource reached an unintended agent. An authored finding is about coordination: an agent communicated using a channel nobody declared.
 
