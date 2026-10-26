@@ -32,6 +32,7 @@ isn't seeing the bind mount, so stop and tell Z. The rest is meaningless without
 ```bash
 cp .env.example .env && $EDITOR .env      # ANTHROPIC_API_KEY, MODEL; gitignored
 nohup sh rig/overnight.sh 0 1 2 3 4 > overnight.log 2>&1 &   # all conditions x seeds
+nohup sh rig/overnight-all.sh > overnight-all.log 2>&1 &   # Haiku+Sonnet+Opus, seeds 0-9, skips existing runs
 # or one at a time: .venv/bin/python -m rig.run --condition relay --seed 0
 .venv/bin/python -m rig.analyse runs/*-s0-* --json runs/analysis-s0.json
 ```
