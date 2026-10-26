@@ -80,7 +80,11 @@ def main():
                 "origin_accounts": len({o for o, _ in edges}), "reader_accounts": len({r for _, r in edges}),
                 "cross_wiki_edges": sum(e["x"] for e in edges.values()),
                 "time_decoupled_edges": sum(e["decoupled"] for e in edges.values()),
-                "median_first_lag_h": round(lags[len(lags) // 2] / 3600, 1) if lags else None}, edges
+                "median_first_lag_h": round(lags[len(lags) // 2] / 3600, 1) if lags else None,
+                # an edge survives an expiry window W only if some string crossed within W
+                "edges_lost_if_expired_after": {w: round(sum(l > sec for l in lags) / max(len(lags), 1), 3)
+                                                for w, sec in (("1h", 3600), ("1d", 86400),
+                                                               ("7d", 7 * 86400), ("30d", 30 * 86400))}}, edges
 
     idio = [c for c in carriage if len(inserters[c[7]]) < MANY]
     conv = [c for c in carriage if len(inserters[c[7]]) >= MANY]
